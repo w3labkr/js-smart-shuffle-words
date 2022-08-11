@@ -9,6 +9,7 @@ module.exports = {
       '@images': path.resolve(__dirname, 'src/assets/images'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@contexts': path.resolve(__dirname, 'src/contexts'),
+      '@locales': path.resolve(__dirname, 'src/locales'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@templates': path.resolve(__dirname, 'src/templates')

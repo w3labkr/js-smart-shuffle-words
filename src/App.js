@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { modeState } from "@store/theme";
 import { ColorModeContext } from "@contexts/theme";
-import Page from "@pages";
+import Page from "@pages/home";
 
 function App() {
   const [mode, setMode] = useRecoilState(modeState);

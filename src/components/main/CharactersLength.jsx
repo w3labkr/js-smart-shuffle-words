@@ -1,20 +1,22 @@
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 
 export default function CharactersLength() {
+  const { t } = useTranslation();
+
   return (
     <React.Fragment>
       <Typography>
-        Characters Length: 0 - 9
+        {t("characters length")}: 10
       </Typography>
       <Slider
-        getAriaLabel={() => "Temperature range"}
-        // value={value}
-        // onChange={handleChange}
+        defaultValue={10}
+        aria-label="Small"
         valueLabelDisplay="auto"
-        // getAriaValueText={valuetext}
-        disableSwap
+        min={0}
+        max={20}
       />
     </React.Fragment>
   );

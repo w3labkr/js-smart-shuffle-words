@@ -87,5 +87,5 @@ yarn add @mui/icons-material
 ## react-i18next
 
 ```shell
-npm install react-i18next i18next --save
+yarn add react-i18next i18next
 ```

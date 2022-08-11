@@ -1,0 +1,15 @@
+{
+    "title": "스마트 셔플 워드",
+    "input": "상품명",
+    "output": "상품명 수정",
+    "shuffle & copy": "상품명 변경 후 자동 복사",
+    "set additional string": "추가 문자열 설정",
+    "prepend to string": "문자열 앞에 추가",
+    "append after string": "문자열 뒤에 추가",
+    "random word": "무작위 단어",
+    "characters used": "사용된 문자",
+    "characters length": "문자 길이",
+    "stop words": "금칙어",
+    "please enter text": "텍스트를 입력 하십시오",
+    "seperated by comma": "쉼표로 구분 합니다"
+}
