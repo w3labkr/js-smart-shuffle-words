@@ -11,7 +11,7 @@ npx create-react-app .
 Recoil is an experimental state management framework for React.
 
 ```shell
-yarn add recoil
+yarn add recoil recoil-persist
 ```
 
 Create React App Configuration Override.
@@ -86,6 +86,32 @@ yarn add @mui/icons-material
 
 ## react-i18next
 
+react-i18next is a powerful internationalization framework for React / React Native which is based on i18next.
+
 ```shell
 yarn add react-i18next i18next
+```
+
+## Lodash
+
+A modern JavaScript utility library delivering modularity, performance, & extras.
+
+```shell
+yarn add lodash
+```
+
+## webfontloader
+
+Web Font Loader gives you added control when using linked fonts via @font-face.
+
+```shell
+yarn add webfontloader
+```
+
+## copy-to-clipboard
+
+Copy stuff into clipboard from your browser using JS
+
+```shell
+yarn add copy-to-clipboard
 ```

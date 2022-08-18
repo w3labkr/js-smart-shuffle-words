@@ -2,9 +2,9 @@ import { useTranslation } from "react-i18next";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import ToggleColorMode from "@components/header/ToggleColorMode";
-import ChangeLanguage from "@components/header/ChangeLanguage";
-// import MoreActions from "@components/header/MoreActions";
+import ToggleColorMode from "@components/ToggleColorMode";
+import LanguageChange from "@components/LanguageChange";
+// import MoreActions from "@components/MoreActions";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ export default function Header() {
           {t("title")}
         </Typography>
         <ToggleColorMode />
-        <ChangeLanguage />
+        <LanguageChange />
         {/* <MoreActions /> */}
       </Toolbar>
     </AppBar>

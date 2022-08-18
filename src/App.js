@@ -1,25 +1,28 @@
-import * as React from "react";
+import React, { useMemo } from "react";
 import { useRecoilState } from "recoil";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { modeState } from "@store/theme";
-import { ColorModeContext } from "@contexts/theme";
-import Page from "@pages/home";
+import { themeColorModeState } from "@atoms/theme";
+import { ColorModeContext } from "./contexts/theme";
+import Page from "./pages/Home";
 
 function App() {
-  const [mode, setMode] = useRecoilState(modeState);
-  const colorMode = React.useMemo(
+  const [mode, setMode] = useRecoilState(themeColorModeState);
+  const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode(mode === "light" ? "dark" : "light");
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
     }),
-    [mode, setMode]
+    [setMode]
   );
 
-  const theme = React.useMemo(
+  const theme = useMemo(
     () =>
       createTheme({
+        typography: {
+          fontFamily: 'Roboto, sans-serif',
+        },
         palette: {
           mode,
           primary: {
