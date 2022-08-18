@@ -1,0 +1,17 @@
+{
+    "title": "Smart Shuffle Words",
+    "input": "Input",
+    "output": "Output",
+    "shuffle & copy": "Shuffle & Copy",
+    "set additional text": "Set Additional Text",
+    "generate random text": "Generate Random Text",
+    "prepend to text": "Prepend to text",
+    "append after text": "Append after text",
+    "random text": "Random Text",
+    "length": "Length",
+    "stop words": "Stop Words",
+    "please enter text": "Please enter text",
+    "seperated by comma": "Seperated by comma",
+    "type A": "TYPE A",
+    "type B": "TYPE B"
+}

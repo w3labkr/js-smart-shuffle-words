@@ -1,0 +1,41 @@
+{
+    "name": "js-smart-shuffle-words",
+    "version": "1.0.0",
+    "author": "W3LabKr",
+    "description": "",
+    "main": "src/index.js",
+    "homepage": ".",
+    "private": true,
+    "scripts": {
+        "start": "craco start",
+        "build": "craco build",
+        "test": "craco test"
+    },
+    "dependencies": {
+        "@craco/craco": "^6.4.5",
+        "@emotion/react": "^11.10.0",
+        "@emotion/styled": "^11.10.0",
+        "@fontsource/roboto": "^4.5.8",
+        "@mui/icons-material": "^5.8.4",
+        "@mui/material": "^5.9.3",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.3.0",
+        "@testing-library/user-event": "^14.4.2",
+        "copy-to-clipboard": "^3.3.2",
+        "i18next": "^21.9.0",
+        "lodash": "^4.17.21",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-i18next": "^11.18.3",
+        "react-scripts": "5.0.1",
+        "recoil": "^0.7.4",
+        "recoil-persist": "^4.2.0",
+        "web-vitals": "^2.1.4",
+        "webfontloader": "^1.6.28"
+    },
+    "devDependencies": {
+        "global": "^4.4.0",
+        "npm-check-updates": "^16.0.5",
+        "yarn-upgrade-all": "^0.7.1"
+    }
+}
