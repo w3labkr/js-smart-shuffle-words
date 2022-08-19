@@ -47,10 +47,15 @@ export default function MyComponent() {
       newLine.push(words.join(" "));
     });
 
-    // let result = newLine.join("\n");
+    let result = newLine.join("\n");
 
-    ref2.current.value = newLine.join("\n");
-    copy(ref2.current.value);
+    ref2.current.value = result;
+    
+    copy(result, {
+      debug: false,
+      format: "text/plain", // (default) "text/html"
+      onCopy: null
+    });
   };
 
   return (
