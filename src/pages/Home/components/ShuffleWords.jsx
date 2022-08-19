@@ -45,7 +45,12 @@ export default function MyComponent() {
     let result = newLine.join("\n");
     
     ref2.current.value = result;
-    copy(result);
+    
+    copy(result, {
+      debug: false,
+      format: "text/plain", // (default) "text/html"
+      onCopy: null
+    });
   };
 
   return (
