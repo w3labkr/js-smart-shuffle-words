@@ -12,7 +12,7 @@ export default function MyComponent() {
   return (
     <TextField
       value={value}
-      placeholder={t("please enter text")}
+      placeholder={t("Please enter text")}
       variant="outlined"
       fullWidth
       sx={{ mb: 1 }}

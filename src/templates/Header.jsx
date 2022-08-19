@@ -13,7 +13,7 @@ export default function Header() {
     <AppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" noWrap component="h1" sx={{ flexGrow: 1 }}>
-          {t("title")}
+          {t("Smart Shuffle Words")}
         </Typography>
         <ToggleColorMode />
         <LanguageChange />

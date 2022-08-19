@@ -15,7 +15,7 @@ export default function MyComponent() {
 
   return (
     <Divider sx={{ fontWeight: "700" }}>
-      {t("random text")}
+      {t("Random Text")}
       <Switch
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}

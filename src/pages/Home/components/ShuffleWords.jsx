@@ -1,18 +1,23 @@
 import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilValue } from "recoil";
-import copy from 'copy-to-clipboard';
+import copy from "copy-to-clipboard";
+
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import { randomArrayShuffle } from "@modules/randomText";
+
 import {
   prependTextState,
   prependTextSwitchState,
   appendTextState,
   appendTextSwitchState,
 } from "@atoms/main";
+import { randomArrayShuffle } from "@modules/randomText";
+
+import TextByteLimit from "./TextByteLimit";
+// import StopWords from "./StopWords";
 
 export default function MyComponent() {
   const { t } = useTranslation();
@@ -42,17 +47,17 @@ export default function MyComponent() {
       newLine.push(words.join(" "));
     });
 
-    let result = newLine.join("\n");
-    
-    ref2.current.value = result;
-    copy(result);
+    // let result = newLine.join("\n");
+
+    ref2.current.value = newLine.join("\n");
+    copy(ref2.current.value);
   };
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
         <Typography variant="h6" component="h3">
-          {t("input")}
+          {t("Input")}
         </Typography>
         <TextField
           required
@@ -66,23 +71,27 @@ export default function MyComponent() {
       </Grid>
       <Grid item xs={12} sm={6}>
         <Typography variant="h6" component="h3">
-          {t("output")}
+          {t("Output")}
         </Typography>
         <TextField
           multiline
           fullWidth
           rows={4}
           defaultValue=""
-          InputProps={{
-            readOnly: true,
-          }}
+          disabled
           variant="outlined"
           inputRef={ref2}
         />
       </Grid>
       <Grid item xs={12}>
+        <TextByteLimit />
+      </Grid>
+      <Grid item xs={12}>
+        {/* <StopWords /> */}
+      </Grid>
+      <Grid item xs={12}>
         <Button variant="contained" size="large" onClick={handleSubmit}>
-          {t("shuffle & copy")}
+          {t("Shuffle & Copy")}
         </Button>
       </Grid>
     </Grid>

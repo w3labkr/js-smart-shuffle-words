@@ -13,15 +13,15 @@ export default function MyComponent() {
 
   return (
     <Fragment>
-      <Typography sx={{ mb: 1 }}>{t("stop words")}:</Typography>
+      <Typography sx={{ mb: 1 }}>{t("Stop Words")}:</Typography>
       <TextField
         multiline
         fullWidth
         rows={4}
         defaultValue={defaultValue}
         variant="outlined"
-        placeholder={t("please enter text")}
-        helperText={t("seperated by comma")}
+        placeholder={t("Please enter text")}
+        helperText={t("Seperated by comma")}
         onChange={(e) => setDefaultValue(e.target.value)}
         disabled={disabled}
       />

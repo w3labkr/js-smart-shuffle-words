@@ -12,7 +12,7 @@ export default function MyComponent() {
           component="h2"
           sx={{ mb: 2, fontWeight: "700" }}
         >
-          {t("set additional text")}
+          {t("Set Additional Text")}
         </Typography>
         {/* <Box>
           <Button variant="contained" size="large">

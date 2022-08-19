@@ -34,7 +34,7 @@ export default function AppendRandomGenerate() {
       disabled={disabled}
       sx={{ mb: 1 }}
     >
-      {t("generate random text")}
+      {t("Generate Random Text")}
     </Button>
   );
 }

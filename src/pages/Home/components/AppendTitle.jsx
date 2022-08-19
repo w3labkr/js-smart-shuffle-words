@@ -11,7 +11,7 @@ export default function MyComponent() {
 
   return (
     <Typography variant="h6" component="h3">
-      {t("append after text")}{" "}
+      {t("Append after text")}{" "}
       <Switch
         checked={checked}
         onChange={(e) => setChecked(e.target.checked)}

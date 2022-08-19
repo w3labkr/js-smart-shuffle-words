@@ -4,12 +4,14 @@
     "author": "W3LabKr",
     "description": "",
     "main": "src/index.js",
-    "homepage": ".",
+    "homepage": "https://w3labkr.github.io/js-smart-shuffle-words/",
     "private": true,
     "scripts": {
         "start": "craco start",
         "build": "craco build",
-        "test": "craco test"
+        "test": "craco test",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "@craco/craco": "^6.4.5",
@@ -22,6 +24,7 @@
         "@testing-library/react": "^13.3.0",
         "@testing-library/user-event": "^14.4.2",
         "copy-to-clipboard": "^3.3.2",
+        "gh-pages": "^4.0.0",
         "i18next": "^21.9.0",
         "lodash": "^4.17.21",
         "react": "^18.2.0",
