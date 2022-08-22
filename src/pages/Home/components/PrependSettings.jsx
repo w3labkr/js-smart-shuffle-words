@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
 import PrependTitle from "./PrependTitle";
 import PrependText from "./PrependText";
@@ -13,7 +13,7 @@ import PrependRandomStopWords from "./PrependRandomStopWords";
 
 export default function MyComponent() {
   return (
-    <Fragment>
+    <>
       <PrependTitle />
       <PrependText />
       <PrependRandomTitle />
@@ -29,6 +29,6 @@ export default function MyComponent() {
       </FormGroup>
       <PrependRandomLength />
       <PrependRandomStopWords />
-    </Fragment>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
 import AppendTitle from "./AppendTitle";
 import AppendText from "./AppendText";
@@ -13,7 +13,7 @@ import AppendRandomStopWords from "./AppendRandomStopWords";
 
 export default function MyComponent() {
   return (
-    <Fragment>
+    <>
       <AppendTitle />
       <AppendText />
       <AppendRandomTitle />
@@ -29,6 +29,6 @@ export default function MyComponent() {
       </FormGroup>
       <AppendRandomLength />
       <AppendRandomStopWords />
-    </Fragment>
+    </>
   );
 }

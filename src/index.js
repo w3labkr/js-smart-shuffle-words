@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import ReactDOM from "react-dom/client";
 import WebFont from "webfontloader";
 import App from "./App";

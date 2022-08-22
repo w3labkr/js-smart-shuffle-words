@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";

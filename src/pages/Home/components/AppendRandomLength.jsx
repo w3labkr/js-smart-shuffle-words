@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Typography from "@mui/material/Typography";
@@ -12,9 +12,9 @@ export default function MyComponent() {
   const disabled = useRecoilValue(appendCompletelyDisabledValue);
 
   return (
-    <Fragment>
+    <>
       <Typography>
-        {t("length")}: {value}
+        {t("Length")}: {value}
       </Typography>
       <Slider
         value={value}
@@ -25,6 +25,6 @@ export default function MyComponent() {
         onChange={(e) => setValue(e.target.value)}
         disabled={disabled}
       />
-    </Fragment>
+    </>
   );
 }

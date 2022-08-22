@@ -3,6 +3,18 @@ import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
+export const stopWordsState = atom({
+  key: "stopWordsState",
+  default: "",
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const limitTextBytesState = atom({
+  key: "limitTextBytesState",
+  default: 20,
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const prependTextState = atom({
   key: "prependTextState",
   default: "",

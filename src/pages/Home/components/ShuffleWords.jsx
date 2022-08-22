@@ -16,9 +16,6 @@ import {
 } from "@atoms/main";
 import { randomArrayShuffle } from "@modules/randomText";
 
-import TextByteLimit from "./TextByteLimit";
-// import StopWords from "./StopWords";
-
 export default function MyComponent() {
   const { t } = useTranslation();
   const prependText = useRecoilValue(prependTextState);
@@ -50,11 +47,11 @@ export default function MyComponent() {
     let result = newLine.join("\n");
 
     ref2.current.value = result;
-    
+
     copy(result, {
       debug: false,
       format: "text/plain", // (default) "text/html"
-      onCopy: null
+      onCopy: null,
     });
   };
 
@@ -68,7 +65,7 @@ export default function MyComponent() {
           required
           multiline
           fullWidth
-          rows={4}
+          rows={5}
           defaultValue="Microsoft Jira Trello Google Apple Amazon"
           variant="outlined"
           inputRef={ref1}
@@ -81,7 +78,7 @@ export default function MyComponent() {
         <TextField
           multiline
           fullWidth
-          rows={4}
+          rows={5}
           defaultValue=""
           disabled
           variant="outlined"
@@ -89,14 +86,38 @@ export default function MyComponent() {
         />
       </Grid>
       <Grid item xs={12}>
-        <TextByteLimit />
+        <Typography variant="h6" component="h3">
+          {t("Console")}
+        </Typography>
+        <TextField
+          multiline
+          fullWidth
+          rows={3}
+          defaultValue=""
+          disabled
+          variant="outlined"
+        />
       </Grid>
       <Grid item xs={12}>
-        {/* <StopWords /> */}
-      </Grid>
-      <Grid item xs={12}>
-        <Button variant="contained" size="large" onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          size="large"
+          onClick={handleSubmit}
+          sx={{ mb: 1, mr: 1 }}
+        >
           {t("Shuffle & Copy")}
+        </Button>
+        <Button variant="outlined" size="large" sx={{ mb: 1, mr: 1 }}>
+          {t("Shuffle")}
+        </Button>
+        <Button variant="outlined" size="large" sx={{ mb: 1, mr: 1 }}>
+          {t("Copy")}
+        </Button>
+        <Button variant="outlined" size="large" sx={{ mb: 1, mr: 1 }}>
+          {t("General Market")}
+        </Button>
+        <Button variant="outlined" size="large" sx={{ mb: 1, mr: 1 }}>
+          {`${t("Auction")}/${t("G-Market")}`}
         </Button>
       </Grid>
     </Grid>

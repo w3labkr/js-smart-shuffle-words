@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Typography from "@mui/material/Typography";
@@ -12,8 +12,8 @@ export default function MyComponent() {
   const disabled = useRecoilValue(prependCompletelyDisabledValue);
 
   return (
-    <Fragment>
-      <Typography sx={{ mb: 1 }}>{t("Stop Words")}:</Typography>
+    <>
+      <Typography sx={{ mb: 1 }}>{t("Stopwords")}:</Typography>
       <TextField
         multiline
         fullWidth
@@ -25,6 +25,6 @@ export default function MyComponent() {
         onChange={(e) => setDefaultValue(e.target.value)}
         disabled={disabled}
       />
-    </Fragment>
+    </>
   );
 }

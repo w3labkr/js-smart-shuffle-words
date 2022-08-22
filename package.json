@@ -1,10 +1,10 @@
 {
     "name": "js-smart-shuffle-words",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "author": "W3LabKr",
     "description": "",
     "main": "src/index.js",
-    "homepage": "https://w3labkr.github.io/js-smart-shuffle-words/",
+    "homepage": "./",
     "private": true,
     "scripts": {
         "start": "craco start",
