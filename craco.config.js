@@ -12,6 +12,7 @@ module.exports = {
       '@locales': path.resolve(__dirname, 'src/locales'),
       '@modules': path.resolve(__dirname, 'src/modules'),
       '@pages': path.resolve(__dirname, 'src/pages'),
+      '@resources': path.resolve(__dirname, 'src/resources'),
       '@store': path.resolve(__dirname, 'src/store'),
       '@atoms': path.resolve(__dirname, 'src/store/atoms'),
       '@selectors': path.resolve(__dirname, 'src/store/selectors'),

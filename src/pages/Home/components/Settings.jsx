@@ -9,7 +9,7 @@ import AdvancedSettings from "./AdvancedSettings";
 
 export default function ControlledAccordions() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = React.useState("panel1");
+  const [expanded, setExpanded] = React.useState("panel2");
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);

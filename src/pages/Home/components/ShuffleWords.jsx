@@ -2,36 +2,36 @@ import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilValue } from "recoil";
 import copy from "copy-to-clipboard";
-
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
 import {
-  prependTextState,
-  prependTextSwitchState,
-  appendTextState,
-  appendTextSwitchState,
+  startTextState,
+  enabledStartState,
+  endTextState,
+  enabledEndState,
 } from "@atoms/main";
 import { randomArrayShuffle } from "@modules/randomText";
 
 export default function MyComponent() {
   const { t } = useTranslation();
-  const prependText = useRecoilValue(prependTextState);
-  const prependTextSwitch = useRecoilValue(prependTextSwitchState);
-  const appendText = useRecoilValue(appendTextState);
-  const appendTextSwitch = useRecoilValue(appendTextSwitchState);
+  const prependText = useRecoilValue(startTextState);
+  const prependTextSwitch = useRecoilValue(enabledStartState);
+  const appendText = useRecoilValue(endTextState);
+  const appendTextSwitch = useRecoilValue(enabledEndState);
 
   const ref1 = useRef(null);
   const ref2 = useRef(null);
 
   const handleSubmit = () => {
     let lines = ref1.current.value.replace(/\r\n/g, "\n").split("\n");
-    let newLine = [];
+    let newLines = [];
 
     lines.forEach(function (line) {
-      let words = randomArrayShuffle(line.split(" "));
+      let words = line.split(" ").map((str) => str.trim());
+      words = randomArrayShuffle(words);
 
       if (prependTextSwitch) {
         words.unshift(prependText);
@@ -41,10 +41,10 @@ export default function MyComponent() {
         words.push(appendText);
       }
 
-      newLine.push(words.join(" "));
+      newLines.push(words.join(" "));
     });
 
-    let result = newLine.join("\n");
+    let result = newLines.join("\r\n");
 
     ref2.current.value = result;
 
@@ -83,19 +83,6 @@ export default function MyComponent() {
           disabled
           variant="outlined"
           inputRef={ref2}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h6" component="h3">
-          {t("Console")}
-        </Typography>
-        <TextField
-          multiline
-          fullWidth
-          rows={3}
-          defaultValue=""
-          disabled
-          variant="outlined"
         />
       </Grid>
       <Grid item xs={12}>

@@ -8,10 +8,10 @@
     "Shuffle & Copy": "상품명 변경 후 복사",
     "General Market": "일반 마켓",
     "Generate Random Text": "무작위 문자 생성",
-    "Prepend to text": "문자열 앞에 추가",
-    "Append after text": "문자열 뒤에 추가",
+    "Start text": "시작 문자",
+    "End text": "마지막 문자",
     "Random Text": "무작위 문자",
-    "Length": "길이",
+    "Length of random text generated:": "생성되는 랜덤 텍스트의 길이:",
     "Enter the stopwords to be removed": "제거할 금칙어를 입력하세요",
     "Please enter text": "텍스트를 입력 하십시오",
     "Seperated by comma": "쉼표로 구분 합니다",
@@ -21,5 +21,6 @@
     "G-Market": "지마켓",
     "Highlighting stopwords": "금칙어 강조 표시",
     "General Settings": "일반 설정",
-    "Advanced Settings": "고급 설정"
+    "Advanced Settings": "고급 설정",
+    "Characters to use when creating random text:": "랜덤 텍스트를 생성할 때 사용할 문자:"
 }

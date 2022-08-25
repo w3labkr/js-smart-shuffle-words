@@ -1,16 +1,16 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import PrependSettings from "../PrependSettings";
-import AppendSettings from "../AppendSettings";
+import StartText from "./StartText";
+import EndText from "./EndText";
 
 export default function MyComponent() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>
-        <PrependSettings />
+        <StartText />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <AppendSettings />
+        <EndText />
       </Grid>
     </Grid>
   );

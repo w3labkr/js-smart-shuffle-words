@@ -3,27 +3,26 @@ import { useTranslation } from "react-i18next";
 import { useRecoilState, useRecoilValue } from "recoil";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
-import { prependRandomLengthState } from "@atoms/main";
-import { prependCompletelyDisabledValue } from "@selectors/main";
+import * as mainState from "@atoms/main";
 
-export default function MyComponent() {
+export default function MyComponent({ lengthState, enabledState }) {
   const { t } = useTranslation();
-  const [value, setValue] = useRecoilState(prependRandomLengthState);
-  const disabled = useRecoilValue(prependCompletelyDisabledValue);
+  const [length, setLength] = useRecoilState(mainState[lengthState]);
+  const enabled = useRecoilValue(mainState[enabledState]);
 
   return (
     <>
       <Typography>
-        {t("Length")}: {value}
+        {t("Length of random text generated:")} {length}
       </Typography>
       <Slider
-        value={value}
+        value={length}
         aria-label="Small"
         valueLabelDisplay="auto"
         min={0}
         max={24}
-        onChange={(e) => setValue(e.target.value)}
-        disabled={disabled}
+        onChange={(e) => setLength(e.target.value)}
+        disabled={!enabled}
       />
     </>
   );
