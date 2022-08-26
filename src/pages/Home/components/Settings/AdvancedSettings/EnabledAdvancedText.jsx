@@ -1,10 +1,15 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
+import { styled } from "@mui/system";
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+import MuiTextField from "@mui/material/TextField";
 import * as mainState from "@atoms/main";
+
+const TextField = styled(MuiTextField)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+}));
 
 export default function MyComponent({ children, textState, enabledState }) {
   const { t } = useTranslation();
@@ -25,7 +30,6 @@ export default function MyComponent({ children, textState, enabledState }) {
         placeholder={t("Please enter text")}
         variant="outlined"
         fullWidth
-        sx={{ mb: 2 }}
         onChange={(e) => setText(e.target.value)}
         disabled={!enabled}
       />

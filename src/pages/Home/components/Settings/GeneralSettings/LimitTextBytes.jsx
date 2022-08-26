@@ -14,7 +14,7 @@ export default function MyComponent() {
 
   return (
     <FormControl>
-      <Typography>{t("Limit text to bytes")}</Typography>
+      <Typography>{t("Text length limit:")}</Typography>
       <RadioGroup
         row
         name="limitTextBytes"

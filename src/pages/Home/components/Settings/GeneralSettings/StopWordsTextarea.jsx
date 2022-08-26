@@ -12,7 +12,7 @@ export default function MyComponent() {
 
   return (
     <Stack spacing={1}>
-      <Typography>{t("Enter the stopwords to be removed")}</Typography>
+      <Typography>{t("Enter the stopwords to be removed:")}</Typography>
       <TextField
         multiline
         fullWidth

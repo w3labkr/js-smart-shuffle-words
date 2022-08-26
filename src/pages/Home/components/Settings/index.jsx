@@ -1,15 +1,17 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
+import { useRecoilState } from "recoil";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import GeneralSettings from "./GeneralSettings";
 import AdvancedSettings from "./AdvancedSettings";
+import * as mainState from "@atoms/main";
 
 export default function ControlledAccordions() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = React.useState("panel2");
+  const [expanded, setExpanded] = useRecoilState(mainState["settingsExpandedPanelState"]);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -18,7 +20,6 @@ export default function ControlledAccordions() {
   return (
     <div>
       <Accordion
-        defaultExpanded
         TransitionProps={{ unmountOnExit: true }}
         expanded={expanded === "panel1"}
         onChange={handleChange("panel1")}

@@ -12,23 +12,23 @@ export default function MyComponent() {
     <>
       <EnabledAdvancedText
         textState="endTextState"
-        enabledState="enabledEndState"
+        enabledState="endEnabledState"
       >
         {t("End text")}{" "}
       </EnabledAdvancedText>
       <GenerateRandomText
         textState="endTextState"
-        choiceState="choiceEndRandomCharacterState"
-        lengthState="limitEndRandomTextLengthState"
-        enabledState="enabledEndState"
+        choiceState="endChoiceRandomCharacterState"
+        lengthState="endLimitRandomTextLengthState"
+        enabledState="endEnabledState"
       />
       <ChoiceRandomCharacter
-        choiceState="choiceEndRandomCharacterState"
-        enabledState="enabledEndState"
+        choiceState="endChoiceRandomCharacterState"
+        enabledState="endEnabledState"
       />
       <LimitRandomTextLength
-        lengthState="limitEndRandomTextLengthState"
-        enabledState="enabledEndState"
+        lengthState="endLimitRandomTextLengthState"
+        enabledState="endEnabledState"
       />
     </>
   );

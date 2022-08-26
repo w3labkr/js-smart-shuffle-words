@@ -1,9 +1,14 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { useSetRecoilState, useRecoilValue } from "recoil";
-import Button from "@mui/material/Button";
+import { styled } from "@mui/system";
+import MuiButton from "@mui/material/Button";
 import * as mainState from "@atoms/main";
 import { generateRandomHangul, generateRandomString } from "@modules/randomText";
+
+const Button = styled(MuiButton)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+}));
 
 export default function MyComponent({ textState, choiceState, lengthState, enabledState }) {
   const { t } = useTranslation();
@@ -40,7 +45,6 @@ export default function MyComponent({ textState, choiceState, lengthState, enabl
       size="small"
       onClick={handleClick}
       disabled={!enabled}
-      sx={{ mb: 2 }}
     >
       {t("Generate Random Text")}
     </Button>
