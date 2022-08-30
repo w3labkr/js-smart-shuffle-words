@@ -115,3 +115,22 @@ Copy stuff into clipboard from your browser using JS
 ```shell
 yarn add copy-to-clipboard
 ```
+
+## gh-pages
+
+General purpose task for publishing files to a gh-pages branch on GitHub.
+
+```shell
+yarn add gh-pages
+yarn deploy
+```
+
+```json
+{
+    "homepage": "https://<username>.github.io/<repository>/",
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    }
+}
+```

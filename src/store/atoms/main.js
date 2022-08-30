@@ -1,112 +1,119 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
-const { persistAtom } = recoilPersist();
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', // this key is using to store data in local storage
+  storage: localStorage, // configurate which stroage will be used to store the data
+});
 
-export const prependTextState = atom({
-  key: "prependTextState",
+export const shuffleTextState = atom({
+  key: "shuffleTextState",
+  default: [
+    "Column Name",
+    "Lorem ipsum dolor sit amet",
+    "Nullam a sapien id orci",
+  ].join('\n'),
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const previewTextState = atom({
+  key: "previewTextState",
   default: "",
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependTextSwitchState = atom({
-  key: "prependTextSwitchState",
+export const consoleTextState = atom({
+  key: "consoleTextState",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const marketSettingsState = atom({
+  key: "marketSettingsState",
+  default: "General",
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const settingsExpandedPanelState = atom({
+  key: "settingsExpandedPanelState",
+  default: "panel1",
+  effects_UNSTABLE: [persistAtom],
+});
+
+/*
+General Settings
+*/
+export const indexColumnState = atom({
+  key: "indexColumnState",
   default: true,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependRandomSwitchState = atom({
-  key: "prependRandomSwitchState",
+export const lineTextLengthState = atom({
+  key: "lineTextLengthState",
+  default: -1,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const specialCharactersState = atom({
+  key: "specialCharactersState",
+  default: "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const stopWordsState = atom({
+  key: "stopWordsState",
+  default: "Lorem ipsum",
+  effects_UNSTABLE: [persistAtom],
+});
+
+/*
+Advanced Settings
+*/
+export const startEnabledState = atom({
+  key: "startEnabledState",
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependRandomUppercaseState = atom({
-  key: "prependRandomUppercaseState",
-  default: true,
+export const startTextState = atom({
+  key: "startTextState",
+  default: "START",
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependRandomLowercaseState = atom({
-  key: "prependRandomLowercaseState",
-  default: true,
+export const startChoiceRandomCharacterState = atom({
+  key: "startChoiceRandomCharacterState",
+  default: ['uppercase','lowercase','numbers'],
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependRandomNumbersState = atom({
-  key: "prependRandomNumbersState",
-  default: true,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const prependRandomKoreanState = atom({
-  key: "prependRandomKoreanState",
-  default: false,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const prependRandomLengthState = atom({
-  key: "prependRandomLengthState",
+export const startLimitRandomTextLengthState = atom({
+  key: "startLimitRandomTextLengthState",
   default: 12,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const prependRandomStopWordsState = atom({
-  key: "prependRandomStopWordsState",
-  default: "",
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendTextState = atom({
-  key: "appendTextState",
-  default: "",
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendTextSwitchState = atom({
-  key: "appendTextSwitchState",
-  default: true,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendRandomSwitchState = atom({
-  key: "appendRandomSwitchState",
+export const endEnabledState = atom({
+  key: "endEnabledState",
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const appendRandomUppercaseState = atom({
-  key: "appendRandomUppercaseState",
-  default: true,
+export const endTextState = atom({
+  key: "endTextState",
+  default: "END",
   effects_UNSTABLE: [persistAtom],
 });
 
-export const appendRandomLowercaseState = atom({
-  key: "appendRandomLowercaseState",
-  default: true,
+export const endChoiceRandomCharacterState = atom({
+  key: "endChoiceRandomCharacterState",
+  default: ['uppercase','lowercase','numbers'],
   effects_UNSTABLE: [persistAtom],
 });
 
-export const appendRandomNumbersState = atom({
-  key: "appendRandomNumbersState",
-  default: true,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendRandomKoreanState = atom({
-  key: "appendRandomKoreanState",
-  default: false,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendRandomLengthState = atom({
-  key: "appendRandomLengthState",
+export const endLimitRandomTextLengthState = atom({
+  key: "endLimitRandomTextLengthState",
   default: 12,
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const appendRandomStopWordsState = atom({
-  key: "appendRandomStopWordsState",
-  default: "",
   effects_UNSTABLE: [persistAtom],
 });

@@ -3,18 +3,18 @@ import { useTranslation } from "react-i18next";
 import { useRecoilState } from "recoil";
 import Typography from "@mui/material/Typography";
 import Switch from "@mui/material/Switch";
-import { appendTextSwitchState } from "@atoms/main";
+import { indexColumnState } from "@atoms/main";
 
 export default function MyComponent() {
   const { t } = useTranslation();
-  const [checked, setChecked] = useRecoilState(appendTextSwitchState);
+  const [indexColumn, setIndexColumn] = useRecoilState(indexColumnState);
 
   return (
-    <Typography variant="h6" component="h3">
-      {t("append after text")}{" "}
+    <Typography>
+      {t("Remove index column:")}
       <Switch
-        checked={checked}
-        onChange={(e) => setChecked(e.target.checked)}
+        checked={indexColumn}
+        onChange={(e, newValue) => setIndexColumn(newValue)}
       />
     </Typography>
   );

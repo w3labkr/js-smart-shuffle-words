@@ -1,67 +1,16 @@
 import { selector } from "recoil";
-import * as state from "@atoms/main";
-import { generateRandomHangul } from "@modules/randomText";
+import * as mainState from "@atoms/main";
 
-export const prependCompletelyDisabledValue = selector({
-  key: "prependCompletelyDisabledValue",
+export const startDisabledValue = selector({
+  key: "startDisabledValue",
   get: ({ get }) => {
-    return !get(state.prependTextSwitchState) || !get(state.prependRandomSwitchState);
+    return !get(mainState["startEnabledState"]);
   },
 });
 
-export const prependRandomCharactersValue = selector({
-  key: "prependRandomCharactersValue",
+export const endDisabledValue = selector({
+  key: "endDisabledValue",
   get: ({ get }) => {
-    let characters = '';
-
-    if (get(state.prependRandomUppercaseState)) {
-      characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-
-    if (get(state.prependRandomLowercaseState)) {
-      characters += "abcdefghijklmnopqrstuvwxyz";
-    }
-
-    if (get(state.prependRandomNumbersState)) {
-      characters += "1234567890";
-    }
-
-    if (get(state.prependRandomKoreanState)) {
-      characters += generateRandomHangul(26);
-    }
-
-    return characters;
-  },
-});
-
-export const appendCompletelyDisabledValue = selector({
-  key: "appendCompletelyDisabledValue",
-  get: ({ get }) => {
-    return !get(state.appendTextSwitchState) || !get(state.appendRandomSwitchState);
-  },
-});
-
-export const appendRandomCharactersValue = selector({
-  key: "appendRandomCharactersValue",
-  get: ({ get }) => {
-    let characters = '';
-
-    if (get(state.prependRandomUppercaseState)) {
-      characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-
-    if (get(state.prependRandomLowercaseState)) {
-      characters += "abcdefghijklmnopqrstuvwxyz";
-    }
-
-    if (get(state.prependRandomNumbersState)) {
-      characters += "1234567890";
-    }
-
-    if (get(state.prependRandomKoreanState)) {
-      characters += generateRandomHangul(26);
-    }
-
-    return characters;
+    return !get(mainState["endEnabledState"]);
   },
 });

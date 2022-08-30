@@ -4,6 +4,10 @@ Shuffle the words on each line.
 
 ![SCREENSHOT](SCREENSHOT.png)
 
+## Demo
+
+Visit the [demo site](https://w3labkr.github.io/js-smart-shuffle-words/).
+
 ## Directory Structure
 
 ```text
@@ -14,11 +18,13 @@ Shuffle the words on each line.
     |   `-- images/
     |-- components/
     |-- contexts/
+    |-- hooks/
     |-- locales/
     |   |-- en/
     |   `-- ko/
     |-- modules/
     |-- pages/
+    |-- resources/
     |-- store/
     |   |-- atoms/
     |   `-- selectors/
