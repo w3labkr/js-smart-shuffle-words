@@ -278,3 +278,21 @@ yarn add --dev eslint-plugin-import eslint-import-resolver-node eslint-import-re
     },
 }
 ```
+
+## conventional-changelog-cli
+
+```shell
+yarn add global conventional-changelog-cli
+```
+
+```json
+{
+    "scripts": {
+        "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    }
+}
+```
+
+```shell
+npm version [patch|minor|major]
+```
