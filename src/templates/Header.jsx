@@ -6,6 +6,8 @@ import ToggleColorMode from "@components/ToggleColorMode";
 import LanguageChange from "@components/LanguageChange";
 // import MoreActions from "@components/MoreActions";
 
+const APP_VERSION = process.env.REACT_APP_VERSION;
+
 export default function Header() {
   const { t } = useTranslation();
 
@@ -13,7 +15,7 @@ export default function Header() {
     <AppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" noWrap component="h1" sx={{ flexGrow: 1 }}>
-          {t("Smart Shuffle Words")} {process.env.REACT_APP_VERSION}
+          {t("Smart Shuffle Words")} {APP_VERSION}
         </Typography>
         <ToggleColorMode />
         <LanguageChange />

@@ -2,11 +2,11 @@
 
 Shuffle the words on each line.
 
-![SCREENSHOT](SCREENSHOT.png)
-
 ## Demo
 
 Visit the [demo site](https://w3labkr.github.io/js-smart-shuffle-words/).
+
+![SCREENSHOT](SCREENSHOT.png)
 
 ## Directory Structure
 
