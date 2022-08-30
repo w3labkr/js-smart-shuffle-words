@@ -2,10 +2,11 @@ import { useMemo } from 'react';
 import { useRecoilState } from 'recoil';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { themeColorModeState } from '~/store/atoms/theme';
+import { themeColorModeState } from './store/atoms/theme';
 import { ColorModeContext } from './contexts/theme';
-import Page from './pages/Home';
 import useGATracker from './hooks/useGATracker';
+import Page from './pages/Home';
+import Head from './templates/Head';
 
 function App() {
   const [mode, setMode] = useRecoilState(themeColorModeState);
@@ -38,7 +39,15 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Page />
+        <div className="App">
+          <Head
+            title="Smart Shuffle Words"
+            description="Shuffle the words on each line<"
+            keywords="js,javascript,react,reactjs,shuffle,words"
+            canonical="https://w3labkr.github.io/js-smart-shuffle-words/"
+          />
+          <Page />
+        </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

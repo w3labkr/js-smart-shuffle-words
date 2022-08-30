@@ -64,6 +64,40 @@ REACT_APP_GA_TRACKING_ID=UA-000000-01
 
 ## Dependencies
 
+### react-i18next
+
+react-i18next is a powerful internationalization framework for React / React Native which is based on i18next.
+
+```shell
+yarn add react-i18next i18next
+```
+
+### react-router-dom
+
+Declarative routing for React
+
+```shell
+yarn add react-router-dom
+```
+
+`src/index.js`
+
+```javascript
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+```
+
+### react-helmet-async
+
+Thread-safe Helmet for React 16+ and friends.
+
+```shell
+yarn add react-helmet-async
+```
+
 ### Material UI
 
 Install Material UI.
@@ -96,14 +130,6 @@ In order to use prebuilt SVG Material icons, you must first install the @mui/ico
 yarn add @mui/icons-material
 ```
 
-### react-i18next
-
-react-i18next is a powerful internationalization framework for React / React Native which is based on i18next.
-
-```shell
-yarn add react-i18next i18next
-```
-
 ### Lodash
 
 A modern JavaScript utility library delivering modularity, performance, & extras.
@@ -126,43 +152,6 @@ Copy stuff into clipboard from your browser using JS
 
 ```shell
 yarn add copy-to-clipboard
-```
-
-### gh-pages
-
-General purpose task for publishing files to a gh-pages branch on GitHub.
-
-```shell
-yarn add gh-pages
-yarn deploy
-```
-
-```json
-{
-    "homepage": "https://<username>.github.io/<repository>/",
-    "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
-    }
-}
-```
-
-### react-router-dom
-
-Declarative routing for React
-
-```shell
-yarn add react-router-dom
-```
-
-`src/index.js`
-
-```javascript
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
 ```
 
 ### react-ga
@@ -279,7 +268,9 @@ yarn add --dev eslint-plugin-import eslint-import-resolver-node eslint-import-re
 }
 ```
 
-## conventional-changelog-cli
+## Deployment
+
+### conventional-changelog-cli
 
 ```shell
 yarn add global conventional-changelog-cli
@@ -288,11 +279,31 @@ yarn add global conventional-changelog-cli
 ```json
 {
     "scripts": {
-        "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+        "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "version:init": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
     }
 }
 ```
 
 ```shell
 npm version [patch|minor|major]
+```
+
+### gh-pages
+
+General purpose task for publishing files to a gh-pages branch on GitHub.
+
+```shell
+yarn add gh-pages
+yarn deploy
+```
+
+```json
+{
+    "homepage": "./", // "https://<username>.github.io/<repository>/"
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
+    }
+}
 ```

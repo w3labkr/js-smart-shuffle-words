@@ -1,10 +1,11 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { RecoilRoot } from 'recoil';
 import WebFont from 'webfontloader';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { RecoilRoot } from 'recoil';
-import { BrowserRouter } from 'react-router-dom';
 import './locales/i18n';
 import './App.css';
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <RecoilRoot>
       <BrowserRouter>
-        <App />
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
       </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>
