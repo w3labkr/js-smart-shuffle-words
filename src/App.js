@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { themeColorModeState } from "@atoms/theme";
 import { ColorModeContext } from "./contexts/theme";
 import Page from "./pages/Home";
+import useGATracker from "./hooks/useGATracker";
 
 function App() {
   const [mode, setMode] = useRecoilState(themeColorModeState);
@@ -21,15 +22,20 @@ function App() {
     () =>
       createTheme({
         typography: {
-          fontFamily: 'Roboto, sans-serif',
+          fontFamily: "Roboto, sans-serif",
         },
         palette: {
           mode,
-          borderColor: mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.3)',
+          borderColor:
+            mode === "light"
+              ? "rgba(0, 0, 0, 0.23)"
+              : "rgba(255, 255, 255, 0.3)",
         },
       }),
     [mode]
   );
+
+  useGATracker();
 
   return (
     <ColorModeContext.Provider value={colorMode}>
