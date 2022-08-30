@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import ToggleColorMode from '@components/ToggleColorMode';
-import LanguageChange from '@components/LanguageChange';
-// import MoreActions from "@components/MoreActions";
+import ToggleColorMode from '~/components/ToggleColorMode';
+import LanguageChange from '~/components/LanguageChange';
+// import MoreActions from "~/components/MoreActions";
 
 const APP_VERSION = process.env.REACT_APP_VERSION;
 

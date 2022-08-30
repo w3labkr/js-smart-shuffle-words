@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import MuiToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { styled } from '@mui/material/styles';
-import { themeLanguageState } from '@atoms/theme';
+import { themeLanguageState } from '~/store/atoms/theme';
 
 const ToggleButton = styled(MuiToggleButton)({
   '&.Mui-selected, &.Mui-selected:hover': {

@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { randomArrayShuffle } from '@modules/randomText';
+import { randomArrayShuffle } from '~/modules/randomText';
 import { debounce } from 'lodash';
 
 const Button = styled(MuiButton)(({ theme }) => ({

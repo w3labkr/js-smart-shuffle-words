@@ -10,7 +10,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 import { debounce } from 'lodash';
 
 const Button = styled(MuiButton)(({ theme }) => ({

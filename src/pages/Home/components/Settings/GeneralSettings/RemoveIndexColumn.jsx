@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
 import Typography from '@mui/material/Typography';
 import Switch from '@mui/material/Switch';
-import { indexColumnState } from '@atoms/main';
+import { indexColumnState } from '~/store/atoms/main';
 
 export default function MyComponent() {
   const { t } = useTranslation();

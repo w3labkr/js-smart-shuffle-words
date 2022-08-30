@@ -1,4 +1,4 @@
-import charactersJson from '@resources/characters.json';
+import charactersJson from '~/resources/characters.json';
 
 export const randomArrayShuffle = (array) => {
   let currentIndex = array.length;

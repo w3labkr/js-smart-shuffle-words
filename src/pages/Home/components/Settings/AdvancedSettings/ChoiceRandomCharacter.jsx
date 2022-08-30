@@ -5,8 +5,8 @@ import MuiFormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Typography from '@mui/material/Typography';
-import * as mainState from '@atoms/main';
-import * as mainValue from '@selectors/main';
+import * as mainState from '~/store/atoms/main';
+import * as mainValue from '~/store/selectors/main';
 
 const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   display: 'flex',

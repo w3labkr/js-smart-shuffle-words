@@ -1,6 +1,6 @@
 {
     "name": "js-smart-shuffle-words",
-    "version": "1.2.1",
+    "version": "1.2.0",
     "author": "W3LabKr",
     "description": "",
     "main": "src/index.js",

@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import { useTheme } from '@mui/material/styles';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
-import { ColorModeContext } from '@contexts/theme';
+import { ColorModeContext } from '~/contexts/theme';
 
 export default function ToggleColorMode() {
   const theme = useTheme();

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useRecoilState } from 'recoil';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { themeColorModeState } from '@atoms/theme';
+import { themeColorModeState } from '~/store/atoms/theme';
 import { ColorModeContext } from './contexts/theme';
 import Page from './pages/Home';
 import useGATracker from './hooks/useGATracker';

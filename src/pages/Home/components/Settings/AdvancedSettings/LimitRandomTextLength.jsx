@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
-import * as mainState from '@atoms/main';
-import * as mainValue from '@selectors/main';
+import * as mainState from '~/store/atoms/main';
+import * as mainValue from '~/store/selectors/main';
 
 export default function MyComponent({ lengthState, disabledValue }) {
   const { t } = useTranslation();

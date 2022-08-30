@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 
 export default function MyComponent() {
   const { t } = useTranslation();

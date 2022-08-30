@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import MuiTextField from '@mui/material/TextField';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 
 const TextField = styled(MuiTextField)(({ theme }) => ({
   marginBottom: theme.spacing(2),

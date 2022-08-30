@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { stopWordsState } from '@atoms/main';
+import { stopWordsState } from '~/store/atoms/main';
 
 export default function MyComponent() {
   const { t } = useTranslation();

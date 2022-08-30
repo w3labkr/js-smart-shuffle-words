@@ -5,7 +5,7 @@ import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import MuiList from '@mui/material/List';
 import MuiListItem from '@mui/material/ListItem';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 
 const List = styled(MuiList)(({ theme }) => ({
   padding: theme.spacing(2),

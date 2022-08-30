@@ -5,7 +5,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
-import { lineTextLengthState } from '@atoms/main';
+import { lineTextLengthState } from '~/store/atoms/main';
 
 export default function MyComponent() {
   const { t } = useTranslation();

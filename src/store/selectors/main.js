@@ -1,5 +1,5 @@
 import { selector } from 'recoil';
-import * as mainState from '@atoms/main';
+import * as mainState from '~/store/atoms/main';
 
 export const startDisabledValue = selector({
   key: 'startDisabledValue',
