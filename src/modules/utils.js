@@ -1,6 +1,8 @@
 export const sleep = (ms) => {
   const wakeUpTime = Date.now() + ms;
-  while (Date.now() < wakeUpTime) {}
+  while (Date.now() < wakeUpTime) {
+    // Empty block statement
+  }
 };
 
 export const delay = (ms) => {

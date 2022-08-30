@@ -56,7 +56,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.tabSize": 2,
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.fixAll.eslint": true
         },

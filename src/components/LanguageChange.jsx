@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { useRecoilState } from "recoil";
-import MuiToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { styled } from "@mui/material/styles";
-import { themeLanguageState } from "@atoms/theme";
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useRecoilState } from 'recoil';
+import MuiToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { styled } from '@mui/material/styles';
+import { themeLanguageState } from '@atoms/theme';
 
 const ToggleButton = styled(MuiToggleButton)({
-  "&.Mui-selected, &.Mui-selected:hover": {
-    color: "white",
+  '&.Mui-selected, &.Mui-selected:hover': {
+    color: 'white',
   },
 });
 
@@ -21,12 +21,7 @@ export default function LanguageChange() {
   }, [i18n, language]);
 
   return (
-    <ToggleButtonGroup
-      size="small"
-      value={language}
-      exclusive
-      onChange={(e, value) => setLanguage(value)}
-    >
+    <ToggleButtonGroup size="small" value={language} exclusive onChange={(e, value) => setLanguage(value)}>
       <ToggleButton value="en">EN</ToggleButton>
       <ToggleButton value="ko">KO</ToggleButton>
     </ToggleButtonGroup>

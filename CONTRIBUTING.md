@@ -180,3 +180,101 @@ import ReactGA from 'react-ga';
 ReactGA.initialize('UA-000000-01');
 ReactGA.pageview(window.location.pathname + window.location.search);
 ```
+
+## devDependencies
+
+### prettier
+
+```shell
+yarn add --dev prettier eslint-config-prettier eslint-plugin-prettier
+```
+
+`package.json`
+
+```json
+{
+    "scripts": {
+        "format": "prettier --check ./src",
+        "format:fix": "prettier --write ./src"
+    },
+}
+```
+
+```shell
+yarn format
+yarn format:fix
+```
+
+### eslint
+
+```shell
+yarn add --dev eslint eslint-plugin-react eslint-plugin-react-hooks
+```
+
+```shell
+yarn add --dev @babel/core @babel/eslint-parser @babel/preset-react
+```
+
+`package.json`
+
+```json
+{
+    "scripts": {
+        "lint": "eslint ./src",
+        "lint:fix": "eslint --fix ./src",
+    },
+}
+```
+
+`.eslintrc.json`
+
+```json
+{
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false,
+        "babelOptions": {
+            "babelrc": false,
+            "configFile": false,
+            "presets": [
+                [
+                    "@babel/preset-react",
+                    {
+                        "runtime": "automatic"
+                    }
+                ]
+            ]
+        }
+    },
+}
+```
+
+```shell
+yarn lint
+yarn lint:fix
+```
+
+```shell
+yarn add --dev eslint-plugin-import eslint-import-resolver-node eslint-import-resolver-alias
+```
+
+`.eslintrc.json`
+
+```json
+{
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx"],
+                "moduleDirectory": ["node_modules", "./src"],
+            },
+            "alias": {
+                "map": [
+                    ["~", "./src"],
+                ],
+                "extensions": [".ts", ".js", ".jsx", ".json"],
+            },
+        },
+    },
+}
+```

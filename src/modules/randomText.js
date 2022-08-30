@@ -1,4 +1,4 @@
-import charactersJson from "@resources/characters.json";
+import charactersJson from '@resources/characters.json';
 
 export const randomArrayShuffle = (array) => {
   let currentIndex = array.length;
@@ -16,7 +16,7 @@ export const randomArrayShuffle = (array) => {
 };
 
 export const generateRandomString = (characters, length) => {
-  let text = "";
+  let text = '';
 
   for (let i = 0, len = characters.length; i < length; i++) {
     text += characters.charAt(Math.floor(Math.random() * (len - 1)));
@@ -26,8 +26,8 @@ export const generateRandomString = (characters, length) => {
 };
 
 export const generateRandomHangul = (length) => {
-  const hangul = charactersJson.KSX1001.join("");
-  let text = "";
+  const hangul = charactersJson.KSX1001.join('');
+  let text = '';
 
   for (let i = 0; i < length; i++) {
     text += hangul.charAt(Math.floor(Math.random() * (2350 - 1)));
@@ -37,7 +37,7 @@ export const generateRandomHangul = (length) => {
 };
 
 export const generateRandomHangulAll = (length) => {
-  let text = "";
+  let text = '';
 
   for (var i = 0; i < length; i++) {
     text += String.fromCharCode(44031 + Math.ceil(Math.random() * 11172));

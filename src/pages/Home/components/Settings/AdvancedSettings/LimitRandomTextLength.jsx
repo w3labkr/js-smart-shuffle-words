@@ -1,10 +1,9 @@
-import * as React from "react";
-import { useTranslation } from "react-i18next";
-import { useRecoilState, useRecoilValue } from "recoil";
-import Typography from "@mui/material/Typography";
-import Slider from "@mui/material/Slider";
-import * as mainState from "@atoms/main";
-import * as mainValue from "@selectors/main";
+import { useTranslation } from 'react-i18next';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import Typography from '@mui/material/Typography';
+import Slider from '@mui/material/Slider';
+import * as mainState from '@atoms/main';
+import * as mainValue from '@selectors/main';
 
 export default function MyComponent({ lengthState, disabledValue }) {
   const { t } = useTranslation();
@@ -14,7 +13,7 @@ export default function MyComponent({ lengthState, disabledValue }) {
   return (
     <>
       <Typography>
-        {t("Length of random text generated:")} {length}
+        {t('Length of random text generated:')} {length}
       </Typography>
       <Slider
         value={length}

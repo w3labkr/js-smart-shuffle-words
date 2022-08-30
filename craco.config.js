@@ -17,7 +17,7 @@ module.exports = {
       '@store': path.resolve(__dirname, 'src/store'),
       '@atoms': path.resolve(__dirname, 'src/store/atoms'),
       '@selectors': path.resolve(__dirname, 'src/store/selectors'),
-      '@templates': path.resolve(__dirname, 'src/templates')
+      '@templates': path.resolve(__dirname, 'src/templates'),
     },
   },
 };

@@ -1,5 +1,5 @@
-import { atom } from "recoil";
-import { recoilPersist } from "recoil-persist";
+import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
 
 const STORAGE_KEY = 'recoil-persist';
 const { persistAtom } = recoilPersist({
@@ -8,42 +8,38 @@ const { persistAtom } = recoilPersist({
 });
 
 export const storageKeyState = atom({
-  key: "storageKeyState",
+  key: 'storageKeyState',
   default: STORAGE_KEY,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const shuffleTextState = atom({
-  key: "shuffleTextState",
-  default: [
-    "Column Name",
-    "Lorem ipsum dolor sit amet",
-    "Nullam a sapien id orci",
-  ].join('\n'),
+  key: 'shuffleTextState',
+  default: ['Column Name', 'Lorem ipsum dolor sit amet', 'Nullam a sapien id orci'].join('\n'),
   effects_UNSTABLE: [persistAtom],
 });
 
 export const previewTextState = atom({
-  key: "previewTextState",
-  default: "",
+  key: 'previewTextState',
+  default: '',
   effects_UNSTABLE: [persistAtom],
 });
 
 export const consoleTextState = atom({
-  key: "consoleTextState",
+  key: 'consoleTextState',
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
 
 export const marketSettingsState = atom({
-  key: "marketSettingsState",
-  default: "General",
+  key: 'marketSettingsState',
+  default: 'General',
   effects_UNSTABLE: [persistAtom],
 });
 
 export const settingsExpandedPanelState = atom({
-  key: "settingsExpandedPanelState",
-  default: "panel1",
+  key: 'settingsExpandedPanelState',
+  default: 'panel1',
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -51,26 +47,26 @@ export const settingsExpandedPanelState = atom({
 General Settings
 */
 export const indexColumnState = atom({
-  key: "indexColumnState",
+  key: 'indexColumnState',
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const lineTextLengthState = atom({
-  key: "lineTextLengthState",
+  key: 'lineTextLengthState',
   default: -1,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const specialCharactersState = atom({
-  key: "specialCharactersState",
-  default: "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+  key: 'specialCharactersState',
+  default: '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~',
   effects_UNSTABLE: [persistAtom],
 });
 
 export const stopWordsState = atom({
-  key: "stopWordsState",
-  default: "Lorem ipsum",
+  key: 'stopWordsState',
+  default: 'Lorem ipsum',
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -78,49 +74,49 @@ export const stopWordsState = atom({
 Advanced Settings
 */
 export const startEnabledState = atom({
-  key: "startEnabledState",
+  key: 'startEnabledState',
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const startTextState = atom({
-  key: "startTextState",
-  default: "START",
+  key: 'startTextState',
+  default: 'START',
   effects_UNSTABLE: [persistAtom],
 });
 
 export const startChoiceRandomCharacterState = atom({
-  key: "startChoiceRandomCharacterState",
-  default: ['uppercase','lowercase','numbers'],
+  key: 'startChoiceRandomCharacterState',
+  default: ['uppercase', 'lowercase', 'numbers'],
   effects_UNSTABLE: [persistAtom],
 });
 
 export const startLimitRandomTextLengthState = atom({
-  key: "startLimitRandomTextLengthState",
+  key: 'startLimitRandomTextLengthState',
   default: 12,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endEnabledState = atom({
-  key: "endEnabledState",
+  key: 'endEnabledState',
   default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endTextState = atom({
-  key: "endTextState",
-  default: "END",
+  key: 'endTextState',
+  default: 'END',
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endChoiceRandomCharacterState = atom({
-  key: "endChoiceRandomCharacterState",
-  default: ['uppercase','lowercase','numbers'],
+  key: 'endChoiceRandomCharacterState',
+  default: ['uppercase', 'lowercase', 'numbers'],
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endLimitRandomTextLengthState = atom({
-  key: "endLimitRandomTextLengthState",
+  key: 'endLimitRandomTextLengthState',
   default: 12,
   effects_UNSTABLE: [persistAtom],
 });
