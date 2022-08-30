@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.2.1...v1.3.0) (2022-08-30)
+
+
+### Features
+
+* add react-helmet-async ([4bdce54](https://github.com/w3labkr/js-smart-shuffle-words/commit/4bdce54673865709cbbc8235143b30cb52ba4456))
+
 ### [1.2.1](https://github.com/w3labkr/js-smart-shuffle-words/compare/1.2.0...1.2.1) (2022-08-30)
 
 
