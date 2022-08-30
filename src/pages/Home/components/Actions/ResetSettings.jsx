@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useResetRecoilState } from "recoil";
+import { useResetRecoilState, useRecoilValue } from "recoil";
 import { styled } from "@mui/system";
 import MuiButton from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -22,80 +22,53 @@ export default function MyComponent() {
   const { t } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const storageKey = useRecoilValue(mainState["storageKeyState"]);
+  const resetStates = {
+    // Actions Settings
+    shuffleTextState: useResetRecoilState(mainState["shuffleTextState"]),
+    previewTextState: useResetRecoilState(mainState["previewTextState"]),
+    consoleTextState: useResetRecoilState(mainState["consoleTextState"]),
+    marketSettingsState: useResetRecoilState(mainState["marketSettingsState"]),
 
-  const resetShuffleTextState = useResetRecoilState(
-    mainState["shuffleTextState"]
-  );
-  const resetPreviewTextState = useResetRecoilState(
-    mainState["previewTextState"]
-  );
-  const resetConsoleTextState = useResetRecoilState(
-    mainState["consoleTextState"]
-  );
-  const resetMarketSettingsState = useResetRecoilState(
-    mainState["marketSettingsState"]
-  );
-  const resetSettingsExpandedPanelState = useResetRecoilState(
-    mainState["settingsExpandedPanelState"]
-  );
-
-  // General Settings
-  const resetIndexColumnState = useResetRecoilState(
-    mainState["indexColumnState"]
-  );
-  const resetLimitTextLengthState = useResetRecoilState(
-    mainState["lineTextLengthState"]
-  );
-  const resetSpecialCharactersState = useResetRecoilState(
-    mainState["specialCharactersState"]
-  );
-  const resetStopWordsState = useResetRecoilState(mainState["stopWordsState"]);
-
-  // Advanced Settings
-  const resetStartEnabledState = useResetRecoilState(
-    mainState["startEnabledState"]
-  );
-  const resetStartTextState = useResetRecoilState(mainState["startTextState"]);
-  const resetStartChoiceRandomCharacterState = useResetRecoilState(
-    mainState["startChoiceRandomCharacterState"]
-  );
-  const resetStartLimitRandomTextLengthState = useResetRecoilState(
-    mainState["startLimitRandomTextLengthState"]
-  );
-  const resetEndEnabledState = useResetRecoilState(
-    mainState["endEnabledState"]
-  );
-  const resetEndTextState = useResetRecoilState(mainState["endTextState"]);
-  const resetEndChoiceRandomCharacterState = useResetRecoilState(
-    mainState["endChoiceRandomCharacterState"]
-  );
-  const resetEndLimitRandomTextLengthState = useResetRecoilState(
-    mainState["endLimitRandomTextLengthState"]
-  );
-
-  const handleAgree = debounce(() => {
-    resetShuffleTextState();
-    resetPreviewTextState();
-    resetConsoleTextState();
-    resetMarketSettingsState();
-    resetSettingsExpandedPanelState();
+    // Global Settings
+    settingsExpandedPanelState: useResetRecoilState(
+      mainState["settingsExpandedPanelState"]
+    ),
 
     // General Settings
-    resetIndexColumnState();
-    resetLimitTextLengthState();
-    resetSpecialCharactersState();
-    resetStopWordsState();
+    indexColumnState: useResetRecoilState(mainState["indexColumnState"]),
+    lineTextLengthState: useResetRecoilState(mainState["lineTextLengthState"]),
+    specialCharactersState: useResetRecoilState(
+      mainState["specialCharactersState"]
+    ),
+    stopWordsState: useResetRecoilState(mainState["stopWordsState"]),
 
-    // Advanced Settings
-    resetStartEnabledState();
-    resetStartTextState();
-    resetStartChoiceRandomCharacterState();
-    resetStartLimitRandomTextLengthState();
-    resetEndEnabledState();
-    resetEndTextState();
-    resetEndChoiceRandomCharacterState();
-    resetEndLimitRandomTextLengthState();
+    // Advanced Settings: Start
+    startEnabledState: useResetRecoilState(mainState["startEnabledState"]),
+    startTextState: useResetRecoilState(mainState["startTextState"]),
+    startChoiceRandomCharacterState: useResetRecoilState(
+      mainState["startChoiceRandomCharacterState"]
+    ),
+    startLimitRandomTextLengthState: useResetRecoilState(
+      mainState["startLimitRandomTextLengthState"]
+    ),
 
+    // Advanced Settings: End
+    endEnabledState: useResetRecoilState(mainState["endEnabledState"]),
+    endTextState: useResetRecoilState(mainState["endTextState"]),
+    endChoiceRandomCharacterState: useResetRecoilState(
+      mainState["endChoiceRandomCharacterState"]
+    ),
+    endLimitRandomTextLengthState: useResetRecoilState(
+      mainState["endLimitRandomTextLengthState"]
+    ),
+  };
+
+  const handleAgree = debounce(() => {
+    localStorage.removeItem(storageKey);
+    Object.keys(resetStates).forEach(function (stateName) {
+      resetStates[stateName]();
+    });
     setDialogOpen(false);
     setSnackbarOpen(true);
   }, 100);

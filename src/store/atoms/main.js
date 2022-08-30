@@ -1,9 +1,16 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
+const STORAGE_KEY = 'recoil-persist';
 const { persistAtom } = recoilPersist({
-  key: 'recoil-persist', // this key is using to store data in local storage
+  key: STORAGE_KEY, // this key is using to store data in local storage
   storage: localStorage, // configurate which stroage will be used to store the data
+});
+
+export const storageKeyState = atom({
+  key: "storageKeyState",
+  default: STORAGE_KEY,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const shuffleTextState = atom({
@@ -45,7 +52,7 @@ General Settings
 */
 export const indexColumnState = atom({
   key: "indexColumnState",
-  default: true,
+  default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
