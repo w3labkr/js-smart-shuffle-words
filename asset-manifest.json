@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/js-smart-shuffle-words/static/css/main.31d6cfe0.css",
-    "main.js": "/js-smart-shuffle-words/static/js/main.238e43df.js",
-    "static/js/787.f27274fa.chunk.js": "/js-smart-shuffle-words/static/js/787.f27274fa.chunk.js",
-    "index.html": "/js-smart-shuffle-words/index.html",
-    "main.238e43df.js.map": "/js-smart-shuffle-words/static/js/main.238e43df.js.map",
-    "787.f27274fa.chunk.js.map": "/js-smart-shuffle-words/static/js/787.f27274fa.chunk.js.map"
+    "main.css": "./static/css/main.31d6cfe0.css",
+    "main.js": "./static/js/main.d4801121.js",
+    "static/js/787.f27274fa.chunk.js": "./static/js/787.f27274fa.chunk.js",
+    "index.html": "./index.html",
+    "main.d4801121.js.map": "./static/js/main.d4801121.js.map",
+    "787.f27274fa.chunk.js.map": "./static/js/787.f27274fa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.238e43df.js"
+    "static/js/main.d4801121.js"
   ]
 }
