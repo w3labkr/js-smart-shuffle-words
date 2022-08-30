@@ -11,6 +11,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import * as mainState from "@atoms/main";
+import { debounce } from "lodash";
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -21,49 +22,83 @@ export default function MyComponent() {
   const { t } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const resetMarketSettings = useResetRecoilState(
+
+  const resetShuffleTextState = useResetRecoilState(
+    mainState["shuffleTextState"]
+  );
+  const resetPreviewTextState = useResetRecoilState(
+    mainState["previewTextState"]
+  );
+  const resetConsoleTextState = useResetRecoilState(
+    mainState["consoleTextState"]
+  );
+  const resetMarketSettingsState = useResetRecoilState(
     mainState["marketSettingsState"]
   );
   const resetSettingsExpandedPanelState = useResetRecoilState(
     mainState["settingsExpandedPanelState"]
   );
-  const resetStopWords = useResetRecoilState(mainState["stopWordsState"]);
-  const resetLimitTextBytes = useResetRecoilState(
-    mainState["limitTextBytesState"]
+
+  // General Settings
+  const resetIndexColumnState = useResetRecoilState(
+    mainState["indexColumnState"]
   );
-  const resetStartEnabled = useResetRecoilState(mainState["startEnabledState"]);
-  const resetStartText = useResetRecoilState(mainState["startTextState"]);
-  const resetStartChoiceRandomCharacter = useResetRecoilState(
+  const resetLimitTextLengthState = useResetRecoilState(
+    mainState["lineTextLengthState"]
+  );
+  const resetSpecialCharactersState = useResetRecoilState(
+    mainState["specialCharactersState"]
+  );
+  const resetStopWordsState = useResetRecoilState(mainState["stopWordsState"]);
+
+  // Advanced Settings
+  const resetStartEnabledState = useResetRecoilState(
+    mainState["startEnabledState"]
+  );
+  const resetStartTextState = useResetRecoilState(mainState["startTextState"]);
+  const resetStartChoiceRandomCharacterState = useResetRecoilState(
     mainState["startChoiceRandomCharacterState"]
   );
-  const resetStartLimitRandomTextLength = useResetRecoilState(
+  const resetStartLimitRandomTextLengthState = useResetRecoilState(
     mainState["startLimitRandomTextLengthState"]
   );
-  const resetEndEnabled = useResetRecoilState(mainState["endEnabledState"]);
-  const resetEndText = useResetRecoilState(mainState["endTextState"]);
-  const resetEndChoiceRandomCharacter = useResetRecoilState(
+  const resetEndEnabledState = useResetRecoilState(
+    mainState["endEnabledState"]
+  );
+  const resetEndTextState = useResetRecoilState(mainState["endTextState"]);
+  const resetEndChoiceRandomCharacterState = useResetRecoilState(
     mainState["endChoiceRandomCharacterState"]
   );
-  const resetEndLimitRandomTextLength = useResetRecoilState(
+  const resetEndLimitRandomTextLengthState = useResetRecoilState(
     mainState["endLimitRandomTextLengthState"]
   );
 
-  const handleAgree = () => {
-    resetMarketSettings();
+  const handleAgree = debounce(() => {
+    resetShuffleTextState();
+    resetPreviewTextState();
+    resetConsoleTextState();
+    resetMarketSettingsState();
     resetSettingsExpandedPanelState();
-    resetStopWords();
-    resetLimitTextBytes();
-    resetStartEnabled();
-    resetStartText();
-    resetStartChoiceRandomCharacter();
-    resetStartLimitRandomTextLength();
-    resetEndEnabled();
-    resetEndText();
-    resetEndChoiceRandomCharacter();
-    resetEndLimitRandomTextLength();
+
+    // General Settings
+    resetIndexColumnState();
+    resetLimitTextLengthState();
+    resetSpecialCharactersState();
+    resetStopWordsState();
+
+    // Advanced Settings
+    resetStartEnabledState();
+    resetStartTextState();
+    resetStartChoiceRandomCharacterState();
+    resetStartLimitRandomTextLengthState();
+    resetEndEnabledState();
+    resetEndTextState();
+    resetEndChoiceRandomCharacterState();
+    resetEndLimitRandomTextLengthState();
+
     setDialogOpen(false);
     setSnackbarOpen(true);
-  };
+  }, 100);
 
   return (
     <>

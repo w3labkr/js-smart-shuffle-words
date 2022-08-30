@@ -20,15 +20,15 @@ export default function MyComponent() {
         textState="startTextState"
         choiceState="startChoiceRandomCharacterState"
         lengthState="startLimitRandomTextLengthState"
-        enabledState="startEnabledState"
+        disabledValue="startDisabledValue"
       />
       <ChoiceRandomCharacter
         choiceState="startChoiceRandomCharacterState"
-        enabledState="startEnabledState"
+        disabledValue="startDisabledValue"
       />
       <LimitRandomTextLength
         lengthState="startLimitRandomTextLengthState"
-        enabledState="startEnabledState"
+        disabledValue="startDisabledValue"
       />
     </>
   );

@@ -1,7 +1,32 @@
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
 
-const { persistAtom } = recoilPersist();
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', // this key is using to store data in local storage
+  storage: localStorage, // configurate which stroage will be used to store the data
+});
+
+export const shuffleTextState = atom({
+  key: "shuffleTextState",
+  default: [
+    "Column Name",
+    "Lorem ipsum dolor sit amet",
+    "Nullam a sapien id orci",
+  ].join('\n'),
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const previewTextState = atom({
+  key: "previewTextState",
+  default: "",
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const consoleTextState = atom({
+  key: "consoleTextState",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
 
 export const marketSettingsState = atom({
   key: "marketSettingsState",
@@ -15,27 +40,45 @@ export const settingsExpandedPanelState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+/*
+General Settings
+*/
+export const indexColumnState = atom({
+  key: "indexColumnState",
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const lineTextLengthState = atom({
+  key: "lineTextLengthState",
+  default: -1,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const specialCharactersState = atom({
+  key: "specialCharactersState",
+  default: "!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const stopWordsState = atom({
   key: "stopWordsState",
-  default: "",
+  default: "Lorem ipsum",
   effects_UNSTABLE: [persistAtom],
 });
 
-export const limitTextBytesState = atom({
-  key: "limitTextBytesState",
-  default: 20,
-  effects_UNSTABLE: [persistAtom],
-});
-
+/*
+Advanced Settings
+*/
 export const startEnabledState = atom({
   key: "startEnabledState",
-  default: true,
+  default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const startTextState = atom({
   key: "startTextState",
-  default: "",
+  default: "START",
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -53,13 +96,13 @@ export const startLimitRandomTextLengthState = atom({
 
 export const endEnabledState = atom({
   key: "endEnabledState",
-  default: true,
+  default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endTextState = atom({
   key: "endTextState",
-  default: "",
+  default: "END",
   effects_UNSTABLE: [persistAtom],
 });
 

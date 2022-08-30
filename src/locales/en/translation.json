@@ -16,9 +16,10 @@
     "Random Text": "Random Text",
     "Length of random text generated:": "Length of random text generated:",
     "Enter the stopwords to be removed:": "Enter the stopwords to be removed:",
+    "Enter the special characters to be removed:": "Enter the special characters to be removed:",
     "Please enter text": "Please enter text",
-    "Seperated by comma": "Seperated by comma",
-    "Text length limit:": "Text length limit:",
+    "Seperated by whitespace": "Seperated by whitespace",
+    "Select the text length per line:": "Select the text length per line:",
     "Naver Ads": "Naver Ads",
     "Auction": "Auction",
     "G-Market": "G-Market",
@@ -32,5 +33,6 @@
     "Disagree": "Disagree",
     "Are you sure you want to reset all settings?": "Are you sure you want to reset all settings?",
     "All settings in General Settings and Advanced Settings will be reset.": "All settings in General Settings and Advanced Settings will be reset.",
-    "Resetting cannot restore existing settings.": "Resetting cannot restore existing settings."
+    "Resetting cannot restore existing settings.": "Resetting cannot restore existing settings.",
+    "Remove index column:": "Remove index column:"
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { useRecoilValue } from "recoil";
 import Typography from "@mui/material/Typography";
@@ -9,17 +9,17 @@ import { generateRandomColorRgb } from "@modules/randomColor";
 export default function MyComponent() {
   const { t } = useTranslation();
   const stopWords = useRecoilValue(stopWordsState);
-  const [highlightingWords, setHighlightingWords] = useState([]);
+  const [highlightWords, setHighlightWords] = useState([]);
 
-  useEffect(() => {
+  useMemo(() => {
     let words = [];
 
-    if (stopWords.length) {
-      stopWords.split(",").forEach((currentvalue, index) => {
+    if (stopWords.trim().length) {
+      stopWords.split(' ').forEach((currentvalue, index) => {
         const color = generateRandomColorRgb();
         words.push(
           <Typography key={index} component="span" sx={{ color }}>
-            {index !== 0 && ","}
+            {index !== 0 && ' '}
             {currentvalue}
           </Typography>
         );
@@ -28,14 +28,14 @@ export default function MyComponent() {
       words = "...";
     }
 
-    setHighlightingWords(words);
-  }, [stopWords, setHighlightingWords]);
+    setHighlightWords(words);
+  }, [stopWords, setHighlightWords]);
 
   return (
     <Stack spacing={1}>
       <Typography>{t("Highlighting stopwords")}</Typography>
       <Typography style={{ wordBreak: "break-all" }}>
-        {highlightingWords}
+        {highlightWords}
       </Typography>
     </Stack>
   );

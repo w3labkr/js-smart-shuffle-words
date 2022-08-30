@@ -7,6 +7,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Typography from "@mui/material/Typography";
 import * as mainState from "@atoms/main";
+import * as mainValue from "@selectors/main";
 
 const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   display: "flex",
@@ -14,10 +15,10 @@ const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent({ choiceState, enabledState }) {
+export default function MyComponent({ choiceState, disabledValue }) {
   const { t } = useTranslation();
   const [characters, setCharacters] = useRecoilState(mainState[choiceState]);
-  const enabled = useRecoilValue(mainState[enabledState]);
+  const disabled = useRecoilValue(mainValue[disabledValue]);
 
   const handleChange = (e, newValue) => {
     if (newValue) {
@@ -44,7 +45,7 @@ export default function MyComponent({ choiceState, enabledState }) {
               onChange={handleChange}
             />
           }
-          disabled={!enabled}
+          disabled={disabled}
         />
         <FormControlLabel
           label="abc"
@@ -57,7 +58,7 @@ export default function MyComponent({ choiceState, enabledState }) {
               onChange={handleChange}
             />
           }
-          disabled={!enabled}
+          disabled={disabled}
         />
         <FormControlLabel
           label="123"
@@ -70,7 +71,7 @@ export default function MyComponent({ choiceState, enabledState }) {
               onChange={handleChange}
             />
           }
-          disabled={!enabled}
+          disabled={disabled}
         />
         <FormControlLabel
           label="가나다"
@@ -83,7 +84,7 @@ export default function MyComponent({ choiceState, enabledState }) {
               onChange={handleChange}
             />
           }
-          disabled={!enabled}
+          disabled={disabled}
         />
       </FormGroup>
     </>

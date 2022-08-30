@@ -24,24 +24,22 @@ export default function MyComponent() {
   const setLineTextLength = useSetRecoilState(mainState["lineTextLengthState"]);
 
   const handleClick = debounce(() => {
-    setMarketSettings("Auction/G-Market");
-    setLineTextLength(100);
-    setStartEnabled(true);
-    setEndEnabled(true);
+    setMarketSettings("Naver Ads");
+    setLineTextLength(25);
+    setStartEnabled(false);
+    setEndEnabled(false);
     setSnackbarOpen(true);
   }, 100);
 
   return (
     <>
       <Button
-        variant={
-          marketSettings === "Auction/G-Market" ? "contained" : "outlined"
-        }
+        variant={marketSettings === "Naver Ads" ? "contained" : "outlined"}
         size="large"
         color="secondary"
         onClick={handleClick}
       >
-        {`${t("Auction")}/${t("G-Market")}`}
+        {t("Naver Ads")}
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}

@@ -1,20 +1,28 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import LimitTextBytes from "./LimitTextBytes";
-import StopWordsTextarea from "./StopWordsTextarea";
-import HighlightingStopWords from "./HighlightingStopWords";
+import RemoveIndexColumn from "./RemoveIndexColumn";
+import LimitTextLength from "./LimitTextLength";
+import RemoveSpecialCharacters from "./RemoveSpecialCharacters";
+import RemoveStopWords from "./RemoveStopWords";
+import HighlightStopWords from "./HighlightStopWords";
 
 export default function MyComponent() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <LimitTextBytes />
+        <RemoveIndexColumn />
       </Grid>
       <Grid item xs={12}>
-        <StopWordsTextarea />
+        <LimitTextLength />
       </Grid>
       <Grid item xs={12}>
-        <HighlightingStopWords />
+        <RemoveSpecialCharacters />
+      </Grid>
+      <Grid item xs={12}>
+        <RemoveStopWords />
+      </Grid>
+      <Grid item xs={12}>
+        <HighlightStopWords />
       </Grid>
     </Grid>
   );

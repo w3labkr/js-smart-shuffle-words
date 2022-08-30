@@ -6,6 +6,7 @@ import MuiButton from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import * as mainState from "@atoms/main";
+import { debounce } from "lodash";
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -15,21 +16,25 @@ const Button = styled(MuiButton)(({ theme }) => ({
 export default function MyComponent() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [marketSettings, setMarketSettings] = useRecoilState(mainState["marketSettingsState"]);
+  const [marketSettings, setMarketSettings] = useRecoilState(
+    mainState["marketSettingsState"]
+  );
   const setStartEnabled = useSetRecoilState(mainState["startEnabledState"]);
   const setEndEnabled = useSetRecoilState(mainState["endEnabledState"]);
+  const setLineTextLength = useSetRecoilState(mainState["lineTextLengthState"]);
 
-  const handleClick = () => {
-    setMarketSettings('General');
+  const handleClick = debounce(() => {
+    setMarketSettings("General");
+    setLineTextLength(-1);
     setStartEnabled(false);
     setEndEnabled(false);
     setSnackbarOpen(true);
-  };
+  }, 100);
 
   return (
     <>
       <Button
-        variant={marketSettings === 'General' ? "contained" : "outlined"}
+        variant={marketSettings === "General" ? "contained" : "outlined"}
         size="large"
         color="secondary"
         onClick={handleClick}

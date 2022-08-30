@@ -25,6 +25,7 @@ function App() {
         },
         palette: {
           mode,
+          borderColor: mode === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.3)',
         },
       }),
     [mode]

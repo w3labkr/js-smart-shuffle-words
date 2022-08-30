@@ -4,18 +4,19 @@ import { useSetRecoilState, useRecoilValue } from "recoil";
 import { styled } from "@mui/system";
 import MuiButton from "@mui/material/Button";
 import * as mainState from "@atoms/main";
+import * as mainValue from "@selectors/main";
 import { generateRandomHangul, generateRandomString } from "@modules/randomText";
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export default function MyComponent({ textState, choiceState, lengthState, enabledState }) {
+export default function MyComponent({ textState, choiceState, lengthState, disabledValue }) {
   const { t } = useTranslation();
   const setText = useSetRecoilState(mainState[textState]);
   const choices = useRecoilValue(mainState[choiceState]);
   const length = useRecoilValue(mainState[lengthState]);
-  const enabled = useRecoilValue(mainState[enabledState]);
+  const disabled = useRecoilValue(mainValue[disabledValue]);
 
   const handleClick = (e) => {
     let characters = "";
@@ -44,7 +45,7 @@ export default function MyComponent({ textState, choiceState, lengthState, enabl
       variant="contained"
       size="small"
       onClick={handleClick}
-      disabled={!enabled}
+      disabled={disabled}
     >
       {t("Generate Random Text")}
     </Button>

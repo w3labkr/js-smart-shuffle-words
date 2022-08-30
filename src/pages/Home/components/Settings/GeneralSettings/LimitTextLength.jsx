@@ -6,18 +6,18 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Typography from "@mui/material/Typography";
-import { limitTextBytesState } from "@atoms/main";
+import { lineTextLengthState } from "@atoms/main";
 
 export default function MyComponent() {
   const { t } = useTranslation();
-  const [value, setValue] = useRecoilState(limitTextBytesState);
+  const [value, setValue] = useRecoilState(lineTextLengthState);
 
   return (
     <FormControl>
-      <Typography>{t("Text length limit:")}</Typography>
+      <Typography>{t("Select the text length per line:")}</Typography>
       <RadioGroup
         row
-        name="limitTextBytes"
+        name="lineTextLength"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       >
