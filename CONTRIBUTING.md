@@ -288,7 +288,8 @@ yarn add global conventional-changelog-cli
 ```json
 {
     "scripts": {
-        "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+        "version": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s && git add CHANGELOG.md",
+        "version:init": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
     }
 }
 ```
