@@ -52,7 +52,19 @@ Builds the app for production to the `build` folder.
 yarn build
 ```
 
-## Material UI
+## Environment
+
+`.env`
+
+```txt
+REACT_APP_VERSION=$npm_package_version
+REACT_APP_NAME=$npm_package_name
+REACT_APP_GA_TRACKING_ID=UA-000000-01
+```
+
+## Dependencies
+
+### Material UI
 
 Install Material UI.
 
@@ -84,7 +96,7 @@ In order to use prebuilt SVG Material icons, you must first install the @mui/ico
 yarn add @mui/icons-material
 ```
 
-## react-i18next
+### react-i18next
 
 react-i18next is a powerful internationalization framework for React / React Native which is based on i18next.
 
@@ -92,7 +104,7 @@ react-i18next is a powerful internationalization framework for React / React Nat
 yarn add react-i18next i18next
 ```
 
-## Lodash
+### Lodash
 
 A modern JavaScript utility library delivering modularity, performance, & extras.
 
@@ -100,7 +112,7 @@ A modern JavaScript utility library delivering modularity, performance, & extras
 yarn add lodash
 ```
 
-## webfontloader
+### webfontloader
 
 Web Font Loader gives you added control when using linked fonts via @font-face.
 
@@ -108,7 +120,7 @@ Web Font Loader gives you added control when using linked fonts via @font-face.
 yarn add webfontloader
 ```
 
-## copy-to-clipboard
+### copy-to-clipboard
 
 Copy stuff into clipboard from your browser using JS
 
@@ -116,7 +128,7 @@ Copy stuff into clipboard from your browser using JS
 yarn add copy-to-clipboard
 ```
 
-## gh-pages
+### gh-pages
 
 General purpose task for publishing files to a gh-pages branch on GitHub.
 
@@ -133,4 +145,38 @@ yarn deploy
         "deploy": "gh-pages -d build"
     }
 }
+```
+
+### react-router-dom
+
+Declarative routing for React
+
+```shell
+yarn add react-router-dom
+```
+
+`src/index.js`
+
+```javascript
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+```
+
+### react-ga
+
+React Google Analytics Module
+
+```shell
+yarn add react-ga
+```
+
+`src/App.js`
+
+```javascript
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-000000-01');
+ReactGA.pageview(window.location.pathname + window.location.search);
 ```
