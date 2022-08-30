@@ -1,9 +1,8 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { useRecoilState } from "recoil";
-import Typography from "@mui/material/Typography";
-import Switch from "@mui/material/Switch";
-import { indexColumnState } from "@atoms/main";
+import { useTranslation } from 'react-i18next';
+import { useRecoilState } from 'recoil';
+import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch';
+import { indexColumnState } from '~/store/atoms/main';
 
 export default function MyComponent() {
   const { t } = useTranslation();
@@ -11,11 +10,8 @@ export default function MyComponent() {
 
   return (
     <Typography>
-      {t("Remove index column:")}
-      <Switch
-        checked={indexColumn}
-        onChange={(e, newValue) => setIndexColumn(newValue)}
-      />
+      {t('Remove index column:')}
+      <Switch checked={indexColumn} onChange={(e, newValue) => setIndexColumn(newValue)} />
     </Typography>
   );
 }

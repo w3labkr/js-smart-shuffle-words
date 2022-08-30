@@ -1,10 +1,10 @@
-import React, { useState, useMemo } from "react";
-import { useTranslation } from "react-i18next";
-import { useRecoilValue } from "recoil";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
-import { stopWordsState } from "@atoms/main";
-import { generateRandomColorRgb } from "@modules/randomColor";
+import { useState, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useRecoilValue } from 'recoil';
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import { stopWordsState } from '~/store/atoms/main';
+import { generateRandomColorRgb } from '~/modules/randomColor';
 
 export default function MyComponent() {
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ export default function MyComponent() {
         );
       });
     } else {
-      words = "...";
+      words = '...';
     }
 
     setHighlightWords(words);
@@ -33,10 +33,8 @@ export default function MyComponent() {
 
   return (
     <Stack spacing={1}>
-      <Typography>{t("Highlighting stopwords")}</Typography>
-      <Typography style={{ wordBreak: "break-all" }}>
-        {highlightWords}
-      </Typography>
+      <Typography>{t('Highlighting stopwords')}</Typography>
+      <Typography style={{ wordBreak: 'break-all' }}>{highlightWords}</Typography>
     </Stack>
   );
 }

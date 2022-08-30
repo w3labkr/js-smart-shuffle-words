@@ -1,14 +1,14 @@
-import * as React from "react";
-import ReactDOM from "react-dom/client";
-import WebFont from "webfontloader";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { RecoilRoot } from "recoil";
-import { BrowserRouter } from "react-router-dom";
-import "./locales/i18n";
-import "./App.css";
+import * as React from 'react';
+import ReactDOM from 'react-dom/client';
+import WebFont from 'webfontloader';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { RecoilRoot } from 'recoil';
+import { BrowserRouter } from 'react-router-dom';
+import './locales/i18n';
+import './App.css';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
@@ -28,10 +28,10 @@ root.render(
  */
 const webFontConfig = {
   google: {
-    families: ["Roboto"],
+    families: ['Roboto'],
   },
   classes: false,
-  timeout: 3000
+  timeout: 3000,
 };
 WebFont.load(webFontConfig);
 

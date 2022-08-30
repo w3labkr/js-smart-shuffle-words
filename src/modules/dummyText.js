@@ -38,25 +38,25 @@ export const generateSafeParagraph = (paragraphCount, wordCount = 50) => {
   return generateParagraph(words, paragraphCount, wordCount);
 };
 
-export const removeSpecialCharacters = (text, delimiter = " ") => {
+export const removeSpecialCharacters = (text, delimiter = ' ') => {
   return text
-    .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, " ")
+    .replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, ' ')
     .replace(/\s+/g, delimiter)
     .trim();
 };
 
-export const wordTokenize = (text, delimiter = " ") => {
+export const wordTokenize = (text, delimiter = ' ') => {
   return removeSpecialCharacters(text).split(delimiter);
 };
 
 export const generateSentence = (words, wordCount = 3) => {
-  let text = "";
+  let text = '';
 
   for (let i = 0; i < wordCount; i++) {
     if (i < wordCount - 1) {
-      text += words[Math.ceil(Math.random() * (words.length - 1))] + " ";
+      text += words[Math.ceil(Math.random() * (words.length - 1))] + ' ';
     } else {
-      text += words[Math.ceil(Math.random() * (words.length - 1))] + ".";
+      text += words[Math.ceil(Math.random() * (words.length - 1))] + '.';
     }
   }
 
@@ -64,11 +64,11 @@ export const generateSentence = (words, wordCount = 3) => {
 };
 
 export const generateParagraph = (words, paragraphCount, wordCount = 50) => {
-  let text = "";
+  let text = '';
 
   for (let i = 0; i < paragraphCount; i++) {
     if (i < paragraphCount - 1) {
-      text += generateSentence(words, wordCount) + "\n\n";
+      text += generateSentence(words, wordCount) + '\n\n';
     } else {
       text += generateSentence(words, wordCount);
     }

@@ -1,10 +1,9 @@
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import RemoveIndexColumn from "./RemoveIndexColumn";
-import LimitTextLength from "./LimitTextLength";
-import RemoveSpecialCharacters from "./RemoveSpecialCharacters";
-import RemoveStopWords from "./RemoveStopWords";
-import HighlightStopWords from "./HighlightStopWords";
+import Grid from '@mui/material/Grid';
+import RemoveIndexColumn from './RemoveIndexColumn';
+import LimitTextLength from './LimitTextLength';
+import RemoveSpecialCharacters from './RemoveSpecialCharacters';
+import RemoveStopWords from './RemoveStopWords';
+import HighlightStopWords from './HighlightStopWords';
 
 export default function MyComponent() {
   return (

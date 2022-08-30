@@ -1,14 +1,13 @@
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import ShufflePanel from "./ShufflePanel";
-import PreviewPanel from "./PreviewPanel";
+import Grid from '@mui/material/Grid';
+import ShufflePanel from './ShufflePanel';
+import PreviewPanel from './PreviewPanel';
 // import ConsolePanel from "./ConsolePanel";
-import ShuffleAction from "./ShuffleAction";
-import CopyAction from "./CopyAction";
-import GeneralMarketSettings from "./GeneralMarketSettings";
-import AuctionGMarketSettings from "./AuctionGMarketSettings";
-import NaverAdsSettings from "./NaverAdsSettings";
-import ResetSettings from "./ResetSettings";
+import ShuffleAction from './ShuffleAction';
+import CopyAction from './CopyAction';
+import GeneralMarketSettings from './GeneralMarketSettings';
+import AuctionGMarketSettings from './AuctionGMarketSettings';
+import NaverAdsSettings from './NaverAdsSettings';
+import ResetSettings from './ResetSettings';
 
 export default function MyComponent() {
   return (

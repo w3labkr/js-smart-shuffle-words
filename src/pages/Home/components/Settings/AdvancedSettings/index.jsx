@@ -1,7 +1,6 @@
-import * as React from "react";
-import Grid from "@mui/material/Grid";
-import StartText from "./StartText";
-import EndText from "./EndText";
+import Grid from '@mui/material/Grid';
+import StartText from './StartText';
+import EndText from './EndText';
 
 export default function MyComponent() {
   return (
