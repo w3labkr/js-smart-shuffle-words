@@ -7,7 +7,6 @@
     "Shuffled!": "Shuffled!",
     "Copy": "Copy",
     "Copied!": "Copied!",
-    "Removed!": "Removed!",
     "Updated!": "Updated!",
     "Shuffle & Copy": "Shuffle & Copy",
     "Generate Random Text": "Generate Random Text",
@@ -39,5 +38,6 @@
     "Word+Digit": "Word+Digit",
     "None": "None",
     "Self Shopping Mall": "Self Shopping Mall",
-    "Online Marketplace": "Online Marketplace"
+    "Online Marketplace": "Online Marketplace",
+    "Duplicate words have been removed!": "Duplicate words have been removed!"
 }

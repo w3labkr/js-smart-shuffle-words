@@ -36,7 +36,7 @@ export default function UniqueStopwordsAction() {
         autoHideDuration={1000}
         onClose={() => setSnackbarOpen(false)}
       >
-        <Alert severity="success">{t('Removed!')}</Alert>
+        <Alert severity="success">{t('Duplicate words have been removed!')}</Alert>
       </Snackbar>
     </>
   );
