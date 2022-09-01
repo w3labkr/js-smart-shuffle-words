@@ -1,3 +1,11 @@
+## [1.4.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.3.0...v1.4.0) (2022-09-01)
+
+
+### Features
+
+* remove duplicate words from stopwords ([17be05c](https://github.com/w3labkr/js-smart-shuffle-words/commit/17be05cf2c8c07978df0346b14441510196ac927))
+* reorder random text characters ([55956aa](https://github.com/w3labkr/js-smart-shuffle-words/commit/55956aa042a3d7dfda067cdc9d5be23e804ac744))
+
 ## [1.3.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.2.1...v1.3.0) (2022-08-30)
 
 
