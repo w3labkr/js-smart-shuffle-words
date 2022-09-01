@@ -37,5 +37,8 @@
     "Resetting cannot restore existing settings.": "Resetting cannot restore existing settings.",
     "Remove index column:": "Remove index column:",
     "Remove stopwords": "Remove stopwords",
-    "Reorder random text characters:": "Reorder random text characters:"
+    "Reorder random text characters:": "Reorder random text characters:",
+    "Digit+Word": "Digit+Word",
+    "Word+Digit": "Word+Digit",
+    "None": "None"
 }

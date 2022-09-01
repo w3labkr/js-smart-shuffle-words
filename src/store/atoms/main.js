@@ -97,6 +97,12 @@ export const startLimitRandomTextLengthState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+export const startReorderRandomTextCharactersState = atom({
+  key: 'startReorderRandomTextCharactersState',
+  default: 'none',
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const endEnabledState = atom({
   key: 'endEnabledState',
   default: false,
@@ -118,5 +124,11 @@ export const endChoiceRandomCharacterState = atom({
 export const endLimitRandomTextLengthState = atom({
   key: 'endLimitRandomTextLengthState',
   default: 12,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const endReorderRandomTextCharactersState = atom({
+  key: 'endReorderRandomTextCharactersState',
+  default: 'none',
   effects_UNSTABLE: [persistAtom],
 });

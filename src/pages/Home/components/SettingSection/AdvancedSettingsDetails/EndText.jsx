@@ -17,11 +17,15 @@ export default function EndText() {
         textState="endTextState"
         choiceState="endChoiceRandomCharacterState"
         lengthState="endLimitRandomTextLengthState"
+        reorderState="endReorderRandomTextCharactersState"
         disabledValue="endDisabledValue"
       />
       <ChoiceRandomCharacter choiceState="endChoiceRandomCharacterState" disabledValue="endDisabledValue" />
       <LimitRandomTextLength lengthState="endLimitRandomTextLengthState" disabledValue="endDisabledValue" />
-      <ReorderRandomTextCharacters />
+      <ReorderRandomTextCharacters
+        reorderState="endReorderRandomTextCharactersState"
+        disabledValue="endDisabledValue"
+      />
     </>
   );
 }

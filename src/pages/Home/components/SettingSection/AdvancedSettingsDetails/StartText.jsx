@@ -17,11 +17,15 @@ export default function StartText() {
         textState="startTextState"
         choiceState="startChoiceRandomCharacterState"
         lengthState="startLimitRandomTextLengthState"
+        reorderState="startReorderRandomTextCharactersState"
         disabledValue="startDisabledValue"
       />
       <ChoiceRandomCharacter choiceState="startChoiceRandomCharacterState" disabledValue="startDisabledValue" />
       <LimitRandomTextLength lengthState="startLimitRandomTextLengthState" disabledValue="startDisabledValue" />
-      <ReorderRandomTextCharacters />
+      <ReorderRandomTextCharacters
+        reorderState="startReorderRandomTextCharactersState"
+        disabledValue="startDisabledValue"
+      />
     </>
   );
 }

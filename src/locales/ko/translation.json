@@ -37,5 +37,8 @@
     "Resetting cannot restore existing settings.": "재설정하면 기존 설정을 복원할 수 없습니다.",
     "Remove index column:": "인덱스 열 제거:",
     "Remove stopwords": "금칙어 중복 제거",
-    "Reorder random text characters:": "랜덤 텍스트 문자 재정렬:"
+    "Reorder random text characters:": "랜덤 텍스트 문자 재정렬:",
+    "Digit+Word": "숫자+문자",
+    "Word+Digit": "문자+숫자",
+    "None": "없음"
 }

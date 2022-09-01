@@ -1,10 +1,15 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
+import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import MuiStack from '@mui/material/Stack';
 import { generateRandomColorRgb } from '~/modules/randomColor';
 import { stopWordsState } from '~/store/atoms/main';
+
+const Stack = styled(MuiStack)(({ theme }) => ({
+  marginTop: theme.spacing(-1),
+}));
 
 export default function HighlightStopWords() {
   const { t } = useTranslation();
