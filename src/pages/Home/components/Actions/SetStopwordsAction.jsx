@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRecoilValue } from 'recoil';
-import copy from 'copy-to-clipboard';
+import { useRecoilState } from 'recoil';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import * as mainState from '~/store/atoms/main';
-import { debounce } from 'lodash';
+import { debounce, uniq } from 'lodash';
+import { stopWordsState } from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -17,20 +16,19 @@ const Button = styled(MuiButton)(({ theme }) => ({
 export default function SetStopwordsAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const previewText = useRecoilValue(mainState['previewTextState']);
+  const [stopWords, setStopWords] = useRecoilState(stopWordsState);
 
   const handleClick = debounce(() => {
-    copy(previewText, {
-      debug: false,
-      format: 'text/plain', // (default) "text/html"
-      onCopy: setSnackbarOpen(true),
-    });
+    let oldList = stopWords.split(' ');
+    let newList = uniq(oldList);
+    setStopWords(newList.join(' '));
+    setSnackbarOpen(true);
   }, 100);
 
   return (
     <>
       <Button variant="outlined" size="large" onClick={handleClick}>
-        {t('Copy')}
+        {t('Remove stopwords')}
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
@@ -38,7 +36,7 @@ export default function SetStopwordsAction() {
         autoHideDuration={1000}
         onClose={() => setSnackbarOpen(false)}
       >
-        <Alert severity="success">{t('Copied!')}</Alert>
+        <Alert severity="success">{t('Removed!')}</Alert>
       </Snackbar>
     </>
   );

@@ -6,8 +6,8 @@ import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { randomArrayShuffle } from '~/modules/randomText';
 import { debounce } from 'lodash';
+import { randomArrayShuffle } from '~/modules/randomText';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),

@@ -2,11 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import * as mainState from '~/store/atoms/main';
+import { shuffleTextState } from '~/store/atoms/main';
 
 export default function ShufflePanel() {
   const { t } = useTranslation();
-  const [shuffleText, setShuffleText] = useRecoilState(mainState['shuffleTextState']);
+  const [shuffleText, setShuffleText] = useRecoilState(shuffleTextState);
 
   return (
     <>

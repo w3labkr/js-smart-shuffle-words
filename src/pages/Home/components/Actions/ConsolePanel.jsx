@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import MuiList from '@mui/material/List';
 import MuiListItem from '@mui/material/ListItem';
-import * as mainState from '~/store/atoms/main';
+import { consoleTextState } from '~/store/atoms/main';
 
 const List = styled(MuiList)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -20,7 +20,7 @@ const ListItem = styled(MuiListItem)(() => ({
 
 export default function ConsolePanel() {
   const { t } = useTranslation();
-  const consoleText = useRecoilValue(mainState['consoleTextState']);
+  const consoleText = useRecoilValue(consoleTextState);
 
   useMemo(() => {
     console.log(consoleText);

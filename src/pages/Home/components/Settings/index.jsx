@@ -8,7 +8,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import GeneralSettings from './GeneralSettings';
 import AdvancedSettings from './AdvancedSettings';
-import * as mainState from '~/store/atoms/main';
+import { settingsExpandedPanelState } from '~/store/atoms/main';
 
 const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
@@ -40,7 +40,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export default function Settings() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = useRecoilState(mainState['settingsExpandedPanelState']);
+  const [expanded, setExpanded] = useRecoilState(settingsExpandedPanelState);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);

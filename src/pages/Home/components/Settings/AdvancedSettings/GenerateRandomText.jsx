@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
+import { generateRandomHangul, generateRandomString } from '~/modules/randomText';
 import * as mainState from '~/store/atoms/main';
 import * as mainValue from '~/store/selectors/main';
-import { generateRandomHangul, generateRandomString } from '~/modules/randomText';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(2),
