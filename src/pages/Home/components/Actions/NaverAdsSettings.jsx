@@ -13,7 +13,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function NaverAdsSettings() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [marketSettings, setMarketSettings] = useRecoilState(mainState['marketSettingsState']);

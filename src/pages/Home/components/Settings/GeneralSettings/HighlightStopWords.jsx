@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import { stopWordsState } from '~/store/atoms/main';
 import { generateRandomColorRgb } from '~/modules/randomColor';
 
-export default function MyComponent() {
+export default function HighlightStopWords() {
   const { t } = useTranslation();
   const stopWords = useRecoilValue(stopWordsState);
   const [highlightWords, setHighlightWords] = useState([]);

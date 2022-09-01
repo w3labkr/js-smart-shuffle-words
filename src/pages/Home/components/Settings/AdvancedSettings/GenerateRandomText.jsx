@@ -10,7 +10,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export default function MyComponent({ textState, choiceState, lengthState, disabledValue }) {
+export default function GenerateRandomText({ textState, choiceState, lengthState, disabledValue }) {
   const { t } = useTranslation();
   const setText = useSetRecoilState(mainState[textState]);
   const choices = useRecoilValue(mainState[choiceState]);

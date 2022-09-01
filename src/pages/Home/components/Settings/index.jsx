@@ -38,7 +38,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function ControlledAccordions() {
+export default function Settings() {
   const { t } = useTranslation();
   const [expanded, setExpanded] = useRecoilState(mainState['settingsExpandedPanelState']);
 

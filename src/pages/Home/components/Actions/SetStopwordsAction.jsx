@@ -14,7 +14,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function CopyAction() {
+export default function SetStopwordsAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const previewText = useRecoilValue(mainState['previewTextState']);

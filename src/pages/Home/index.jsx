@@ -4,7 +4,7 @@ import Layout from '~/templates/Layout';
 import Actions from './components/Actions';
 import Settings from './components/Settings';
 
-export default function Page() {
+export default function Home() {
   return (
     <Layout>
       <Box component="form" noValidate autoComplete="off">

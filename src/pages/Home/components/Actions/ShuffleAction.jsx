@@ -14,7 +14,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function ShuffleAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const setPreviewText = useSetRecoilState(mainState['previewTextState']);

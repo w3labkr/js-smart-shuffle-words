@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { specialCharactersState } from '~/store/atoms/main';
 
-export default function MyComponent() {
+export default function RemoveSpecialCharacters() {
   const { t } = useTranslation();
   const [specialCharacters, setStopWordSpecialCharacters] = useRecoilState(specialCharactersState);
 

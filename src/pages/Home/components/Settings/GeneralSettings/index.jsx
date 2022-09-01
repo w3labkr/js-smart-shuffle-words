@@ -5,7 +5,7 @@ import RemoveSpecialCharacters from './RemoveSpecialCharacters';
 import RemoveStopWords from './RemoveStopWords';
 import HighlightStopWords from './HighlightStopWords';
 
-export default function MyComponent() {
+export default function GeneralSettings() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>

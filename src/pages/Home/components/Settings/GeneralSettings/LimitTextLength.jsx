@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 import { lineTextLengthState } from '~/store/atoms/main';
 
-export default function MyComponent() {
+export default function LimitTextLength() {
   const { t } = useTranslation();
   const [value, setValue] = useRecoilState(lineTextLengthState);
 

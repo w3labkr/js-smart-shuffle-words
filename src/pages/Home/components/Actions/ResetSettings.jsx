@@ -18,7 +18,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function ResetSettings() {
   const { t } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);

@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import * as mainState from '~/store/atoms/main';
 
-export default function MyComponent() {
+export default function PreviewPanel() {
   const { t } = useTranslation();
   const previewText = useRecoilValue(mainState['previewTextState']);
 

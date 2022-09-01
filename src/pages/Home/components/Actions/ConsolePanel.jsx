@@ -14,11 +14,11 @@ const List = styled(MuiList)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
-const ListItem = styled(MuiListItem)(({ theme }) => ({
+const ListItem = styled(MuiListItem)(() => ({
   padding: 0,
 }));
 
-export default function MyComponent() {
+export default function ConsolePanel() {
   const { t } = useTranslation();
   const consoleText = useRecoilValue(mainState['consoleTextState']);
 
@@ -32,7 +32,7 @@ export default function MyComponent() {
         {t('Console')}
       </Typography>
       <List>
-        {consoleText.map((item, index) => {
+        {consoleText.map((item) => {
           return (
             <ListItem key={item.key}>
               <Typography>{item.value}</Typography>

@@ -4,7 +4,7 @@ import GenerateRandomText from './GenerateRandomText';
 import ChoiceRandomCharacter from './ChoiceRandomCharacter';
 import LimitRandomTextLength from './LimitRandomTextLength';
 
-export default function MyComponent() {
+export default function EndText() {
   const { t } = useTranslation();
 
   return (
