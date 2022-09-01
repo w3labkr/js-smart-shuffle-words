@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { useRecoilState } from 'recoil';
+import { Helmet } from 'react-helmet-async';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { themeColorModeState } from './store/atoms/theme';
 import { ColorModeContext } from './contexts/theme';
 import useGATracker from './hooks/useGATracker';
-import Page from './pages/Home';
-import Head from './templates/Head';
+import Home from './pages/Home';
 
 function App() {
   const [mode, setMode] = useRecoilState(themeColorModeState);
@@ -39,14 +39,13 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Helmet>
+          <title>Smart Shuffle Words</title>
+          <meta name="description" content="Shuffle the words on each line" />
+          <meta name="keywords" content="js,javascript,react,reactjs,shuffle,words" />
+        </Helmet>
         <div className="App">
-          <Head
-            title="Smart Shuffle Words"
-            description="Shuffle the words on each line<"
-            keywords="js,javascript,react,reactjs,shuffle,words"
-            canonical="https://w3labkr.github.io/js-smart-shuffle-words/"
-          />
-          <Page />
+          <Home />
         </div>
       </ThemeProvider>
     </ColorModeContext.Provider>
