@@ -13,3 +13,8 @@ export const themeLanguageState = atom({
   key: 'themeLanguageState',
   default: 'ko',
 });
+
+export const themeSidebarWidthState = atom({
+  key: 'themeSidebarWidthState',
+  default: 240,
+});
