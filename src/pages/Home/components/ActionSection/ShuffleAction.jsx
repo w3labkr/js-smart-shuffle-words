@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSetRecoilState, useRecoilValue } from 'recoil';
-import * as mainState from '~/store/atoms/main';
+import { debounce as _debounce } from 'lodash';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { debounce as _debounce } from 'lodash';
 import { randomArrayShuffle } from '~/modules/randomText';
+import * as mainState from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -20,7 +20,7 @@ export default function ShuffleAction() {
   const setPreviewText = useSetRecoilState(mainState['previewTextState']);
   const shuffleText = useRecoilValue(mainState['shuffleTextState']);
   const specialCharacters = useRecoilValue(mainState['specialCharactersState']);
-  const stopWords = useRecoilValue(mainState['stopWordsState']);
+  const stopwords = useRecoilValue(mainState['stopwordsState']);
   const startText = useRecoilValue(mainState['startTextState']);
   const startEnabled = useRecoilValue(mainState['startEnabledState']);
   const endText = useRecoilValue(mainState['endTextState']);
@@ -39,7 +39,7 @@ export default function ShuffleAction() {
     newLines = removeSpecialCharacters(newLines, specialCharacters);
 
     // console.log("금칙어를 제거하는 중 입니다...");
-    newLines = removeStopWords(newLines, stopWords);
+    newLines = removeStopWords(newLines, stopwords);
 
     // console.log("단어를 섞는 중 입니다...");
     newLines = shuffleWords(newLines);
@@ -95,8 +95,8 @@ function removeSpecialCharacters(oldLines, specialCharacters) {
   return newLines;
 }
 
-function removeStopWords(oldLines, stopWords) {
-  let stopWordList = stopWords.split(' ');
+function removeStopWords(oldLines, stopwords) {
+  let stopWordList = stopwords.split(' ');
   let newLines = oldLines;
 
   for (let idx = 0, len = newLines.length; idx < len; idx++) {

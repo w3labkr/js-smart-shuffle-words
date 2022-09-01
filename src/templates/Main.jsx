@@ -1,11 +1,10 @@
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+import { styled } from '@mui/material/styles';
+import MuiBox from '@mui/material/Box';
+
+const Box = styled(MuiBox)(({ theme }) => ({
+  padding: theme.spacing(3),
+}));
 
 export default function Main({ children }) {
-  return (
-    <Box component="main" sx={{ bgcolor: 'background.default', p: 3 }}>
-      <Toolbar />
-      {children}
-    </Box>
-  );
+  return <Box component="main">{children}</Box>;
 }

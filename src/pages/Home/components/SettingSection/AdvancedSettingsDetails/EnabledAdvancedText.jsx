@@ -17,7 +17,7 @@ export default function EnabledAdvancedText({ children, textState, enabledState 
 
   return (
     <>
-      <Typography variant="h6" component="h3">
+      <Typography>
         {children}
         <Switch checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />
       </Typography>

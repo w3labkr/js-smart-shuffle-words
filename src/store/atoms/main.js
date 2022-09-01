@@ -33,13 +33,13 @@ export const consoleTextState = atom({
 
 export const marketSettingsState = atom({
   key: 'marketSettingsState',
-  default: 'General',
+  default: 'Online Marketplace',
   effects_UNSTABLE: [persistAtom],
 });
 
-export const settingsExpandedPanelState = atom({
-  key: 'settingsExpandedPanelState',
-  default: 'panel1',
+export const settingsTabPanelState = atom({
+  key: 'settingsTabPanelState',
+  default: 0,
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -64,9 +64,15 @@ export const specialCharactersState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const stopWordsState = atom({
-  key: 'stopWordsState',
+export const stopwordsState = atom({
+  key: 'stopwordsState',
   default: 'Lorem ipsum',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const stopwordUrlState = atom({
+  key: 'stopwordUrlState',
+  default: '',
   effects_UNSTABLE: [persistAtom],
 });
 

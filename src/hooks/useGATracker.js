@@ -4,7 +4,7 @@ import { initialize, pageview } from 'react-ga';
 
 const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
-export default function MyComponent() {
+export default function useGATracker() {
   const location = useLocation();
   const [initialized, setInitialized] = useState(false);
 

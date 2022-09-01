@@ -1,26 +1,21 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
-import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import MuiStack from '@mui/material/Stack';
+import Stack from '@mui/material/Stack';
 import { generateRandomColorRgb } from '~/modules/randomColor';
-import { stopWordsState } from '~/store/atoms/main';
+import { stopwordsState } from '~/store/atoms/main';
 
-const Stack = styled(MuiStack)(({ theme }) => ({
-  marginTop: theme.spacing(-1),
-}));
-
-export default function HighlightStopWords() {
+export default function HighlightStopwords() {
   const { t } = useTranslation();
-  const stopWords = useRecoilValue(stopWordsState);
+  const stopwords = useRecoilValue(stopwordsState);
   const [highlightWords, setHighlightWords] = useState([]);
 
   useMemo(() => {
     let words = [];
 
-    if (stopWords.trim().length) {
-      stopWords.split(' ').forEach((currentvalue, index) => {
+    if (stopwords.trim().length) {
+      stopwords.split(' ').forEach((currentvalue, index) => {
         const color = generateRandomColorRgb();
         words.push(
           <Typography key={index} component="span" sx={{ color }}>
@@ -34,7 +29,7 @@ export default function HighlightStopWords() {
     }
 
     setHighlightWords(words);
-  }, [stopWords, setHighlightWords]);
+  }, [stopwords, setHighlightWords]);
 
   return (
     <Stack spacing={1}>

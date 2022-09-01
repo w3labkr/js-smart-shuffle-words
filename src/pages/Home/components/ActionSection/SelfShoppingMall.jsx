@@ -13,7 +13,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function GeneralMarketSettings() {
+export default function SelfShoppingMall() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [marketSettings, setMarketSettings] = useRecoilState(mainState['marketSettingsState']);
@@ -22,22 +22,22 @@ export default function GeneralMarketSettings() {
   const setLineTextLength = useSetRecoilState(mainState['lineTextLengthState']);
 
   const handleClick = _debounce(() => {
-    setMarketSettings('General');
-    setLineTextLength(-1);
-    setStartEnabled(false);
-    setEndEnabled(false);
+    setMarketSettings('OwnMall');
+    setLineTextLength(100);
+    setStartEnabled(true);
+    setEndEnabled(true);
     setSnackbarOpen(true);
   }, 100);
 
   return (
     <>
       <Button
-        variant={marketSettings === 'General' ? 'contained' : 'outlined'}
+        variant={marketSettings === 'Self Shopping Mall' ? 'contained' : 'outlined'}
         size="large"
         color="secondary"
         onClick={handleClick}
       >
-        {t('General Market')}
+        {t('Self Shopping Mall')}
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
