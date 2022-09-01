@@ -6,9 +6,9 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import GeneralSettings from './GeneralSettings';
-import AdvancedSettings from './AdvancedSettings';
-import * as mainState from '~/store/atoms/main';
+import GeneralSettingsDetails from './GeneralSettingsDetails';
+import AdvancedSettingsDetails from './AdvancedSettingsDetails';
+import { settingsExpandedPanelState } from '~/store/atoms/main';
 
 const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
@@ -38,9 +38,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-export default function ControlledAccordions() {
+export default function SettingSection() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = useRecoilState(mainState['settingsExpandedPanelState']);
+  const [expanded, setExpanded] = useRecoilState(settingsExpandedPanelState);
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -57,7 +57,7 @@ export default function ControlledAccordions() {
           <Typography>{t('General Settings')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <GeneralSettings />
+          <GeneralSettingsDetails />
         </AccordionDetails>
       </Accordion>
       <Accordion
@@ -69,7 +69,7 @@ export default function ControlledAccordions() {
           <Typography>{t('Advanced Settings')}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <AdvancedSettings />
+          <AdvancedSettingsDetails />
         </AccordionDetails>
       </Accordion>
     </div>

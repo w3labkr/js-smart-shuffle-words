@@ -57,8 +57,8 @@ yarn build
 `.env`
 
 ```txt
-REACT_APP_VERSION=$npm_package_version
 REACT_APP_NAME=$npm_package_name
+REACT_APP_VERSION=$npm_package_version
 REACT_APP_GA_TRACKING_ID=UA-000000-01
 ```
 

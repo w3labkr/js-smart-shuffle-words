@@ -5,7 +5,7 @@ import Slider from '@mui/material/Slider';
 import * as mainState from '~/store/atoms/main';
 import * as mainValue from '~/store/selectors/main';
 
-export default function MyComponent({ lengthState, disabledValue }) {
+export default function LimitRandomTextLength({ lengthState, disabledValue }) {
   const { t } = useTranslation();
   const [length, setLength] = useRecoilState(mainState[lengthState]);
   const disabled = useRecoilValue(mainValue[disabledValue]);

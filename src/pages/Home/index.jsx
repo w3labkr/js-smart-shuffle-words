@@ -1,24 +1,18 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import Header from '~/templates/Header';
-import Main from '~/templates/Main';
-import Footer from '~/templates/Footer';
-import Actions from './components/Actions';
-import Settings from './components/Settings';
+import Layout from '~/templates/Layout';
+import ActionSection from './components/ActionSection';
+import SettingSection from './components/SettingSection';
 
-export default function Page() {
+export default function Home() {
   return (
-    <>
-      <Header />
-      <Main>
-        <Box component="form" noValidate autoComplete="off">
-          <Stack spacing={2}>
-            <Actions />
-            <Settings />
-          </Stack>
-        </Box>
-      </Main>
-      <Footer />
-    </>
+    <Layout>
+      <Box component="form" noValidate autoComplete="off">
+        <Stack spacing={2}>
+          <ActionSection />
+          <SettingSection />
+        </Stack>
+      </Box>
+    </Layout>
   );
 }

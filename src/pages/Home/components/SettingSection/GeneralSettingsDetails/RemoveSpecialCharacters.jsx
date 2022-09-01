@@ -1,11 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
+import { styled } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
+import MuiStack from '@mui/material/Stack';
 import { specialCharactersState } from '~/store/atoms/main';
 
-export default function MyComponent() {
+const Stack = styled(MuiStack)(({ theme }) => ({
+  marginTop: theme.spacing(-1),
+}));
+
+export default function RemoveSpecialCharacters() {
   const { t } = useTranslation();
   const [specialCharacters, setStopWordSpecialCharacters] = useRecoilState(specialCharactersState);
 

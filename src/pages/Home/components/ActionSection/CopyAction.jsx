@@ -6,20 +6,20 @@ import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import * as mainState from '~/store/atoms/main';
-import { debounce } from 'lodash';
+import { debounce as _debounce } from 'lodash';
+import { previewTextState } from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function CopyAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const previewText = useRecoilValue(mainState['previewTextState']);
+  const previewText = useRecoilValue(previewTextState);
 
-  const handleClick = debounce(() => {
+  const handleClick = _debounce(() => {
     copy(previewText, {
       debug: false,
       format: 'text/plain', // (default) "text/html"

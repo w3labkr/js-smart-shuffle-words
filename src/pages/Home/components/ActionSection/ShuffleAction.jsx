@@ -6,15 +6,15 @@ import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import { debounce as _debounce } from 'lodash';
 import { randomArrayShuffle } from '~/modules/randomText';
-import { debounce } from 'lodash';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function ShuffleAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const setPreviewText = useSetRecoilState(mainState['previewTextState']);
@@ -28,7 +28,7 @@ export default function MyComponent() {
   const lineTextLength = useRecoilValue(mainState['lineTextLengthState']);
   const indexColumn = useRecoilValue(mainState['indexColumnState']);
 
-  const handleClick = debounce(() => {
+  const handleClick = _debounce(() => {
     let oldLines = shuffleText.replace(/\s+$/, '').replace(/\r\n/g, '\n');
     let newLines = oldLines.split('\n');
 

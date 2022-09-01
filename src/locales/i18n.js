@@ -27,8 +27,8 @@ i18n
     // It is recommended to read up on IETF Language Codes.
     // If you're using a language detector, do not define the lng option
     // https://en.wikipedia.org/wiki/IETF_language_tag
-    lng: 'en',
-    fallbackLng: 'en',
+    lng: 'ko',
+    fallbackLng: 'ko',
 
     ns: ['translations'], // string or array of namespaces to load
     defaultNS: 'translations', // default namespace used if not passed to the translation function

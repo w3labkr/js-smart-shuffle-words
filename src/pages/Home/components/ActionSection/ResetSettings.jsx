@@ -10,15 +10,15 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import { debounce as _debounce } from 'lodash';
 import * as mainState from '~/store/atoms/main';
-import { debounce } from 'lodash';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function ResetSettings() {
   const { t } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -52,7 +52,7 @@ export default function MyComponent() {
     endLimitRandomTextLengthState: useResetRecoilState(mainState['endLimitRandomTextLengthState']),
   };
 
-  const handleAgree = debounce(() => {
+  const handleAgree = _debounce(() => {
     localStorage.removeItem(storageKey);
     Object.keys(resetStates).forEach(function (stateName) {
       resetStates[stateName]();

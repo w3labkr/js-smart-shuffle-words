@@ -5,15 +5,15 @@ import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import { debounce as _debounce } from 'lodash';
 import * as mainState from '~/store/atoms/main';
-import { debounce } from 'lodash';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent() {
+export default function GeneralMarketSettings() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [marketSettings, setMarketSettings] = useRecoilState(mainState['marketSettingsState']);
@@ -21,7 +21,7 @@ export default function MyComponent() {
   const setEndEnabled = useSetRecoilState(mainState['endEnabledState']);
   const setLineTextLength = useSetRecoilState(mainState['lineTextLengthState']);
 
-  const handleClick = debounce(() => {
+  const handleClick = _debounce(() => {
     setMarketSettings('General');
     setLineTextLength(-1);
     setStartEnabled(false);

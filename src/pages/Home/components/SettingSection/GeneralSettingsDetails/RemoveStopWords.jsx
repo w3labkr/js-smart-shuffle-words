@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { stopWordsState } from '~/store/atoms/main';
 
-export default function MyComponent() {
+export default function RemoveStopWords() {
   const { t } = useTranslation();
   const [stopWords, setStopWords] = useRecoilState(stopWordsState);
 

@@ -87,13 +87,19 @@ export const startTextState = atom({
 
 export const startChoiceRandomCharacterState = atom({
   key: 'startChoiceRandomCharacterState',
-  default: ['uppercase', 'lowercase', 'numbers'],
+  default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
 
 export const startLimitRandomTextLengthState = atom({
   key: 'startLimitRandomTextLengthState',
   default: 12,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const startReorderRandomTextCharactersState = atom({
+  key: 'startReorderRandomTextCharactersState',
+  default: 'none',
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -111,12 +117,18 @@ export const endTextState = atom({
 
 export const endChoiceRandomCharacterState = atom({
   key: 'endChoiceRandomCharacterState',
-  default: ['uppercase', 'lowercase', 'numbers'],
+  default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
 
 export const endLimitRandomTextLengthState = atom({
   key: 'endLimitRandomTextLengthState',
   default: 12,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const endReorderRandomTextCharactersState = atom({
+  key: 'endReorderRandomTextCharactersState',
+  default: 'none',
   effects_UNSTABLE: [persistAtom],
 });

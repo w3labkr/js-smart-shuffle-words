@@ -3,8 +3,9 @@ import EnabledAdvancedText from './EnabledAdvancedText';
 import GenerateRandomText from './GenerateRandomText';
 import ChoiceRandomCharacter from './ChoiceRandomCharacter';
 import LimitRandomTextLength from './LimitRandomTextLength';
+import ReorderRandomTextCharacters from './ReorderRandomTextCharacters';
 
-export default function MyComponent() {
+export default function EndText() {
   const { t } = useTranslation();
 
   return (
@@ -16,10 +17,15 @@ export default function MyComponent() {
         textState="endTextState"
         choiceState="endChoiceRandomCharacterState"
         lengthState="endLimitRandomTextLengthState"
+        reorderState="endReorderRandomTextCharactersState"
         disabledValue="endDisabledValue"
       />
       <ChoiceRandomCharacter choiceState="endChoiceRandomCharacterState" disabledValue="endDisabledValue" />
       <LimitRandomTextLength lengthState="endLimitRandomTextLengthState" disabledValue="endDisabledValue" />
+      <ReorderRandomTextCharacters
+        reorderState="endReorderRandomTextCharactersState"
+        disabledValue="endDisabledValue"
+      />
     </>
   );
 }

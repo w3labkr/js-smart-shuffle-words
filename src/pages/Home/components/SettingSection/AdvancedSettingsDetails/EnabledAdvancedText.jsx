@@ -10,7 +10,7 @@ const TextField = styled(MuiTextField)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export default function MyComponent({ children, textState, enabledState }) {
+export default function EnabledAdvancedText({ children, textState, enabledState }) {
   const { t } = useTranslation();
   const [enabled, setEnabled] = useRecoilState(mainState[enabledState]);
   const [text, setText] = useRecoilState(mainState[textState]);

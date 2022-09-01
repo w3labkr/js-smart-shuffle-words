@@ -14,7 +14,7 @@ const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function MyComponent({ choiceState, disabledValue }) {
+export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
   const { t } = useTranslation();
   const [characters, setCharacters] = useRecoilState(mainState[choiceState]);
   const disabled = useRecoilValue(mainValue[disabledValue]);
@@ -63,8 +63,8 @@ export default function MyComponent({ choiceState, disabledValue }) {
             <Checkbox
               size="small"
               name={choiceState}
-              value="numbers"
-              checked={characters.indexOf('numbers') !== -1}
+              value="digit"
+              checked={characters.indexOf('digit') !== -1}
               onChange={handleChange}
             />
           }

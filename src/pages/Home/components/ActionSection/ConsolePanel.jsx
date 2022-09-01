@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import MuiList from '@mui/material/List';
 import MuiListItem from '@mui/material/ListItem';
-import * as mainState from '~/store/atoms/main';
+import { consoleTextState } from '~/store/atoms/main';
 
 const List = styled(MuiList)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -14,13 +14,13 @@ const List = styled(MuiList)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
-const ListItem = styled(MuiListItem)(({ theme }) => ({
+const ListItem = styled(MuiListItem)(() => ({
   padding: 0,
 }));
 
-export default function MyComponent() {
+export default function ConsolePanel() {
   const { t } = useTranslation();
-  const consoleText = useRecoilValue(mainState['consoleTextState']);
+  const consoleText = useRecoilValue(consoleTextState);
 
   useMemo(() => {
     console.log(consoleText);
@@ -32,7 +32,7 @@ export default function MyComponent() {
         {t('Console')}
       </Typography>
       <List>
-        {consoleText.map((item, index) => {
+        {consoleText.map((item) => {
           return (
             <ListItem key={item.key}>
               <Typography>{item.value}</Typography>
