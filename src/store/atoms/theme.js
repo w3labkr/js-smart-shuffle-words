@@ -11,5 +11,5 @@ export const themeColorModeState = atom({
 
 export const themeLanguageState = atom({
   key: 'themeLanguageState',
-  default: 'en',
+  default: 'ko',
 });

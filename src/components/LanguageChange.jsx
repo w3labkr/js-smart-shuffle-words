@@ -22,8 +22,8 @@ export default function LanguageChange() {
 
   return (
     <ToggleButtonGroup size="small" value={language} exclusive onChange={(e, value) => setLanguage(value)}>
-      <ToggleButton value="en">EN</ToggleButton>
       <ToggleButton value="ko">KO</ToggleButton>
+      <ToggleButton value="en">EN</ToggleButton>
     </ToggleButtonGroup>
   );
 }
