@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.4.0...v1.4.1) (2022-09-01)
+
+
+### Bug Fixes
+
+* random text character reorders were not initialized ([6a6edfa](https://github.com/w3labkr/js-smart-shuffle-words/commit/6a6edfaa8c4376c2338f7f4e137de360f0efa4e7))
+
 ## [1.4.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.3.0...v1.4.0) (2022-09-01)
 
 
