@@ -5,7 +5,7 @@ import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { debounce } from 'lodash';
+import { debounce as _debounce } from 'lodash';
 import * as mainState from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
@@ -13,7 +13,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function NaverAdsSettings() {
+export default function GeneralMarketSettings() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [marketSettings, setMarketSettings] = useRecoilState(mainState['marketSettingsState']);
@@ -21,9 +21,9 @@ export default function NaverAdsSettings() {
   const setEndEnabled = useSetRecoilState(mainState['endEnabledState']);
   const setLineTextLength = useSetRecoilState(mainState['lineTextLengthState']);
 
-  const handleClick = debounce(() => {
-    setMarketSettings('Naver Ads');
-    setLineTextLength(25);
+  const handleClick = _debounce(() => {
+    setMarketSettings('General');
+    setLineTextLength(-1);
     setStartEnabled(false);
     setEndEnabled(false);
     setSnackbarOpen(true);
@@ -32,12 +32,12 @@ export default function NaverAdsSettings() {
   return (
     <>
       <Button
-        variant={marketSettings === 'Naver Ads' ? 'contained' : 'outlined'}
+        variant={marketSettings === 'General' ? 'contained' : 'outlined'}
         size="large"
         color="secondary"
         onClick={handleClick}
       >
-        {t('Naver Ads')}
+        {t('General Market')}
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

@@ -1,16 +1,16 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Layout from '~/templates/Layout';
-import Actions from './components/Actions';
-import Settings from './components/Settings';
+import ActionSection from './components/ActionSection';
+import SettingSection from './components/SettingSection';
 
 export default function Home() {
   return (
     <Layout>
       <Box component="form" noValidate autoComplete="off">
         <Stack spacing={2}>
-          <Actions />
-          <Settings />
+          <ActionSection />
+          <SettingSection />
         </Stack>
       </Box>
     </Layout>

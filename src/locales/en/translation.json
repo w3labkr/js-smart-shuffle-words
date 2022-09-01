@@ -36,5 +36,6 @@
     "All settings in General Settings and Advanced Settings will be reset.": "All settings in General Settings and Advanced Settings will be reset.",
     "Resetting cannot restore existing settings.": "Resetting cannot restore existing settings.",
     "Remove index column:": "Remove index column:",
-    "Remove stopwords": "Remove stopwords"
+    "Remove stopwords": "Remove stopwords",
+    "Reorder random text characters:": "Reorder random text characters:"
 }

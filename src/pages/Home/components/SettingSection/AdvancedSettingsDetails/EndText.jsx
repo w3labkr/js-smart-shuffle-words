@@ -3,6 +3,7 @@ import EnabledAdvancedText from './EnabledAdvancedText';
 import GenerateRandomText from './GenerateRandomText';
 import ChoiceRandomCharacter from './ChoiceRandomCharacter';
 import LimitRandomTextLength from './LimitRandomTextLength';
+import ReorderRandomTextCharacters from './ReorderRandomTextCharacters';
 
 export default function EndText() {
   const { t } = useTranslation();
@@ -20,6 +21,7 @@ export default function EndText() {
       />
       <ChoiceRandomCharacter choiceState="endChoiceRandomCharacterState" disabledValue="endDisabledValue" />
       <LimitRandomTextLength lengthState="endLimitRandomTextLengthState" disabledValue="endDisabledValue" />
+      <ReorderRandomTextCharacters />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import { generateRandomHangul, generateRandomString } from '~/modules/randomText';
+import { repeat as _repeat } from 'lodash';
 import * as mainState from '~/store/atoms/main';
 import * as mainValue from '~/store/selectors/main';
 
@@ -20,6 +21,8 @@ export default function GenerateRandomText({ textState, choiceState, lengthState
   const handleClick = () => {
     let characters = '';
 
+    console.log(choices.length);
+
     if (choices.indexOf('uppercase') !== -1) {
       characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     }
@@ -28,8 +31,8 @@ export default function GenerateRandomText({ textState, choiceState, lengthState
       characters += 'abcdefghijklmnopqrstuvwxyz';
     }
 
-    if (choices.indexOf('numbers') !== -1) {
-      characters += '1234567890';
+    if (choices.indexOf('digit') !== -1) {
+      characters += _repeat('0123456789', 2);
     }
 
     if (choices.indexOf('korean') !== -1) {

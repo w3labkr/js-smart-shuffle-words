@@ -2,7 +2,7 @@ import Grid from '@mui/material/Grid';
 import StartText from './StartText';
 import EndText from './EndText';
 
-export default function AdvancedSettings() {
+export default function AdvancedSettingsDetails() {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} sm={6}>

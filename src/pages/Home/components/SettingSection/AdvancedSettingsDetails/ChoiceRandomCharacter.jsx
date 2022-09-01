@@ -63,8 +63,8 @@ export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
             <Checkbox
               size="small"
               name={choiceState}
-              value="numbers"
-              checked={characters.indexOf('numbers') !== -1}
+              value="digit"
+              checked={characters.indexOf('digit') !== -1}
               onChange={handleChange}
             />
           }

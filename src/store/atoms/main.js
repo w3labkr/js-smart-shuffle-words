@@ -87,7 +87,7 @@ export const startTextState = atom({
 
 export const startChoiceRandomCharacterState = atom({
   key: 'startChoiceRandomCharacterState',
-  default: ['uppercase', 'lowercase', 'numbers'],
+  default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -111,7 +111,7 @@ export const endTextState = atom({
 
 export const endChoiceRandomCharacterState = atom({
   key: 'endChoiceRandomCharacterState',
-  default: ['uppercase', 'lowercase', 'numbers'],
+  default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
 
