@@ -3,24 +3,22 @@ import { useRecoilState } from 'recoil';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { stopWordsState } from '~/store/atoms/main';
+import { stopwordUrlState } from '~/store/atoms/main';
 
-export default function RemoveStopWords() {
+export default function ImportStopwords() {
   const { t } = useTranslation();
-  const [stopWords, setStopWords] = useRecoilState(stopWordsState);
+  const [stopwords, setStopwords] = useRecoilState(stopwordUrlState);
 
   return (
     <Stack spacing={1}>
-      <Typography>{t('Enter the stopwords to be removed:')}</Typography>
+      <Typography>{t('Stopword url:')}</Typography>
       <TextField
-        multiline
         fullWidth
-        rows={4}
-        value={stopWords}
+        value={stopwords}
         variant="outlined"
         placeholder={t('Please enter text')}
-        helperText={t('Seperated by whitespace')}
-        onChange={(e) => setStopWords(e.target.value)}
+        helperText={t('Enter the address of a Google Sheets published on the web.')}
+        onChange={(e) => setStopwords(e.target.value)}
       />
     </Stack>
   );

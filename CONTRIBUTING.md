@@ -154,6 +154,14 @@ Copy stuff into clipboard from your browser using JS
 yarn add copy-to-clipboard
 ```
 
+### axios
+
+Promise based HTTP client for the browser and node.js
+
+```shell
+yarn add axios
+```
+
 ### react-ga
 
 React Google Analytics Module

@@ -6,7 +6,7 @@ import MuiButton from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { debounce as _debounce, uniq as _uniq } from 'lodash';
-import { stopWordsState } from '~/store/atoms/main';
+import { stopwordsState } from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -16,12 +16,12 @@ const Button = styled(MuiButton)(({ theme }) => ({
 export default function UniqueStopwordsAction() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [stopWords, setStopWords] = useRecoilState(stopWordsState);
+  const [stopwords, setStopwords] = useRecoilState(stopwordsState);
 
   const handleClick = _debounce(() => {
-    let oldList = stopWords.split(' ');
+    let oldList = stopwords.split(' ');
     let newList = _uniq(oldList);
-    setStopWords(newList.join(' '));
+    setStopwords(newList.join(' '));
     setSnackbarOpen(true);
   }, 100);
 

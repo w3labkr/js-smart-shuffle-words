@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ToggleColorMode from '~/components/ToggleColorMode';
 import LanguageChange from '~/components/LanguageChange';
-// import MoreActions from "~/components/MoreActions";
 import { themeSidebarWidthState } from '~/store/atoms/theme';
 
 const APP_VERSION = process.env.REACT_APP_VERSION;
@@ -28,7 +27,6 @@ export default function Header() {
         </Typography>
         <ToggleColorMode />
         <LanguageChange />
-        {/* <MoreActions /> */}
       </Toolbar>
     </AppBar>
   );

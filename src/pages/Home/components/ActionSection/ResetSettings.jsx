@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useResetRecoilState, useRecoilValue } from 'recoil';
+import { debounce as _debounce } from 'lodash';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -10,7 +11,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { debounce as _debounce } from 'lodash';
 import * as mainState from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
@@ -37,7 +37,8 @@ export default function ResetSettings() {
     indexColumnState: useResetRecoilState(mainState['indexColumnState']),
     lineTextLengthState: useResetRecoilState(mainState['lineTextLengthState']),
     specialCharactersState: useResetRecoilState(mainState['specialCharactersState']),
-    stopWordsState: useResetRecoilState(mainState['stopWordsState']),
+    stopwordsState: useResetRecoilState(mainState['stopwordsState']),
+    stopwordUrlState: useResetRecoilState(mainState['stopwordUrlState']),
 
     // Advanced Settings: Start
     startEnabledState: useResetRecoilState(mainState['startEnabledState']),

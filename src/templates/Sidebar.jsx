@@ -4,7 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 import { themeSidebarWidthState } from '~/store/atoms/theme';
 
-export default function Sidebar() {
+export default function Sidebar({ children }) {
   const sidebarWidth = useRecoilValue(themeSidebarWidthState);
 
   return (
@@ -22,6 +22,7 @@ export default function Sidebar() {
     >
       <Toolbar />
       <Divider />
+      {children}
     </Drawer>
   );
 }

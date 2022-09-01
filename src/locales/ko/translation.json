@@ -8,6 +8,7 @@
     "Copy": "복사",
     "Copied!": "복사되었습니다!",
     "Updated!": "업데이트되었습니다!",
+    "Succeed!": "성공하였습니다!",
     "Shuffle & Copy": "상품명 변경 후 복사",
     "Generate Random Text": "무작위 문자 생성",
     "Start text": "시작 문자",
@@ -39,5 +40,11 @@
     "None": "없음",
     "Self Shopping Mall": "자사몰",
     "Online Marketplace": "오픈마켓",
-    "Duplicate words have been removed!": "중복된 단어가 제거되었습니다!"
+    "Duplicate words have been removed!": "중복된 단어가 제거되었습니다!",
+    "Stopword List": "금칙어 목록",
+    "An error has occurred.": "오류가 발생했습니다.",
+    "Import data": "데이터 가져오기",
+    "Import stopwords": "금칙어 가져오기",
+    "Stopword url:": "금칙어 링크 주소:",
+    "Enter the address of a Google Sheets published on the web.": "웹에 게시된 구글 스프레드시트의 주소를 입력하세요."
 }

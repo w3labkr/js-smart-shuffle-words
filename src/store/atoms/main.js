@@ -64,9 +64,15 @@ export const specialCharactersState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const stopWordsState = atom({
-  key: 'stopWordsState',
+export const stopwordsState = atom({
+  key: 'stopwordsState',
   default: 'Lorem ipsum',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const stopwordUrlState = atom({
+  key: 'stopwordUrlState',
+  default: '',
   effects_UNSTABLE: [persistAtom],
 });
 

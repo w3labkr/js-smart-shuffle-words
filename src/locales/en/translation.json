@@ -8,6 +8,7 @@
     "Copy": "Copy",
     "Copied!": "Copied!",
     "Updated!": "Updated!",
+    "Succeed!": "Succeed!",
     "Shuffle & Copy": "Shuffle & Copy",
     "Generate Random Text": "Generate Random Text",
     "Start text": "Start text",
@@ -39,5 +40,11 @@
     "None": "None",
     "Self Shopping Mall": "Self Shopping Mall",
     "Online Marketplace": "Online Marketplace",
-    "Duplicate words have been removed!": "Duplicate words have been removed!"
+    "Duplicate words have been removed!": "Duplicate words have been removed!",
+    "Stopword List": "Stopword List",
+    "An error has occurred.": "An error has occurred.",
+    "Import data": "Import data",
+    "Import stopwords": "Import stopwords",
+    "Stopword url:": "Stopword url:",
+    "Enter the address of a Google Sheets published on the web.": "Enter the address of a Google Sheets published on the web."
 }
