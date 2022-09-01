@@ -37,9 +37,9 @@ export const marketSettingsState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const settingsExpandedPanelState = atom({
-  key: 'settingsExpandedPanelState',
-  default: 'panel1',
+export const settingsTabPanelState = atom({
+  key: 'settingsTabPanelState',
+  default: 0,
   effects_UNSTABLE: [persistAtom],
 });
 

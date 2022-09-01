@@ -1,6 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
+import Divider from '@mui/material/Divider';
 import { themeSidebarWidthState } from '~/store/atoms/theme';
 
 export default function Sidebar() {
@@ -20,6 +21,7 @@ export default function Sidebar() {
       anchor="right"
     >
       <Toolbar />
+      <Divider />
     </Drawer>
   );
 }

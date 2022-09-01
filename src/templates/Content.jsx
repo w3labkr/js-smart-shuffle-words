@@ -1,9 +1,8 @@
 import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 
-const MyContent = styled('div')(({ theme }) => ({
+const MyContent = styled('div')(() => ({
   flexGrow: 1,
-  padding: theme.spacing(3),
   bgcolor: 'background.default',
 }));
 

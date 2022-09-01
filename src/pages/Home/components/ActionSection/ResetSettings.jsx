@@ -31,7 +31,7 @@ export default function ResetSettings() {
     marketSettingsState: useResetRecoilState(mainState['marketSettingsState']),
 
     // Global Settings
-    settingsExpandedPanelState: useResetRecoilState(mainState['settingsExpandedPanelState']),
+    settingsTabPanelState: useResetRecoilState(mainState['settingsTabPanelState']),
 
     // General Settings
     indexColumnState: useResetRecoilState(mainState['indexColumnState']),

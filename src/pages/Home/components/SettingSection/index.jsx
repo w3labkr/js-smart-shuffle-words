@@ -1,77 +1,69 @@
 import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
+import PropTypes from 'prop-types';
 import { styled } from '@mui/system';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
+import Tabs from '@mui/material/Tabs';
+import MuiTab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 import GeneralSettingsDetails from './GeneralSettingsDetails';
 import AdvancedSettingsDetails from './AdvancedSettingsDetails';
-import { settingsExpandedPanelState } from '~/store/atoms/main';
+import { settingsTabPanelState } from '~/store/atoms/main';
 
-const Accordion = styled((props) => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0,
-  },
-  '&:before': {
-    display: 'none',
-  },
+const Tab = styled(MuiTab)(() => ({
+  fontSize: '1rem',
 }));
 
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />} {...props} />
-))(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, .05)' : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
-  },
-}));
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`settings-tabpanel-${index}`}
+      aria-labelledby={`settings-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
+    </div>
+  );
+}
 
-export default function SettingSection() {
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `settings-tab-${index}`,
+    'aria-controls': `settings-tabpanel-${index}`,
+  };
+}
+
+export default function BasicTabs() {
   const { t } = useTranslation();
-  const [expanded, setExpanded] = useRecoilState(settingsExpandedPanelState);
+  const [value, setValue] = useRecoilState(settingsTabPanelState);
 
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
-    <div>
-      <Accordion
-        TransitionProps={{ unmountOnExit: true }}
-        expanded={expanded === 'panel1'}
-        onChange={handleChange('panel1')}
-      >
-        <AccordionSummary aria-controls="panel1bh-content" id="panel1bh-header">
-          <Typography>{t('General Settings')}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <GeneralSettingsDetails />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        TransitionProps={{ unmountOnExit: true }}
-        expanded={expanded === 'panel2'}
-        onChange={handleChange('panel2')}
-      >
-        <AccordionSummary aria-controls="panel2bh-content" id="panel2bh-header">
-          <Typography>{t('Advanced Settings')}</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <AdvancedSettingsDetails />
-        </AccordionDetails>
-      </Accordion>
-    </div>
+    <Box sx={{ width: '100%' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+          <Tab label={t('General Settings')} {...a11yProps(0)} />
+          <Tab label={t('Advanced Settings')} {...a11yProps(1)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <GeneralSettingsDetails />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <AdvancedSettingsDetails />
+      </TabPanel>
+    </Box>
   );
 }

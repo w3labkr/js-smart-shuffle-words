@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Content from './Content';
 import Main from './Main';
 import Footer from './Footer';
+import Divider from '@mui/material/Divider';
 
 export default function Layout({ children }) {
   return (
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
       <Header />
       <Content>
         <Main>{children}</Main>
+        <Divider />
         <Footer />
       </Content>
       <Sidebar />
