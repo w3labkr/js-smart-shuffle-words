@@ -1,3 +1,12 @@
+## [1.5.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.4.1...v1.5.0) (2022-09-01)
+
+
+### Features
+
+* add import stopword list from googlesheets ([c271414](https://github.com/w3labkr/js-smart-shuffle-words/commit/c271414e56c18ef1a47c1dab8a902b06ad3b28fb))
+* add sidebar area ([53f65eb](https://github.com/w3labkr/js-smart-shuffle-words/commit/53f65eb91c72b5507377e42bb1d8f7f701ef8fad))
+* add tab component ([dc02bc2](https://github.com/w3labkr/js-smart-shuffle-words/commit/dc02bc2ce3cbcb69d9153652c884a8aabd084a64))
+
 ### [1.4.1](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.4.0...v1.4.1) (2022-09-01)
 
 
