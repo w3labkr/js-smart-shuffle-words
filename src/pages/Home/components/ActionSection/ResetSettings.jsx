@@ -44,12 +44,14 @@ export default function ResetSettings() {
     startTextState: useResetRecoilState(mainState['startTextState']),
     startChoiceRandomCharacterState: useResetRecoilState(mainState['startChoiceRandomCharacterState']),
     startLimitRandomTextLengthState: useResetRecoilState(mainState['startLimitRandomTextLengthState']),
+    startReorderRandomTextCharactersState: useResetRecoilState(mainState['startReorderRandomTextCharactersState']),
 
     // Advanced Settings: End
     endEnabledState: useResetRecoilState(mainState['endEnabledState']),
     endTextState: useResetRecoilState(mainState['endTextState']),
     endChoiceRandomCharacterState: useResetRecoilState(mainState['endChoiceRandomCharacterState']),
     endLimitRandomTextLengthState: useResetRecoilState(mainState['endLimitRandomTextLengthState']),
+    endReorderRandomTextCharactersState: useResetRecoilState(mainState['endReorderRandomTextCharactersState']),
   };
 
   const handleAgree = _debounce(() => {
