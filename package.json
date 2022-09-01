@@ -3,6 +3,14 @@
     "version": "1.3.0",
     "author": "W3LabKr",
     "description": "Shuffle the words on each line",
+    "keywords": [
+        "js",
+        "javascript",
+        "react",
+        "reactjs",
+        "shuffle",
+        "words"
+    ],
     "main": "src/index.js",
     "homepage": "./",
     "private": true,
