@@ -10,7 +10,6 @@
     "Removed!": "Removed!",
     "Updated!": "Updated!",
     "Shuffle & Copy": "Shuffle & Copy",
-    "General Market": "General Market",
     "Generate Random Text": "Generate Random Text",
     "Start text": "Start text",
     "End text": "End text",
@@ -22,8 +21,6 @@
     "Seperated by whitespace": "Seperated by whitespace",
     "Select the text length per line:": "Select the text length per line:",
     "Naver Ads": "Naver Ads",
-    "Auction": "Auction",
-    "G-Market": "G-Market",
     "Highlighting stopwords": "Highlighting stopwords",
     "General Settings": "General Settings",
     "Advanced Settings": "Advanced Settings",
@@ -40,5 +37,7 @@
     "Reorder random text characters:": "Reorder random text characters:",
     "Digit+Word": "Digit+Word",
     "Word+Digit": "Word+Digit",
-    "None": "None"
+    "None": "None",
+    "Self Shopping Mall": "Self Shopping Mall",
+    "Online Marketplace": "Online Marketplace"
 }

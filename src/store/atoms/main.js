@@ -33,7 +33,7 @@ export const consoleTextState = atom({
 
 export const marketSettingsState = atom({
   key: 'marketSettingsState',
-  default: 'General',
+  default: 'Online Marketplace',
   effects_UNSTABLE: [persistAtom],
 });
 

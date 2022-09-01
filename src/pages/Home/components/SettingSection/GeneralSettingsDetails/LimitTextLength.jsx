@@ -24,7 +24,7 @@ export default function LimitTextLength() {
         <FormControlLabel value="25" control={<Radio />} label={`25 (${t('Naver Ads')})`} />
         <FormControlLabel value="50" control={<Radio />} label="50" />
         <FormControlLabel value="80" control={<Radio />} label="80" />
-        <FormControlLabel value="100" control={<Radio />} label={`100 (${t('Auction')}/${t('G-Market')})`} />
+        <FormControlLabel value="100" control={<Radio />} label={`100 (${t('Self Shopping Mall')})`} />
         <FormControlLabel value="-1" control={<Radio />} label={`100+`} />
       </RadioGroup>
     </FormControl>

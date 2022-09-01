@@ -13,7 +13,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function AuctionGMarketSettings() {
+export default function OnlineMarketplaceSettings() {
   const { t } = useTranslation();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [marketSettings, setMarketSettings] = useRecoilState(mainState['marketSettingsState']);
@@ -22,22 +22,22 @@ export default function AuctionGMarketSettings() {
   const setLineTextLength = useSetRecoilState(mainState['lineTextLengthState']);
 
   const handleClick = _debounce(() => {
-    setMarketSettings('Auction/G-Market');
-    setLineTextLength(100);
-    setStartEnabled(true);
-    setEndEnabled(true);
+    setMarketSettings('Online Marketplace');
+    setLineTextLength(-1);
+    setStartEnabled(false);
+    setEndEnabled(false);
     setSnackbarOpen(true);
   }, 100);
 
   return (
     <>
       <Button
-        variant={marketSettings === 'Auction/G-Market' ? 'contained' : 'outlined'}
+        variant={marketSettings === 'Online Marketplace' ? 'contained' : 'outlined'}
         size="large"
         color="secondary"
         onClick={handleClick}
       >
-        {`${t('Auction')}/${t('G-Market')}`}
+        {t('Online Marketplace')}
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
