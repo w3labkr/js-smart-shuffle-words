@@ -34,3 +34,11 @@ Visit the [demo site](https://w3labkr.github.io/js-smart-shuffle-words/).
 ```
 
 Directory tree generated using [tree.nathanfriend.io](https://tree.nathanfriend.io).
+
+## Browser Support
+
+Smart Shuffle Words supports modern browsers. For more information see [here](https://mui.com/material-ui/getting-started/supported-platforms/#browser).
+
+| Edge   | Firefox  | Chrome  | Safari (macOS)  | Safari (iOS)  | IE                    |
+|------- |--------- |-------- |---------------- |-------------- |---------------------- |
+| >= 91  | >= 78    | >= 90   | >= 14           | >= 12.5       | 11 (partial support)  |
