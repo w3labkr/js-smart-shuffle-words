@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRecoilValue } from 'recoil';
 import Typography from '@mui/material/Typography';
@@ -11,7 +11,7 @@ export default function HighlightStopwords() {
   const stopwords = useRecoilValue(stopwordsState);
   const [highlightWords, setHighlightWords] = useState([]);
 
-  useMemo(() => {
+  useEffect(() => {
     let words = [];
 
     if (stopwords.trim().length) {

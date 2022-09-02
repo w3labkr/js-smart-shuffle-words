@@ -70,8 +70,20 @@ export const stopwordsState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const stopwordUrlState = atom({
-  key: 'stopwordUrlState',
+export const googleSpreadsheetsDataTypeState = atom({
+  key: 'googleSpreadsheetsDataTypeState',
+  default: 'html',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const googleSpreadsheetsPublishURLState = atom({
+  key: 'googleSpreadsheetsPublishURLState',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const googleSpreadsheetsIDState = atom({
+  key: 'googleSpreadsheetsIDState',
   default: '',
   effects_UNSTABLE: [persistAtom],
 });
