@@ -16,5 +16,5 @@ export const themeLanguageState = atom({
 
 export const themeSidebarWidthState = atom({
   key: 'themeSidebarWidthState',
-  default: 240,
+  default: 0, // (default) 240
 });

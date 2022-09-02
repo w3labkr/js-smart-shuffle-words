@@ -38,7 +38,9 @@ export default function ResetSettings() {
     lineTextLengthState: useResetRecoilState(mainState['lineTextLengthState']),
     specialCharactersState: useResetRecoilState(mainState['specialCharactersState']),
     stopwordsState: useResetRecoilState(mainState['stopwordsState']),
-    stopwordUrlState: useResetRecoilState(mainState['stopwordUrlState']),
+    googleSpreadsheetsDataTypeState: useResetRecoilState(mainState['googleSpreadsheetsDataTypeState']),
+    googleSpreadsheetsPublishURLState: useResetRecoilState(mainState['googleSpreadsheetsPublishURLState']),
+    googleSpreadsheetsIDState: useResetRecoilState(mainState['googleSpreadsheetsIDState']),
 
     // Advanced Settings: Start
     startEnabledState: useResetRecoilState(mainState['startEnabledState']),

@@ -9,8 +9,13 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import { parseGoogleSpreadsheets } from '~/modules/parser';
-import { stopwordsState, stopwordUrlState } from '~/store/atoms/main';
+import { parseGoogleSpreadsheets, getGoogleSpreadsheetsUrl } from '~/modules/parser';
+import {
+  stopwordsState,
+  googleSpreadsheetsDataTypeState,
+  googleSpreadsheetsPublishURLState,
+  googleSpreadsheetsIDState,
+} from '~/store/atoms/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
   marginRight: theme.spacing(1),
@@ -26,15 +31,18 @@ export default function ImportStopwordsAction() {
     message: t('Succeed!'),
   });
   const setStopwords = useSetRecoilState(stopwordsState);
-  const stopwordUrl = useRecoilValue(stopwordUrlState);
+  const spreadsheetsDataType = useRecoilValue(googleSpreadsheetsDataTypeState);
+  const spreadsheetsPublishURL = useRecoilValue(googleSpreadsheetsPublishURLState);
+  const spreadsheetsID = useRecoilValue(googleSpreadsheetsIDState);
 
-  const handleClick = _debounce((url) => {
+  const handleClick = _debounce(() => {
+    let url = getGoogleSpreadsheetsUrl(spreadsheetsDataType, spreadsheetsPublishURL, spreadsheetsID);
     setBackdrop({ open: true });
     axios
       .get(url)
       .then(function (response) {
-        const stopwords = parseGoogleSpreadsheets(response.data);
-        setStopwords(stopwords.join(' '));
+        const stopwords = parseGoogleSpreadsheets(spreadsheetsDataType, response.data);
+        setStopwords(stopwords);
         setBackdrop({ open: false });
         setSnackbar((prev) => ({ ...prev, open: true }));
       })
@@ -46,7 +54,7 @@ export default function ImportStopwordsAction() {
 
   return (
     <>
-      <Button variant="outlined" size="large" onClick={() => handleClick(stopwordUrl)}>
+      <Button variant="outlined" size="large" onClick={handleClick}>
         {t('Import stopwords')}
       </Button>
       <Backdrop

@@ -1,25 +1,64 @@
 import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
 import TextField from '@mui/material/TextField';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
-import { stopwordUrlState } from '~/store/atoms/main';
+import {
+  googleSpreadsheetsDataTypeState,
+  googleSpreadsheetsPublishURLState,
+  googleSpreadsheetsIDState,
+} from '~/store/atoms/main';
 
 export default function ImportStopwords() {
   const { t } = useTranslation();
-  const [stopwords, setStopwords] = useRecoilState(stopwordUrlState);
+  const [spreadsheetsDataType, setSpreadsheetsDataType] = useRecoilState(googleSpreadsheetsDataTypeState);
+  const [spreadsheetsPublishURL, setSpreadsheetsPublishURL] = useRecoilState(googleSpreadsheetsPublishURLState);
+  const [spreadsheetsId, setSpreadsheetsId] = useRecoilState(googleSpreadsheetsIDState);
 
   return (
     <Stack spacing={1}>
-      <Typography>{t('Stopword url:')}</Typography>
-      <TextField
-        fullWidth
-        value={stopwords}
-        variant="outlined"
-        placeholder={t('Please enter text')}
-        helperText={t('Enter the address of a Google Sheets published on the web.')}
-        onChange={(e) => setStopwords(e.target.value)}
-      />
+      <FormControl>
+        <Typography>{t('Import stopwords from google spreadsheets:')}</Typography>
+        <RadioGroup
+          row
+          name="spreadsheetsDataType"
+          value={spreadsheetsDataType}
+          onChange={(e) => setSpreadsheetsDataType(e.target.value)}
+        >
+          <FormControlLabel value="html" control={<Radio />} label="HTML" />
+          <FormControlLabel value="json" control={<Radio />} label="JSON" />
+        </RadioGroup>
+      </FormControl>
+      {spreadsheetsDataType === 'html' && (
+        <>
+          <Typography>{t('Google spreadsheets publish URL:')}</Typography>
+          <TextField
+            fullWidth
+            value={spreadsheetsPublishURL}
+            variant="outlined"
+            placeholder={t('Please enter text')}
+            helperText={t('Enter the address of a google spreadsheets published on the web.')}
+            onChange={(e) => setSpreadsheetsPublishURL(e.target.value)}
+          />
+        </>
+      )}
+      {spreadsheetsDataType === 'json' && (
+        <>
+          <Typography>{t('Google spreadsheets ID:')}</Typography>
+          <TextField
+            fullWidth
+            value={spreadsheetsId}
+            variant="outlined"
+            placeholder={t('Please enter text')}
+            helperText={t('Enter the shared google spreadsheets ID.')}
+            onChange={(e) => setSpreadsheetsId(e.target.value)}
+          />
+        </>
+      )}
     </Stack>
   );
 }

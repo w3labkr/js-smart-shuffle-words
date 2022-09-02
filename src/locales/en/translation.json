@@ -45,6 +45,9 @@
     "An error has occurred.": "An error has occurred.",
     "Import data": "Import data",
     "Import stopwords": "Import stopwords",
-    "Stopword url:": "Stopword url:",
-    "Enter the address of a Google Sheets published on the web.": "Enter the address of a Google Sheets published on the web."
+    "Google spreadsheets publish URL:": "Google spreadsheets publish URL:",
+    "Enter the address of a google spreadsheets published on the web.": "Enter the address of a google spreadsheets published on the web.",
+    "Google spreadsheets ID:": "Google spreadsheets ID:",
+    "Enter the shared google spreadsheets ID.": "Enter the shared google spreadsheets ID.",
+    "Import stopwords from google spreadsheets:": "Import stopwords from google spreadsheets:"
 }
