@@ -1,3 +1,10 @@
+## [1.6.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.5.0...v1.6.0) (2022-09-02)
+
+
+### Features
+
+* add JSON data type when importing google spreadsheets ([a088ec6](https://github.com/w3labkr/js-smart-shuffle-words/commit/a088ec6fa583e643d2268e2214a49dcc71bdc99b))
+
 ## [1.5.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.4.1...v1.5.0) (2022-09-01)
 
 
