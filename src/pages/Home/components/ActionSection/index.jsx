@@ -22,11 +22,11 @@ export default function ActionSection() {
       <Grid item xs={12}>
         <ShuffleAction />
         <CopyAction />
-        <ImportStopwordsAction />
         <UniqueStopwordsAction />
         <OnlineMarketplaceSettings />
         <SelfShoppingMall />
         <NaverAdsSettings />
+        <ImportStopwordsAction />
         <ResetSettings />
       </Grid>
     </Grid>

@@ -20,8 +20,8 @@ const Button = styled(MuiButton)(({ theme }) => ({
 
 export default function ResetSettings() {
   const { t } = useTranslation();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [dialog, setDialog] = useState({ open: false });
+  const [snackbar, setSnackbar] = useState({ open: false });
   const storageKey = useRecoilValue(mainState['storageKeyState']);
   const resetStates = {
     // Actions Settings
@@ -62,18 +62,18 @@ export default function ResetSettings() {
     Object.keys(resetStates).forEach(function (stateName) {
       resetStates[stateName]();
     });
-    setDialogOpen(false);
-    setSnackbarOpen(true);
+    setDialog({ open: false });
+    setSnackbar({ open: true });
   }, 100);
 
   return (
     <>
-      <Button variant="outlined" size="large" color="error" onClick={() => setDialogOpen(true)}>
+      <Button variant="outlined" size="large" color="error" onClick={() => setDialog({ open: true })}>
         {t('Reset')}
       </Button>
       <Dialog
-        open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
+        open={dialog.open}
+        onClose={() => setDialog({ open: false })}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -86,7 +86,7 @@ export default function ResetSettings() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setDialogOpen(false)}>{t('Disagree')}</Button>
+          <Button onClick={() => setDialog({ open: false })}>{t('Disagree')}</Button>
           <Button onClick={handleAgree} autoFocus>
             {t('Agree')}
           </Button>
@@ -94,9 +94,9 @@ export default function ResetSettings() {
       </Dialog>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={snackbarOpen}
+        open={snackbar.open}
         autoHideDuration={1000}
-        onClose={() => setSnackbarOpen(false)}
+        onClose={() => setSnackbar({ open: false })}
       >
         <Alert severity="success">{t('Reseted!')}</Alert>
       </Snackbar>

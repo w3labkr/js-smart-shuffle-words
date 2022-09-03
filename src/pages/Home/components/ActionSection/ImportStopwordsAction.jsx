@@ -9,6 +9,11 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import { parseGoogleSpreadsheets, getGoogleSpreadsheetsUrl } from '~/modules/parser';
 import {
   stopwordsState,
@@ -24,6 +29,7 @@ const Button = styled(MuiButton)(({ theme }) => ({
 
 export default function ImportStopwordsAction() {
   const { t } = useTranslation();
+  const [dialog, setDialog] = useState({ open: false });
   const [backdrop, setBackdrop] = useState({ open: false });
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -35,8 +41,9 @@ export default function ImportStopwordsAction() {
   const spreadsheetsPublishURL = useRecoilValue(googleSpreadsheetsPublishURLState);
   const spreadsheetsID = useRecoilValue(googleSpreadsheetsIDState);
 
-  const handleClick = _debounce(() => {
+  const handleAgree = _debounce(() => {
     let url = getGoogleSpreadsheetsUrl(spreadsheetsDataType, spreadsheetsPublishURL, spreadsheetsID);
+    setDialog({ open: false });
     setBackdrop({ open: true });
     axios
       .get(url)
@@ -54,9 +61,30 @@ export default function ImportStopwordsAction() {
 
   return (
     <>
-      <Button variant="outlined" size="large" onClick={handleClick}>
+      <Button variant="outlined" size="large" color="error" onClick={() => setDialog({ open: true })}>
         {t('Import stopwords')}
       </Button>
+      <Dialog
+        open={dialog.open}
+        onClose={() => setDialog({ open: false })}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{t('Would you like to import stopwords?')}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            {t('Import stopwords from Google spreadsheets.')}
+            <br />
+            {t('Existing stopwords cannot be restored.')}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setDialog({ open: false })}>{t('Disagree')}</Button>
+          <Button onClick={handleAgree} autoFocus>
+            {t('Agree')}
+          </Button>
+        </DialogActions>
+      </Dialog>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={backdrop.open}
