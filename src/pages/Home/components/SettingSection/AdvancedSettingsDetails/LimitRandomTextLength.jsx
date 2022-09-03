@@ -13,7 +13,7 @@ export default function LimitRandomTextLength({ lengthState, disabledValue }) {
   return (
     <>
       <Typography>
-        {t('Length of random text generated:')} {length}
+        {t('Character length:')} {length}
       </Typography>
       <Slider
         value={length}

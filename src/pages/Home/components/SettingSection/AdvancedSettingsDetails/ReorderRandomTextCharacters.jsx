@@ -15,7 +15,7 @@ export default function ReorderRandomTextCharacters({ reorderState, disabledValu
 
   return (
     <FormControl>
-      <Typography>{t('Reorder random text characters:')}</Typography>
+      <Typography>{t('Order of characters:')}</Typography>
       <RadioGroup row name="reorderRandomTextCharacters" value={value} onChange={(e) => setValue(e.target.value)}>
         <FormControlLabel value="none" control={<Radio />} label={t('None')} disabled={disabled} />
         <FormControlLabel value="digitWord" control={<Radio />} label={t('Digit+Word')} disabled={disabled} />

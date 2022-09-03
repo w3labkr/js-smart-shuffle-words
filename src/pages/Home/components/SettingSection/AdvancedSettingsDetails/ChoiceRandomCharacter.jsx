@@ -29,7 +29,7 @@ export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
 
   return (
     <>
-      <Typography>{t('Characters to use when creating random text:')}</Typography>
+      <Typography>{t('Characters used:')}</Typography>
       <FormGroup component="legend">
         <FormControlLabel
           label="ABC"
