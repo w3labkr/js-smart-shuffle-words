@@ -16,43 +16,43 @@ const Button = styled(MuiButton)(({ theme }) => ({
 
 export default function ShuffleAction() {
   const { t } = useTranslation();
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false });
   const setPreviewText = useSetRecoilState(mainState['previewTextState']);
-  const shuffleText = useRecoilValue(mainState['shuffleTextState']);
-  const specialCharacters = useRecoilValue(mainState['specialCharactersState']);
-  const stopwords = useRecoilValue(mainState['stopwordsState']);
-  const startText = useRecoilValue(mainState['startTextState']);
-  const startEnabled = useRecoilValue(mainState['startEnabledState']);
-  const endText = useRecoilValue(mainState['endTextState']);
-  const endEnabled = useRecoilValue(mainState['endEnabledState']);
-  const lineTextLength = useRecoilValue(mainState['lineTextLengthState']);
-  const indexColumn = useRecoilValue(mainState['indexColumnState']);
+  const states = {
+    shuffleText: useRecoilValue(mainState['shuffleTextState']),
+    specialCharacters: useRecoilValue(mainState['specialCharactersState']),
+    stopwords: useRecoilValue(mainState['stopwordsState']),
+    startEnabled: useRecoilValue(mainState['startEnabledState']),
+    startText: useRecoilValue(mainState['startTextState']),
+    startExcludeFirstLine: useRecoilValue(mainState['startExcludeFirstLineState']),
+    endEnabled: useRecoilValue(mainState['endEnabledState']),
+    endText: useRecoilValue(mainState['endTextState']),
+    endExcludeFirstLine: useRecoilValue(mainState['endExcludeFirstLineState']),
+    lineTextLength: useRecoilValue(mainState['lineTextLengthState']),
+  };
 
   const handleClick = _debounce(() => {
-    let oldLines = shuffleText.replace(/\s+$/, '').replace(/\r\n/g, '\n');
+    let oldLines = states.shuffleText.replace(/\s+$/, '').replace(/\r\n/g, '\n');
     let newLines = oldLines.split('\n');
 
-    // console.log("인덱스 열을 제거하는 중 입니다...");
-    newLines = removeIndexColumn(newLines, indexColumn);
-
     // console.log("특수 문자를 제거하는 중 입니다...");
-    newLines = removeSpecialCharacters(newLines, specialCharacters);
+    newLines = removeSpecialCharacters(newLines, states.specialCharacters);
 
     // console.log("금칙어를 제거하는 중 입니다...");
-    newLines = removeStopWords(newLines, stopwords);
+    newLines = removeStopwords(newLines, states.stopwords);
 
     // console.log("단어를 섞는 중 입니다...");
     newLines = shuffleWords(newLines);
 
     // console.log("시작 및 마지막 문자를 추가하는 중 입니다...");
-    newLines = addLineText(newLines, startEnabled, startText, endEnabled, endText);
+    newLines = addLineText(newLines, states);
 
     // console.log("텍스트 길이를 수정 하는 중 입니다...");
-    newLines = deleteLineText(newLines, lineTextLength);
+    newLines = deleteLineText(newLines, states.lineTextLength);
 
     // console.log("작업이 완료 되었습니다.");
     setPreviewText(newLines.join('\n'));
-    setSnackbarOpen(true);
+    setSnackbar({ open: true });
   }, 100);
 
   return (
@@ -62,9 +62,9 @@ export default function ShuffleAction() {
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={snackbarOpen}
+        open={snackbar.open}
         autoHideDuration={1000}
-        onClose={() => setSnackbarOpen(false)}
+        onClose={() => setSnackbar({ open: false })}
       >
         <Alert severity="success">{t('Shuffled!')}</Alert>
       </Snackbar>
@@ -72,81 +72,97 @@ export default function ShuffleAction() {
   );
 }
 
-function removeIndexColumn(oldLines, indexColumn) {
-  let newLines = oldLines;
-
-  if (indexColumn) {
-    newLines.shift();
-  }
-
-  return newLines;
-}
-
-function removeSpecialCharacters(oldLines, specialCharacters) {
+function removeSpecialCharacters(lines, specialCharacters) {
   const escapeSpecialCharacters = specialCharacters.replace(/./g, '\\$&');
   const re = new RegExp(`[${escapeSpecialCharacters}]`, 'g');
 
-  let newLines = oldLines;
-
-  for (let i = 0, l = newLines.length; i < l; i++) {
-    newLines[i] = newLines[i].replace(re, ' ').replace(/\s+/g, ' ').trim();
+  for (let i = 0, l = lines.length; i < l; i++) {
+    lines[i] = lines[i].replace(re, ' ').replace(/\s+/g, ' ').trim();
   }
 
-  return newLines;
+  return lines;
 }
 
-function removeStopWords(oldLines, stopwords) {
-  let stopWordList = stopwords.split(' ');
-  let newLines = oldLines;
+function removeStopwords(lines, stopwords) {
+  let stopwordList = stopwords.split(' ');
 
-  for (let idx = 0, len = newLines.length; idx < len; idx++) {
-    for (let i = 0, l = stopWordList.length; i < l; i++) {
-      if (newLines[idx].indexOf(stopWordList[i]) !== -1) {
-        newLines[idx] = newLines[idx].replace(stopWordList[i], ' ');
+  for (let idx = 0, len = lines.length; idx < len; idx++) {
+    for (let i = 0, l = stopwordList.length; i < l; i++) {
+      const re = new RegExp(`\\b${stopwordList[i]}\\b`, 'g');
+      if (re.test(lines[idx])) {
+        lines[idx] = lines[idx].replace(re, ' ');
       }
     }
-    newLines[idx] = newLines[idx].replace(/\s+/g, ' ').trim();
+    lines[idx] = lines[idx].replace(/\s+/g, ' ').trim();
   }
 
-  return newLines;
+  return lines;
 }
 
-function shuffleWords(oldLines) {
-  let newLines = oldLines;
-
-  for (let i = 0, l = newLines.length; i < l; i++) {
-    newLines[i] = randomArrayShuffle(newLines[i].split(' ')).join(' ');
+function shuffleWords(lines) {
+  for (let i = 0, l = lines.length; i < l; i++) {
+    lines[i] = randomArrayShuffle(lines[i].split(' ')).join(' ');
   }
 
-  return newLines;
+  return lines;
 }
 
-function addLineText(oldLines, startEnabled, startText, endEnabled, endText) {
-  let newLines = oldLines;
+function addLineText(lines, states) {
+  for (let i = 0, l = lines.length; i < l; i++) {
+    let line = lines[i];
+    line = addStartLineText(i, line, states);
+    line = addEndLineText(i, line, states);
+    line = line.replace(/\s+/g, ' ').trim();
+    lines[i] = line;
+  }
 
-  for (let i = 0, l = newLines.length; i < l; i++) {
-    if (startEnabled) {
-      newLines[i] = newLines[i].replace(/^/, startText + ' ');
+  return lines;
+}
+
+function addStartLineText(index, line, states) {
+  const { startEnabled, startText, startExcludeFirstLine } = states;
+
+  if (startEnabled) {
+    if (startExcludeFirstLine) {
+      if (index === 0) {
+        // ...
+      } else {
+        line = line.replace(/^/, startText + ' ');
+      }
+    } else {
+      line = line.replace(/^/, startText + ' ');
     }
-    if (endEnabled) {
-      newLines[i] = newLines[i].replace(/$/, ' ' + endText);
-    }
-    newLines[i] = newLines[i].replace(/\s+/g, ' ').trim();
   }
 
-  return newLines;
+  return line;
 }
 
-function deleteLineText(oldLines, length) {
-  let newLines = oldLines;
+function addEndLineText(index, line, states) {
+  const { endEnabled, endText, endExcludeFirstLine } = states;
 
+  if (endEnabled) {
+    if (endExcludeFirstLine) {
+      if (index === 0) {
+        // ...
+      } else {
+        line = line.replace(/$/, ' ' + endText);
+      }
+    } else {
+      line = line.replace(/$/, ' ' + endText);
+    }
+  }
+
+  return line;
+}
+
+function deleteLineText(lines, length) {
   if (length === -1) {
-    return newLines;
+    return lines;
   }
 
-  for (let i = 0, l = newLines.length; i < l; i++) {
-    newLines[i] = newLines[i].slice(0, length);
+  for (let i = 0, l = lines.length; i < l; i++) {
+    lines[i] = lines[i].slice(0, length);
   }
 
-  return newLines;
+  return lines;
 }

@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid';
 import LimitTextLength from './LimitTextLength';
 import RemoveSpecialCharacters from './RemoveSpecialCharacters';
-import RemoveStopwords from './RemoveStopwords';
+import Stopwords from './Stopwords';
 import ImportStopwords from './ImportStopwords';
 import HighlightStopwords from './HighlightStopwords';
 
@@ -15,7 +15,7 @@ export default function GeneralSettingsDetails() {
         <RemoveSpecialCharacters />
       </Grid>
       <Grid item xs={12}>
-        <RemoveStopwords />
+        <Stopwords />
       </Grid>
       <Grid item xs={12}>
         <ImportStopwords />

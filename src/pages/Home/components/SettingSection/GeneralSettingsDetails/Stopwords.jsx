@@ -11,7 +11,7 @@ export default function RemoveStopwords() {
 
   return (
     <Stack spacing={1}>
-      <Typography>{t('Enter the stopwords to be removed:')}</Typography>
+      <Typography>{t('Enter the stopwords:')}</Typography>
       <TextField
         multiline
         fullWidth

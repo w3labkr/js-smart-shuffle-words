@@ -17,7 +17,7 @@
     "Characters used:": "사용된 문자:",
     "Character length:": "문자의 길이:",
     "Order of characters:": "문자의 순서:",
-    "Enter the stopwords to be removed:": "삭제할 금칙어를 입력하세요:",
+    "Enter the stopwords:": "금칙어를 입력하세요:",
     "Enter the special characters to be removed:": "삭제할 특수 문자를 입력하세요:",
     "Please enter text": "텍스트를 입력 하십시오",
     "Seperated by whitespace": "공백으로 구분 합니다",
@@ -51,6 +51,6 @@
     "Google Spreadsheets data types:": "구글 스프레드시트 데이터 타입:",
     "Would you like to import stopwords?": "금칙어를 불러오시겠습니까?",
     "Import stopwords from Google spreadsheets.": "구글 스프레드시트에서 금칙어를 불러옵니다.",
-    "Existing stopwords cannot be restored.": "기존 금칙어는 복원할 수 없습니다."
+    "Existing stopwords cannot be restored.": "기존 금칙어는 복원할 수 없습니다.",
     "Exclude the first line": "첫 번째 줄을 제외합니다"
 }

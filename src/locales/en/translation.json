@@ -17,7 +17,7 @@
     "Characters used:": "Characters used:",
     "Character length:": "Character length:",
     "Order of characters:": "Order of characters:",
-    "Enter the stopwords to be removed:": "Enter the stopwords to be removed:",
+    "Enter the stopwords:": "Enter the stopwords:",
     "Enter the special characters to be removed:": "Enter the special characters to be removed:",
     "Please enter text": "Please enter text",
     "Seperated by whitespace": "Seperated by whitespace",
@@ -51,6 +51,6 @@
     "Google Spreadsheets data types:": "Google Spreadsheets data types:",
     "Would you like to import stopwords?": "Would you like to import stopwords?",
     "Import stopwords from Google spreadsheets.": "Import stopwords from Google spreadsheets.",
-    "Existing stopwords cannot be restored.": "Existing stopwords cannot be restored."
+    "Existing stopwords cannot be restored.": "Existing stopwords cannot be restored.",
     "Exclude the first line": "Exclude the first line"
 }
