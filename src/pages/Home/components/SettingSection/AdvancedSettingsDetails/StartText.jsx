@@ -10,7 +10,11 @@ export default function StartText() {
 
   return (
     <>
-      <EnabledAdvancedText textState="startTextState" enabledState="startEnabledState">
+      <EnabledAdvancedText
+        textState="startTextState"
+        enabledState="startEnabledState"
+        excludeFirstLineState="startExcludeFirstLineState"
+      >
         {t('Start text')}{' '}
       </EnabledAdvancedText>
       <GenerateRandomText

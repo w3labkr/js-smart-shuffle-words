@@ -97,6 +97,12 @@ export const startTextState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+export const startExcludeFirstLineState = atom({
+  key: 'startExcludeFirstLineState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
 export const startChoiceRandomCharacterState = atom({
   key: 'startChoiceRandomCharacterState',
   default: ['uppercase', 'lowercase', 'digit'],
@@ -124,6 +130,12 @@ export const endEnabledState = atom({
 export const endTextState = atom({
   key: 'endTextState',
   default: 'END',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const endExcludeFirstLineState = atom({
+  key: 'endExcludeFirstLineState',
+  default: true,
   effects_UNSTABLE: [persistAtom],
 });
 

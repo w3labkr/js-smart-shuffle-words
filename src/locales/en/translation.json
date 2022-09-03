@@ -52,4 +52,5 @@
     "Would you like to import stopwords?": "Would you like to import stopwords?",
     "Import stopwords from Google spreadsheets.": "Import stopwords from Google spreadsheets.",
     "Existing stopwords cannot be restored.": "Existing stopwords cannot be restored."
+    "Exclude the first line": "Exclude the first line"
 }

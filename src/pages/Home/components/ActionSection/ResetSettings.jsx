@@ -23,7 +23,7 @@ export default function ResetSettings() {
   const [dialog, setDialog] = useState({ open: false });
   const [snackbar, setSnackbar] = useState({ open: false });
   const storageKey = useRecoilValue(mainState['storageKeyState']);
-  const resetStates = {
+  const states = {
     // Actions Settings
     shuffleTextState: useResetRecoilState(mainState['shuffleTextState']),
     previewTextState: useResetRecoilState(mainState['previewTextState']),
@@ -44,6 +44,7 @@ export default function ResetSettings() {
     // Advanced Settings: Start
     startEnabledState: useResetRecoilState(mainState['startEnabledState']),
     startTextState: useResetRecoilState(mainState['startTextState']),
+    startExcludeFirstLineState: useResetRecoilState(mainState['startExcludeFirstLineState']),
     startChoiceRandomCharacterState: useResetRecoilState(mainState['startChoiceRandomCharacterState']),
     startLimitRandomTextLengthState: useResetRecoilState(mainState['startLimitRandomTextLengthState']),
     startReorderRandomTextCharactersState: useResetRecoilState(mainState['startReorderRandomTextCharactersState']),
@@ -51,6 +52,7 @@ export default function ResetSettings() {
     // Advanced Settings: End
     endEnabledState: useResetRecoilState(mainState['endEnabledState']),
     endTextState: useResetRecoilState(mainState['endTextState']),
+    endExcludeFirstLineState: useResetRecoilState(mainState['endExcludeFirstLineState']),
     endChoiceRandomCharacterState: useResetRecoilState(mainState['endChoiceRandomCharacterState']),
     endLimitRandomTextLengthState: useResetRecoilState(mainState['endLimitRandomTextLengthState']),
     endReorderRandomTextCharactersState: useResetRecoilState(mainState['endReorderRandomTextCharactersState']),
@@ -58,8 +60,8 @@ export default function ResetSettings() {
 
   const handleAgree = _debounce(() => {
     localStorage.removeItem(storageKey);
-    Object.keys(resetStates).forEach(function (stateName) {
-      resetStates[stateName]();
+    Object.keys(states).forEach(function (stateName) {
+      states[stateName]();
     });
     setDialog({ open: false });
     setSnackbar({ open: true });

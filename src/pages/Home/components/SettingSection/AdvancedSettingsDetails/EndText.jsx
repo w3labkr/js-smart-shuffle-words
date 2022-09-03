@@ -10,7 +10,11 @@ export default function EndText() {
 
   return (
     <>
-      <EnabledAdvancedText textState="endTextState" enabledState="endEnabledState">
+      <EnabledAdvancedText
+        textState="endTextState"
+        enabledState="endEnabledState"
+        excludeFirstLineState="endExcludeFirstLineState"
+      >
         {t('End text')}{' '}
       </EnabledAdvancedText>
       <GenerateRandomText

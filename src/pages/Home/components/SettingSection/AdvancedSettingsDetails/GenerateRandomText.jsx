@@ -7,6 +7,7 @@ import * as mainState from '~/store/atoms/main';
 import * as mainValue from '~/store/selectors/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
+  marginTop: theme.spacing(2),
   marginBottom: theme.spacing(2),
 }));
 
