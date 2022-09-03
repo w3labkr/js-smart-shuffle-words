@@ -46,12 +46,6 @@ export const settingsTabPanelState = atom({
 /*
 General Settings
 */
-export const indexColumnState = atom({
-  key: 'indexColumnState',
-  default: false,
-  effects_UNSTABLE: [persistAtom],
-});
-
 export const lineTextLengthState = atom({
   key: 'lineTextLengthState',
   default: -1,

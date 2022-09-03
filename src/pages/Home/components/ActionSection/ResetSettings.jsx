@@ -34,7 +34,6 @@ export default function ResetSettings() {
     settingsTabPanelState: useResetRecoilState(mainState['settingsTabPanelState']),
 
     // General Settings
-    indexColumnState: useResetRecoilState(mainState['indexColumnState']),
     lineTextLengthState: useResetRecoilState(mainState['lineTextLengthState']),
     specialCharactersState: useResetRecoilState(mainState['specialCharactersState']),
     stopwordsState: useResetRecoilState(mainState['stopwordsState']),

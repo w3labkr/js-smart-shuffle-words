@@ -1,16 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useRecoilState } from 'recoil';
-import { styled } from '@mui/system';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import MuiFormControl from '@mui/material/FormControl';
+import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
 import { lineTextLengthState } from '~/store/atoms/main';
-
-const FormControl = styled(MuiFormControl)(({ theme }) => ({
-  marginTop: theme.spacing(-1),
-}));
 
 export default function LimitTextLength() {
   const { t } = useTranslation();
