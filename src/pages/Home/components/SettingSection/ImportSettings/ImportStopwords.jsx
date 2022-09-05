@@ -22,7 +22,7 @@ export default function ImportStopwords() {
   return (
     <Stack spacing={1}>
       <FormControl>
-        <Typography>{t('Import stopwords from google spreadsheets:')}</Typography>
+        <Typography>{t('Google Spreadsheets data types:')}</Typography>
         <RadioGroup
           row
           name="spreadsheetsDataType"
@@ -48,13 +48,13 @@ export default function ImportStopwords() {
       )}
       {spreadsheetsDataType === 'json' && (
         <>
-          <Typography>{t('Google spreadsheets ID:')}</Typography>
+          <Typography>{t('Google spreadsheets key:')}</Typography>
           <TextField
             fullWidth
             value={spreadsheetsId}
             variant="outlined"
             placeholder={t('Please enter text')}
-            helperText={t('Enter the shared google spreadsheets ID.')}
+            helperText={t('Enter the shared google spreadsheets key.')}
             onChange={(e) => setSpreadsheetsId(e.target.value)}
           />
         </>

@@ -21,12 +21,12 @@ export const shuffleTextState = atom({
 
 export const previewTextState = atom({
   key: 'previewTextState',
-  default: '',
+  default: false,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const consoleTextState = atom({
-  key: 'consoleTextState',
+export const blankListState = atom({
+  key: 'blankListState',
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
@@ -46,50 +46,14 @@ export const settingsTabPanelState = atom({
 /*
 General Settings
 */
-export const indexColumnState = atom({
-  key: 'indexColumnState',
-  default: false,
-  effects_UNSTABLE: [persistAtom],
-});
-
 export const lineTextLengthState = atom({
   key: 'lineTextLengthState',
   default: -1,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const specialCharactersState = atom({
-  key: 'specialCharactersState',
-  default: '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~',
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const stopwordsState = atom({
-  key: 'stopwordsState',
-  default: 'Lorem ipsum',
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const googleSpreadsheetsDataTypeState = atom({
-  key: 'googleSpreadsheetsDataTypeState',
-  default: 'html',
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const googleSpreadsheetsPublishURLState = atom({
-  key: 'googleSpreadsheetsPublishURLState',
-  default: '',
-  effects_UNSTABLE: [persistAtom],
-});
-
-export const googleSpreadsheetsIDState = atom({
-  key: 'googleSpreadsheetsIDState',
-  default: '',
-  effects_UNSTABLE: [persistAtom],
-});
-
 /*
-Advanced Settings
+Character Settings
 */
 export const startEnabledState = atom({
   key: 'startEnabledState',
@@ -103,8 +67,20 @@ export const startTextState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const startChoiceRandomCharacterState = atom({
-  key: 'startChoiceRandomCharacterState',
+export const startExcludeFirstLineState = atom({
+  key: 'startExcludeFirstLineState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const startHideRandomTextOptionState = atom({
+  key: 'startHideRandomTextOptionState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const startUsedRandomCharacterState = atom({
+  key: 'startUsedRandomCharacterState',
   default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
@@ -133,8 +109,20 @@ export const endTextState = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const endChoiceRandomCharacterState = atom({
-  key: 'endChoiceRandomCharacterState',
+export const endExcludeFirstLineState = atom({
+  key: 'endExcludeFirstLineState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const endHideRandomTextOptionState = atom({
+  key: 'endHideRandomTextOptionState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const endUsedRandomCharacterState = atom({
+  key: 'endUsedRandomCharacterState',
   default: ['uppercase', 'lowercase', 'digit'],
   effects_UNSTABLE: [persistAtom],
 });
@@ -148,5 +136,53 @@ export const endLimitRandomTextLengthState = atom({
 export const endReorderRandomTextCharactersState = atom({
   key: 'endReorderRandomTextCharactersState',
   default: 'none',
+  effects_UNSTABLE: [persistAtom],
+});
+
+/*
+Stopword Settings
+*/
+export const specialCharactersState = atom({
+  key: 'specialCharactersState',
+  default: '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const specialCharactersEnabledState = atom({
+  key: 'specialCharactersEnabledState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const stopwordsState = atom({
+  key: 'stopwordsState',
+  default: 'Lorem ipsum',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const stopwordsEnabledState = atom({
+  key: 'stopwordsEnabledState',
+  default: true,
+  effects_UNSTABLE: [persistAtom],
+});
+
+/*
+Import Settings
+*/
+export const googleSpreadsheetsDataTypeState = atom({
+  key: 'googleSpreadsheetsDataTypeState',
+  default: 'html',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const googleSpreadsheetsPublishURLState = atom({
+  key: 'googleSpreadsheetsPublishURLState',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const googleSpreadsheetsIDState = atom({
+  key: 'googleSpreadsheetsIDState',
+  default: '',
   effects_UNSTABLE: [persistAtom],
 });

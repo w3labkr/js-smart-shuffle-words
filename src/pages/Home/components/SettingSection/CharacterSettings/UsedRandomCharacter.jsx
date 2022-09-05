@@ -14,7 +14,7 @@ const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
+export default function UsedRandomCharacter({ choiceState, disabledValue }) {
   const { t } = useTranslation();
   const [characters, setCharacters] = useRecoilState(mainState[choiceState]);
   const disabled = useRecoilValue(mainValue[disabledValue]);
@@ -29,7 +29,7 @@ export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
 
   return (
     <>
-      <Typography>{t('Characters to use when creating random text:')}</Typography>
+      <Typography>{t('Characters used:')}</Typography>
       <FormGroup component="legend">
         <FormControlLabel
           label="ABC"

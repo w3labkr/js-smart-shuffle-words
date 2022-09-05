@@ -1,18 +1,29 @@
 import { useTranslation } from 'react-i18next';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
 import { styled } from '@mui/system';
 import MuiButton from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { generateRandomHangul, generateRandomString } from '~/modules/randomText';
 import * as mainState from '~/store/atoms/main';
 import * as mainValue from '~/store/selectors/main';
 
 const Button = styled(MuiButton)(({ theme }) => ({
+  marginTop: theme.spacing(2),
   marginBottom: theme.spacing(2),
 }));
 
-export default function GenerateRandomText({ textState, choiceState, lengthState, reorderState, disabledValue }) {
+export default function GenerateRandomText({
+  textState,
+  choiceState,
+  lengthState,
+  reorderState,
+  disabledValue,
+  hideOptionState,
+}) {
   const { t } = useTranslation();
   const setText = useSetRecoilState(mainState[textState]);
+  const [hideOption, setHideOption] = useRecoilState(mainState[hideOptionState]);
   const choices = useRecoilValue(mainState[choiceState]);
   const length = useRecoilValue(mainState[lengthState]);
   const reorder = useRecoilValue(mainState[reorderState]);
@@ -27,9 +38,14 @@ export default function GenerateRandomText({ textState, choiceState, lengthState
   };
 
   return (
-    <Button variant="contained" size="small" onClick={handleClick} disabled={disabled}>
-      {t('Generate Random Text')}
-    </Button>
+    <>
+      <Button variant="contained" size="small" onClick={handleClick} disabled={disabled}>
+        {t('Generate Random Text')}
+      </Button>
+      <IconButton size="small" aria-label="settings" disabled={disabled} onClick={() => setHideOption(!hideOption)}>
+        <SettingsIcon />
+      </IconButton>
+    </>
   );
 }
 

@@ -20,73 +20,78 @@ const Button = styled(MuiButton)(({ theme }) => ({
 
 export default function ResetSettings() {
   const { t } = useTranslation();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [dialog, setDialog] = useState({ open: false });
+  const [snackbar, setSnackbar] = useState({ open: false });
   const storageKey = useRecoilValue(mainState['storageKeyState']);
-  const resetStates = {
+  const states = {
     // Actions Settings
     shuffleTextState: useResetRecoilState(mainState['shuffleTextState']),
     previewTextState: useResetRecoilState(mainState['previewTextState']),
-    consoleTextState: useResetRecoilState(mainState['consoleTextState']),
+    blankListState: useResetRecoilState(mainState['blankListState']),
     marketSettingsState: useResetRecoilState(mainState['marketSettingsState']),
 
     // Global Settings
     settingsTabPanelState: useResetRecoilState(mainState['settingsTabPanelState']),
 
     // General Settings
-    indexColumnState: useResetRecoilState(mainState['indexColumnState']),
     lineTextLengthState: useResetRecoilState(mainState['lineTextLengthState']),
     specialCharactersState: useResetRecoilState(mainState['specialCharactersState']),
+    specialCharactersEnabledState: useResetRecoilState(mainState['specialCharactersEnabledState']),
     stopwordsState: useResetRecoilState(mainState['stopwordsState']),
+    stopwordsEnabledState: useResetRecoilState(mainState['stopwordsEnabledState']),
     googleSpreadsheetsDataTypeState: useResetRecoilState(mainState['googleSpreadsheetsDataTypeState']),
     googleSpreadsheetsPublishURLState: useResetRecoilState(mainState['googleSpreadsheetsPublishURLState']),
     googleSpreadsheetsIDState: useResetRecoilState(mainState['googleSpreadsheetsIDState']),
 
-    // Advanced Settings: Start
+    // Character Settings: Start
     startEnabledState: useResetRecoilState(mainState['startEnabledState']),
     startTextState: useResetRecoilState(mainState['startTextState']),
-    startChoiceRandomCharacterState: useResetRecoilState(mainState['startChoiceRandomCharacterState']),
+    startExcludeFirstLineState: useResetRecoilState(mainState['startExcludeFirstLineState']),
+    startHideRandomTextOptionState: useResetRecoilState(mainState['startHideRandomTextOptionState']),
+    startUsedRandomCharacterState: useResetRecoilState(mainState['startUsedRandomCharacterState']),
     startLimitRandomTextLengthState: useResetRecoilState(mainState['startLimitRandomTextLengthState']),
     startReorderRandomTextCharactersState: useResetRecoilState(mainState['startReorderRandomTextCharactersState']),
 
-    // Advanced Settings: End
+    // Character Settings: End
     endEnabledState: useResetRecoilState(mainState['endEnabledState']),
     endTextState: useResetRecoilState(mainState['endTextState']),
-    endChoiceRandomCharacterState: useResetRecoilState(mainState['endChoiceRandomCharacterState']),
+    endExcludeFirstLineState: useResetRecoilState(mainState['endExcludeFirstLineState']),
+    endHideRandomTextOptionState: useResetRecoilState(mainState['endHideRandomTextOptionState']),
+    endUsedRandomCharacterState: useResetRecoilState(mainState['endUsedRandomCharacterState']),
     endLimitRandomTextLengthState: useResetRecoilState(mainState['endLimitRandomTextLengthState']),
     endReorderRandomTextCharactersState: useResetRecoilState(mainState['endReorderRandomTextCharactersState']),
   };
 
   const handleAgree = _debounce(() => {
     localStorage.removeItem(storageKey);
-    Object.keys(resetStates).forEach(function (stateName) {
-      resetStates[stateName]();
+    Object.keys(states).forEach(function (stateName) {
+      states[stateName]();
     });
-    setDialogOpen(false);
-    setSnackbarOpen(true);
+    setDialog({ open: false });
+    setSnackbar({ open: true });
   }, 100);
 
   return (
     <>
-      <Button variant="outlined" size="large" color="error" onClick={() => setDialogOpen(true)}>
+      <Button variant="outlined" size="large" color="error" onClick={() => setDialog({ open: true })}>
         {t('Reset')}
       </Button>
       <Dialog
-        open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
+        open={dialog.open}
+        onClose={() => setDialog({ open: false })}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{t('Are you sure you want to reset all settings?')}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {t('All settings in General Settings and Advanced Settings will be reset.')}
+            {t('All settings will be reset.')}
             <br />
-            {t('Resetting cannot restore existing settings.')}
+            {t('Existing settings cannot be restored.')}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setDialogOpen(false)}>{t('Disagree')}</Button>
+          <Button onClick={() => setDialog({ open: false })}>{t('Disagree')}</Button>
           <Button onClick={handleAgree} autoFocus>
             {t('Agree')}
           </Button>
@@ -94,9 +99,9 @@ export default function ResetSettings() {
       </Dialog>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={snackbarOpen}
+        open={snackbar.open}
         autoHideDuration={1000}
-        onClose={() => setSnackbarOpen(false)}
+        onClose={() => setSnackbar({ open: false })}
       >
         <Alert severity="success">{t('Reseted!')}</Alert>
       </Snackbar>
