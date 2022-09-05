@@ -1,3 +1,10 @@
+## [1.8.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.7.1...v1.8.0) (2022-09-05)
+
+
+### Features
+
+* add button to remove only special characters ([a9deb4c](https://github.com/w3labkr/js-smart-shuffle-words/commit/a9deb4ce9d394c65824be5a8de9f64c878fef961))
+
 ### [1.7.1](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.7.0...v1.7.1) (2022-09-05)
 
 
