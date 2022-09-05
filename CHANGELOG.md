@@ -1,3 +1,10 @@
+### [1.7.1](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.7.0...v1.7.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* failed prop type error ([320a499](https://github.com/w3labkr/js-smart-shuffle-words/commit/320a499c7127d0d87aaaeab1c0036696d2c98fa9))
+
 ## [1.7.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.6.0...v1.7.0) (2022-09-05)
 
 
