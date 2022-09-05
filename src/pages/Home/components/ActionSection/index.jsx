@@ -3,6 +3,7 @@ import ShufflePanel from './ShufflePanel';
 import PreviewPanel from './PreviewPanel';
 import ShuffleAction from './ShuffleAction';
 import CopyAction from './CopyAction';
+import RemoveSpecialCharacterAction from './RemoveSpecialCharacterAction';
 import UniqueStopwordsAction from './UniqueStopwordsAction';
 import ImportStopwordsAction from './ImportStopwordsAction';
 import OnlineMarketplaceSettings from './OnlineMarketplaceSettings';
@@ -22,6 +23,7 @@ export default function ActionSection() {
       <Grid item xs={12}>
         <ShuffleAction />
         <CopyAction />
+        <RemoveSpecialCharacterAction />
         <UniqueStopwordsAction />
         <OnlineMarketplaceSettings />
         <SelfShoppingMall />
