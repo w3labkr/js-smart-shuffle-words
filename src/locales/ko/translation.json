@@ -56,5 +56,7 @@
     "Existing stopwords cannot be restored.": "기존 금칙어는 복원할 수 없습니다.",
     "Exclude the first line": "첫 번째 줄을 제외합니다",
     "There is {{length}} blank line.": "빈 줄이 {{length}}개 있습니다.",
-    "Blank line counting is done before characters are added.": "빈 줄 카운팅은 문자가 추가되기 전에 수행됩니다."
+    "Blank line counting is done before characters are added.": "빈 줄 카운팅은 문자가 추가되기 전에 수행됩니다.",
+    "Remove special character": "특수문자 제거",
+    "Special characters have been removed!": "특수문자가 제거 되었습니다!"
 }

@@ -56,5 +56,7 @@
     "Existing stopwords cannot be restored.": "Existing stopwords cannot be restored.",
     "Exclude the first line": "Exclude the first line",
     "There is {{length}} blank line.": "There is {{length}} blank line.",
-    "Blank line counting is done before characters are added.": "Blank line counting is done before characters are added."
+    "Blank line counting is done before characters are added.": "Blank line counting is done before characters are added.",
+    "Remove special character": "Remove special character",
+    "Special characters have been removed!": "Special characters removed!"
 }
