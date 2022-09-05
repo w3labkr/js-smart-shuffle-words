@@ -21,7 +21,7 @@ export const shuffleTextState = atom({
 
 export const previewTextState = atom({
   key: 'previewTextState',
-  default: false,
+  default: '',
   effects_UNSTABLE: [persistAtom],
 });
 
