@@ -1,3 +1,15 @@
+## [1.7.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.6.0...v1.7.0) (2022-09-05)
+
+
+### Features
+
+* add option to exclude first line ([93c153f](https://github.com/w3labkr/js-smart-shuffle-words/commit/93c153fc762c40faf9d932adf21fca24e7c4e564))
+
+
+### Bug Fixes
+
+* edit typo ([82b10c9](https://github.com/w3labkr/js-smart-shuffle-words/commit/82b10c9f1bfd58569002b0ed092488ccad70eb28))
+
 ## [1.6.0](https://github.com/w3labkr/js-smart-shuffle-words/compare/v1.5.0...v1.6.0) (2022-09-02)
 
 
