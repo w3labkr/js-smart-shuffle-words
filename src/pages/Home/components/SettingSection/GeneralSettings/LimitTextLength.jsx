@@ -14,7 +14,7 @@ export default function LimitTextLength() {
   return (
     <FormControl>
       <Typography>{t('Select the text length per line:')}</Typography>
-      <RadioGroup row name="lineTextLength" value={value} onChange={(e) => setValue(e.target.value)}>
+      <RadioGroup row name="lineTextLength" value={value} onChange={(e) => setValue(e.target.value * 1)}>
         <FormControlLabel value="20" control={<Radio />} label="20" />
         <FormControlLabel value="25" control={<Radio />} label={`25 (${t('Naver Ads')})`} />
         <FormControlLabel value="50" control={<Radio />} label="50" />

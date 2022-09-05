@@ -18,10 +18,13 @@ export default function ShuffleAction() {
   const { t } = useTranslation();
   const [snackbar, setSnackbar] = useState({ open: false });
   const setPreviewText = useSetRecoilState(mainState['previewTextState']);
+  const setBlankList = useSetRecoilState(mainState['blankListState']);
   const states = {
     shuffleText: useRecoilValue(mainState['shuffleTextState']),
     specialCharacters: useRecoilValue(mainState['specialCharactersState']),
+    specialCharactersEnabled: useRecoilValue(mainState['specialCharactersEnabledState']),
     stopwords: useRecoilValue(mainState['stopwordsState']),
+    stopwordsEnabled: useRecoilValue(mainState['stopwordsEnabledState']),
     startEnabled: useRecoilValue(mainState['startEnabledState']),
     startText: useRecoilValue(mainState['startTextState']),
     startExcludeFirstLine: useRecoilValue(mainState['startExcludeFirstLineState']),
@@ -36,10 +39,14 @@ export default function ShuffleAction() {
     let newLines = oldLines.split('\n');
 
     // console.log("특수 문자를 제거하는 중 입니다...");
-    newLines = removeSpecialCharacters(newLines, states.specialCharacters);
+    newLines = removeSpecialCharacters(newLines, states);
 
     // console.log("금칙어를 제거하는 중 입니다...");
-    newLines = removeStopwords(newLines, states.stopwords);
+    newLines = removeStopwords(newLines, states);
+
+    // console.log("빈 줄을 검사하는 중 입니다...");
+    const blankList = getBlankList(newLines);
+    setBlankList(blankList);
 
     // console.log("단어를 섞는 중 입니다...");
     newLines = shuffleWords(newLines);
@@ -72,7 +79,13 @@ export default function ShuffleAction() {
   );
 }
 
-function removeSpecialCharacters(lines, specialCharacters) {
+function removeSpecialCharacters(lines, states) {
+  const { specialCharacters, specialCharactersEnabled } = states;
+
+  if (!specialCharactersEnabled) {
+    return lines;
+  }
+
   const escapeSpecialCharacters = specialCharacters.replace(/./g, '\\$&');
   const re = new RegExp(`[${escapeSpecialCharacters}]`, 'g');
 
@@ -83,7 +96,13 @@ function removeSpecialCharacters(lines, specialCharacters) {
   return lines;
 }
 
-function removeStopwords(lines, stopwords) {
+function removeStopwords(lines, states) {
+  const { stopwords, stopwordsEnabled } = states;
+
+  if (!stopwordsEnabled) {
+    return lines;
+  }
+
   let stopwordList = stopwords.split(' ');
 
   for (let idx = 0, len = lines.length; idx < len; idx++) {
@@ -97,6 +116,18 @@ function removeStopwords(lines, stopwords) {
   }
 
   return lines;
+}
+
+function getBlankList(lines) {
+  let blankList = [];
+
+  for (let i = 0, l = lines.length; i < l; i++) {
+    if (!lines[i].trim().length) {
+      blankList.push(i);
+    }
+  }
+
+  return blankList;
 }
 
 function shuffleWords(lines) {
@@ -155,13 +186,13 @@ function addEndLineText(index, line, states) {
   return line;
 }
 
-function deleteLineText(lines, length) {
-  if (length === -1) {
+function deleteLineText(lines, lineTextLength) {
+  if (lineTextLength === -1) {
     return lines;
   }
 
   for (let i = 0, l = lines.length; i < l; i++) {
-    lines[i] = lines[i].slice(0, length);
+    lines[i] = lines[i].slice(0, lineTextLength);
   }
 
   return lines;

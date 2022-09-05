@@ -13,7 +13,7 @@ const TextField = styled(MuiTextField)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export default function EnabledAdvancedText({ children, textState, enabledState, excludeFirstLineState }) {
+export default function EnabledText({ children, textState, enabledState, excludeFirstLineState }) {
   const { t } = useTranslation();
   const [enabled, setEnabled] = useRecoilState(mainState[enabledState]);
   const [text, setText] = useRecoilState(mainState[textState]);
@@ -35,7 +35,13 @@ export default function EnabledAdvancedText({ children, textState, enabledState,
       />
       <FormGroup sx={{ mt: -2 }}>
         <FormControlLabel
-          control={<Checkbox checked={excludeFirstLine} onChange={(e, newValue) => setExcludeFirstLine(newValue)} />}
+          control={
+            <Checkbox
+              checked={excludeFirstLine}
+              onChange={(e, newValue) => setExcludeFirstLine(newValue)}
+              disabled={!enabled}
+            />
+          }
           label={t('Exclude the first line')}
         />
       </FormGroup>

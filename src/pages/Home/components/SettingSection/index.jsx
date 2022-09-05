@@ -5,8 +5,10 @@ import { styled } from '@mui/system';
 import Tabs from '@mui/material/Tabs';
 import MuiTab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import GeneralSettingsDetails from './GeneralSettingsDetails';
-import AdvancedSettingsDetails from './AdvancedSettingsDetails';
+import GeneralSettings from './GeneralSettings';
+import StopwordSettings from './StopwordSettings';
+import CharacterSettings from './CharacterSettings';
+import ImportSettings from './ImportSettings';
 import { settingsTabPanelState } from '~/store/atoms/main';
 
 const Tab = styled(MuiTab)(() => ({
@@ -55,14 +57,22 @@ export default function BasicTabs() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label={t('General Settings')} {...a11yProps(0)} />
-          <Tab label={t('Advanced Settings')} {...a11yProps(1)} />
+          <Tab label={t('Character Settings')} {...a11yProps(1)} />
+          <Tab label={t('Stopword Settings')} {...a11yProps(2)} />
+          <Tab label={t('Import Settings')} {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <GeneralSettingsDetails />
+        <GeneralSettings />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <AdvancedSettingsDetails />
+        <CharacterSettings />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <StopwordSettings />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <ImportSettings />
       </TabPanel>
     </Box>
   );

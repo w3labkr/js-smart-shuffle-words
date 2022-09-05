@@ -27,7 +27,7 @@ export default function ResetSettings() {
     // Actions Settings
     shuffleTextState: useResetRecoilState(mainState['shuffleTextState']),
     previewTextState: useResetRecoilState(mainState['previewTextState']),
-    consoleTextState: useResetRecoilState(mainState['consoleTextState']),
+    blankListState: useResetRecoilState(mainState['blankListState']),
     marketSettingsState: useResetRecoilState(mainState['marketSettingsState']),
 
     // Global Settings
@@ -36,24 +36,28 @@ export default function ResetSettings() {
     // General Settings
     lineTextLengthState: useResetRecoilState(mainState['lineTextLengthState']),
     specialCharactersState: useResetRecoilState(mainState['specialCharactersState']),
+    specialCharactersEnabledState: useResetRecoilState(mainState['specialCharactersEnabledState']),
     stopwordsState: useResetRecoilState(mainState['stopwordsState']),
+    stopwordsEnabledState: useResetRecoilState(mainState['stopwordsEnabledState']),
     googleSpreadsheetsDataTypeState: useResetRecoilState(mainState['googleSpreadsheetsDataTypeState']),
     googleSpreadsheetsPublishURLState: useResetRecoilState(mainState['googleSpreadsheetsPublishURLState']),
     googleSpreadsheetsIDState: useResetRecoilState(mainState['googleSpreadsheetsIDState']),
 
-    // Advanced Settings: Start
+    // Character Settings: Start
     startEnabledState: useResetRecoilState(mainState['startEnabledState']),
     startTextState: useResetRecoilState(mainState['startTextState']),
     startExcludeFirstLineState: useResetRecoilState(mainState['startExcludeFirstLineState']),
-    startChoiceRandomCharacterState: useResetRecoilState(mainState['startChoiceRandomCharacterState']),
+    startHideRandomTextOptionState: useResetRecoilState(mainState['startHideRandomTextOptionState']),
+    startUsedRandomCharacterState: useResetRecoilState(mainState['startUsedRandomCharacterState']),
     startLimitRandomTextLengthState: useResetRecoilState(mainState['startLimitRandomTextLengthState']),
     startReorderRandomTextCharactersState: useResetRecoilState(mainState['startReorderRandomTextCharactersState']),
 
-    // Advanced Settings: End
+    // Character Settings: End
     endEnabledState: useResetRecoilState(mainState['endEnabledState']),
     endTextState: useResetRecoilState(mainState['endTextState']),
     endExcludeFirstLineState: useResetRecoilState(mainState['endExcludeFirstLineState']),
-    endChoiceRandomCharacterState: useResetRecoilState(mainState['endChoiceRandomCharacterState']),
+    endHideRandomTextOptionState: useResetRecoilState(mainState['endHideRandomTextOptionState']),
+    endUsedRandomCharacterState: useResetRecoilState(mainState['endUsedRandomCharacterState']),
     endLimitRandomTextLengthState: useResetRecoilState(mainState['endLimitRandomTextLengthState']),
     endReorderRandomTextCharactersState: useResetRecoilState(mainState['endReorderRandomTextCharactersState']),
   };
@@ -81,9 +85,9 @@ export default function ResetSettings() {
         <DialogTitle id="alert-dialog-title">{t('Are you sure you want to reset all settings?')}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {t('All settings in General Settings and Advanced Settings will be reset.')}
+            {t('All settings will be reset.')}
             <br />
-            {t('Resetting cannot restore existing settings.')}
+            {t('Existing settings cannot be restored.')}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

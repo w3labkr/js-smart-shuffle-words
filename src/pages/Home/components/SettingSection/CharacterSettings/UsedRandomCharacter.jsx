@@ -14,7 +14,7 @@ const FormGroup = styled(MuiFormGroup)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-export default function ChoiceRandomCharacter({ choiceState, disabledValue }) {
+export default function UsedRandomCharacter({ choiceState, disabledValue }) {
   const { t } = useTranslation();
   const [characters, setCharacters] = useRecoilState(mainState[choiceState]);
   const disabled = useRecoilValue(mainValue[disabledValue]);
